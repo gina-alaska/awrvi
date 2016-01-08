@@ -25,6 +25,8 @@ group :development do
   gem 'web-console', '~> 3.0'
   gem 'spring'
   gem 'brakeman', require: false
+  gem 'rgeo'
+  gem 'rgeo-geojson'
 end
 
 source 'https://rails-assets.org' do
