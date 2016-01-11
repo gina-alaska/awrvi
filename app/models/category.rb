@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-  has_closure_tree order: 'order'
+  has_closure_tree order: 'sort_order'
 end
