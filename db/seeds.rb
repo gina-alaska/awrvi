@@ -12,7 +12,7 @@ def create_category(seed_data)
 end
 
 def create_sub_categories(seed_data)
-  seed_data['categories'].each_with_index.map do |sub_c, order|
+  seed_data['categories'].each_with_index.map do |sub_c, sort_order|
     sub_c['sort_order'] ||= sort_order
     create_category(sub_c)
   end
