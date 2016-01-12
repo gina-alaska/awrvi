@@ -1,7 +1,7 @@
-= form_for @community do |f|
-  = f.text_field :name
-  = f.text_field :gnis_id
-  = f.text_field :location, placeholder: 'Add location WKT'
+= bootstrap_form_for @community do |f|
+  = f.text_field :name, label: 'Name', required: true
+  = f.text_field :gnis_id, label: 'GNIS ID'
+  = f.text_field :location, label: 'Location', placeholder: 'Example: POINT(56.9455556, -154.1702778)'
 
   .form-action
     = link_to :back, class: 'btn btn-default' do
