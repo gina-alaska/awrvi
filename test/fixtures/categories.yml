@@ -4,8 +4,10 @@ one:
   parent_id: 1
   sort_order: 1
   name: MyString
+  short_name: ShortString
 
 two:
   parent_id: 1
   sort_order: 1
   name: MyString
+  short_name: ShortString
