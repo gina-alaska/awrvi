@@ -1,0 +1,12 @@
+= form_for @community do |f|
+  = f.text_field :name
+  = f.text_field :gnis_id
+  = f.text_field :location, placeholder: 'Add location WKT'
+
+  .form-action
+    = link_to :back, class: 'btn btn-default' do
+      %i.fa.fa-arrow-left
+      Cancel
+
+    .pull-right
+      = f.submit @community.new_record? ? "Create Community" : "Update Community"
