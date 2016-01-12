@@ -2,7 +2,7 @@ class CommunitiesController < ApplicationController
   before_action :set_community, only: [:show, :edit, :update, :destroy]
 
   def index
-    @community = Community.all
+    @communities = Community.all
 
     respond_to do |format|
       format.html
