@@ -1,7 +1,8 @@
 .container
   .panel.panel-default
     .panel-heading{ style: 'position: relative' }
-      Edit #{@community.name}
+      %h3.panel-title
+        New Community
 
     .panel-body
       = render 'form', community: @community
