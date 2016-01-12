@@ -12,13 +12,14 @@ def create_category(seed_data)
 end
 
 def create_sub_categories(seed_data)
-  seed_data['categories'].map do |sub_c|
+  seed_data['categories'].each_with_index.map do |sub_c, order|
+    sub_c['sort_order'] ||= sort_order
     create_category(sub_c)
   end
 end
 
 def category_params(category)
-  category.select{|k,v| %w{short_name order}.include?(k)}
+  category.select{|k,v| %w{short_name sort_order}.include?(k)}
 end
 
 Dir.glob(File.join(File.dirname(__FILE__), "seeds", "categories", "*.yaml")).each do |seed|
