@@ -16,6 +16,7 @@ gem 'foreman'
 gem 'haml'
 gem 'dotenv-rails'
 gem 'friendly_id'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug'
