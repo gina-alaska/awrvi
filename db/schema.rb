@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111211308) do
+ActiveRecord::Schema.define(version: 20160113221556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
     t.integer  "parent_id"
-    t.integer  "position", default: 0
+    t.integer  "position",   default: 0
     t.string   "name"
     t.string   "short_name"
     t.datetime "created_at",             null: false
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 20160111211308) do
     t.index ["descendant_id"], name: "category_desc_idx", using: :btree
   end
 
+  create_table "choices", force: :cascade do |t|
+    t.integer  "category_id"
+    t.decimal  "index",       precision: 6, scale: 5
+    t.text     "description"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["category_id"], name: "index_choices_on_category_id", using: :btree
+  end
+
   create_table "communities", force: :cascade do |t|
     t.string   "name"
     t.string   "gnis_id"
@@ -40,6 +49,8 @@ ActiveRecord::Schema.define(version: 20160111211308) do
     t.text     "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "slug"
   end
 
+  add_foreign_key "choices", "categories"
 end
