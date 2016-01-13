@@ -19,7 +19,7 @@ categories:
       - index: 0.75
         description: "500-750"
       - index: 1.0
-        description: ">= 750"
+        description: "≥ 750"
     - name: Variance in average annual precip.
       choices:
       - index: 0
@@ -35,7 +35,7 @@ categories:
     - name: Surface water storage (%)
       choices:
       - index: 0
-        description: "<= 0.1"
+        description: "≤ 0.1"
       - index: 0.25
         description: "0.2-1"
       - index: 0.5
