@@ -47,6 +47,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.0.0)
+    bootstrap_form (2.3.0)
     brakeman (3.1.4)
       erubis (~> 2.6)
       fastercsv (~> 1.5)
@@ -223,6 +224,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap_form (~> 2.3.0)
   brakeman
   byebug
   coffee-rails (~> 4.1.0)

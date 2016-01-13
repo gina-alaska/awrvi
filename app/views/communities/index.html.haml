@@ -1,0 +1,12 @@
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Actions
+  %tbody
+    - @communities.each do |community|
+      %tr
+        %td
+          = community.name
+        %td
+          = link_to 'Show', community_path(community), class: 'btn btn-default'
