@@ -1,0 +1,9 @@
+= simple_form_for(@community) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :name
+    = f.input :gnis_id
+    = f.input :census_id
+    = f.input :location
+  .form-actions
+    = f.button :submit
