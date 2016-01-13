@@ -16,6 +16,8 @@ gem 'foreman'
 gem 'haml'
 gem 'dotenv-rails'
 gem 'friendly_id'
+gem 'closure_tree'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug'
@@ -27,6 +29,7 @@ group :development do
   gem 'brakeman', require: false
   gem 'rgeo'
   gem 'rgeo-geojson'
+  gem 'pry-rails'
 end
 
 source 'https://rails-assets.org' do

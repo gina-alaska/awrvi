@@ -1,0 +1,62 @@
+---
+name: AWRVI 2015
+short_name: AWRVI 2015
+categories:
+- name: PHYSICAL SUBINDEX
+  short_name: Physical
+  categories:
+  - name: Physical - natural supply
+    short_name: Natural supply
+    categories:
+    - name: Average annual precip. (mm)
+    - name: Variance in average annual precip.
+    - name: Surface water storage (%)
+    - name: Change in surface water
+    - name: Average annual river runoff (cumecs/km^2)
+    - name: Variance in average annual river runoff
+    - name: Seasonal variation in discharge
+  - name: Physical - municipal supply
+    short_name: Municipal supply
+    categories:
+    - name: Yield (L)
+    - name: Water source diversity
+    - name: Treatment technology
+    - name: Hydraulic gradient
+    - name: Infrastructure in PF (%)
+  - name: Physical - water quality
+    short_name: Water quality
+    categories:
+    - name: "# upstream development sites"
+    - name: "% streams water qual. data"
+  - name: Physical - permafrost
+    short_name: Permafrost
+    categories:
+    - name: PF distribution
+  - name: Physical - subsistence habitat
+    short_name: Subsistence habitat
+    categories:
+    - name: Aquatic habitat (%)
+    - name: Terrestrial habitat (%)
+- name: SOCIAL SUBINDEX
+  short_name: Social
+  categories:
+  - name: Social - knowledge capacity
+    short_name: Knowledge capacity
+    categories:
+    - name: Traditional (per 1000)
+    - name: Western (per 1000)
+    - name: Residency (per 1000)
+  - name: Social - economic capacity
+    short_name: Economic capacity
+    categories:
+    - name: Per capita income ($)
+  - name: Social - institutional capacity
+    short_name: Institutional capacity
+    categories:
+    - name: "% area in protected status"
+  - name: Social - cultural capacity
+    short_name: Cultural capacity
+    categories:
+    - name: Subsistence
+    - name: Network diversity
+    - name: Perception
