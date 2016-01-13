@@ -17,6 +17,7 @@ gem 'haml'
 gem 'dotenv-rails'
 gem 'friendly_id'
 gem 'closure_tree'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug'
