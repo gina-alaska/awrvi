@@ -13,8 +13,8 @@ def create_category(seed_data)
 end
 
 def create_sub_categories(seed_data)
-  results = seed_data['categories'].each_with_index.map do |sub_c, sort_order|
-    sub_c['sort_order'] ||= sort_order
+  results = seed_data['categories'].each_with_index.map do |sub_c, position|
+    sub_c['position'] ||= position
     create_category(sub_c)
   end
   results
@@ -27,7 +27,7 @@ def create_choices(seed_data, category)
 end
 
 def category_params(category)
-  category.select{|k,v| %w{short_name sort_order}.include?(k)}
+  category.select{|k,v| %w{short_name position}.include?(k)}
 end
 
 Dir.glob(File.join(File.dirname(__FILE__), "seeds", "categories", "*.yaml")).each do |seed|

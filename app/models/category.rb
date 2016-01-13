@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-  has_closure_tree order: 'sort_order'
+  has_closure_tree order: 'position'
 
-  has_many :choices, -> { order(index: :desc) }, dependent: :destroy 
+  has_many :choices, -> { order(index: :desc) }, dependent: :destroy
 end
