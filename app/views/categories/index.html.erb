@@ -16,7 +16,7 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.parent_id %></td>
-        <td><%= category.sort_order %></td>
+        <td><%= category.position %></td>
         <td><%= category.name %></td>
         <td><%= link_to 'Show', category %></td>
         <td><%= link_to 'Edit', edit_category_path(category) %></td>

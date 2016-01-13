@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20160111211308) do
 
   create_table "categories", force: :cascade do |t|
     t.integer  "parent_id"
-    t.integer  "sort_order", default: 0
+    t.integer  "position", default: 0
     t.string   "name"
     t.string   "short_name"
     t.datetime "created_at",             null: false
