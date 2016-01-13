@@ -6,5 +6,5 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  get '/welcome', controller: :welcome, action: :index
+  get '/welcome' => 'welcome#index'
 end
