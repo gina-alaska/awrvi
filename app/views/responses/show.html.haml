@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Awrvi index:
+  = @response.awrvi_index
+%p
+  %strong Awrvi text:
+  = @response.awrvi_text
+%p
+  %strong Raw value:
+  = @response.raw_value
+= link_to 'Edit', edit_response_path(@response)
+|
+= link_to 'Back', responses_path

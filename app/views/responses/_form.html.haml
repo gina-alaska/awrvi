@@ -1,0 +1,8 @@
+= simple_form_for(@response) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :awrvi_index
+    = f.input :awrvi_text
+    = f.input :raw_value
+  .form-actions
+    = f.button :submit
