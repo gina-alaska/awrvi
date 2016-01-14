@@ -27,6 +27,8 @@ group :development do
   gem 'web-console', '~> 3.0'
   gem 'spring'
   gem 'brakeman', require: false
+  gem 'rgeo'
+  gem 'rgeo-geojson'
   gem 'pry-rails'
 end
 
