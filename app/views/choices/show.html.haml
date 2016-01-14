@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Category:
+  = @choice.category
+%p
+  %strong Index:
+  = @choice.index
+%p
+  %strong Description:
+  = @choice.description
+= link_to 'Edit', edit_choice_path(@choice)
+|
+= link_to 'Back', choices_path
