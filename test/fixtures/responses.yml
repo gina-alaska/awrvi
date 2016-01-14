@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  awrvi_index: 9.99
+  awrvi_text: MyString
+  raw_value: MyString
+
+two:
+  awrvi_index: 9.99
+  awrvi_text: MyString
+  raw_value: MyString

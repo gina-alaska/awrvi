@@ -1,0 +1,20 @@
+%p#notice= notice
+%h1 Responses
+%table
+  %thead
+    %tr
+      %th Awrvi index
+      %th Awrvi text
+      %th Raw value
+      %th{:colspan => "3"}
+  %tbody
+    - @responses.each do |response|
+      %tr
+        %td= response.awrvi_index
+        %td= response.awrvi_text
+        %td= response.raw_value
+        %td= link_to 'Show', response
+        %td= link_to 'Edit', edit_response_path(response)
+        %td= link_to 'Destroy', response, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Response', new_response_path
