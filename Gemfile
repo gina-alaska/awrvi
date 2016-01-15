@@ -18,6 +18,7 @@ gem 'dotenv-rails'
 gem 'friendly_id'
 gem 'closure_tree'
 gem 'simple_form'
+gem 'devise'
 
 group :development, :test do
   gem 'byebug'
