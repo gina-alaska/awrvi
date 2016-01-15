@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112232411) do
+ActiveRecord::Schema.define(version: 20160114192829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,24 @@ ActiveRecord::Schema.define(version: 20160112232411) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
+  end
+
+  create_table "indices", force: :cascade do |t|
+    t.datetime "finalized_at"
+    t.string   "awrvi_version"
+    t.decimal  "awrvi_index",     precision: 6, scale: 5
+    t.datetime "rejected_at"
+    t.text     "rejected_reason"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.decimal  "awrvi_index", precision: 6, scale: 5
+    t.string   "awrvi_text"
+    t.string   "raw_value"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_foreign_key "choices", "categories"
