@@ -69,6 +69,6 @@ class IndicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def index_params
-      params.require(:index).permit(:finalized_at, :awrvi_version, :awrvi_index, :rejected_at, :rejected_reason)
+      params.require(:index).permit(:finalized_at, :category_id, :awrvi_index, :rejected_at, :rejected_reason)
     end
 end

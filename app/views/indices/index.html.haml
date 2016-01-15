@@ -4,7 +4,6 @@
   %thead
     %tr
       %th Finalized at
-      %th Awrvi version
       %th Awrvi index
       %th Rejected at
       %th Rejected reason
@@ -13,7 +12,6 @@
     - @indices.each do |index|
       %tr
         %td= index.finalized_at
-        %td= index.awrvi_version
         %td= index.awrvi_index
         %td= index.rejected_at
         %td= index.rejected_reason
