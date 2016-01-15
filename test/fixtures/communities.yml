@@ -12,4 +12,4 @@ two:
   gnis_id: MyString
   census_id: MyString
   location: MyText
-  slug: MyString
+  slug: MyString2
