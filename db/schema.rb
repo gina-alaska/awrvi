@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112232411) do
+ActiveRecord::Schema.define(version: 20160115012332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
     t.integer  "parent_id"
-    t.integer  "position", default: 0
+    t.integer  "position",   default: 0
     t.string   "name"
     t.string   "short_name"
     t.datetime "created_at",             null: false
@@ -47,6 +47,13 @@ ActiveRecord::Schema.define(version: 20160112232411) do
     t.string   "gnis_id"
     t.string   "census_id"
     t.text     "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "index_choices", force: :cascade do |t|
+    t.integer  "index_id"
+    t.integer  "choice_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
