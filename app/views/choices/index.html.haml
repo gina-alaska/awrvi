@@ -1,0 +1,20 @@
+%p#notice= notice
+%h1 Choices
+%table
+  %thead
+    %tr
+      %th Category
+      %th Index
+      %th Description
+      %th{:colspan => "3"}
+  %tbody
+    - @choices.each do |choice|
+      %tr
+        %td= choice.category
+        %td= choice.index
+        %td= choice.description
+        %td= link_to 'Show', choice
+        %td= link_to 'Edit', edit_choice_path(choice)
+        %td= link_to 'Destroy', choice, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Choice', new_choice_path
