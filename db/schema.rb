@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114192829) do
+ActiveRecord::Schema.define(version: 20160115012332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,24 +50,14 @@ ActiveRecord::Schema.define(version: 20160114192829) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
+    t.index ["slug"], name: "index_communities_on_slug", unique: true, using: :btree
   end
 
-  create_table "indices", force: :cascade do |t|
-    t.datetime "finalized_at"
-    t.string   "awrvi_version"
-    t.decimal  "awrvi_index",     precision: 6, scale: 5
-    t.datetime "rejected_at"
-    t.text     "rejected_reason"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-  end
-
-  create_table "responses", force: :cascade do |t|
-    t.decimal  "awrvi_index", precision: 6, scale: 5
-    t.string   "awrvi_text"
-    t.string   "raw_value"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+  create_table "index_choices", force: :cascade do |t|
+    t.integer  "index_id"
+    t.integer  "choice_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "choices", "categories"
