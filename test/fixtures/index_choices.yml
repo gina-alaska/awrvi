@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  index_id: 1
-  choice_id: 1
+  index_id: :one
+  choice_id: :one
 
 two:
-  index_id: 1
-  choice_id: 1
+  index_id: :two
+  choice_id: :two
