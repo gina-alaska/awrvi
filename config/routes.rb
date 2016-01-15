@@ -6,4 +6,8 @@ Rails.application.routes.draw do
 
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
+
+  root 'welcome#index'
+
+  get '/welcome' => 'welcome#index'
 end
