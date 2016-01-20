@@ -1,8 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @communities = Community.all
-  end
-
-  def search
+    @q = Community.ransack(params[:q])
   end
 end
