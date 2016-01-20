@@ -18,7 +18,9 @@ gem 'dotenv-rails'
 gem 'friendly_id'
 gem 'closure_tree'
 gem 'simple_form'
-gem 'devise'
+gem 'devise', github: 'plataformatec/devise'
+gem 'omniauth'
+gem 'omniauth-oauth2'
 
 group :development, :test do
   gem 'byebug'
