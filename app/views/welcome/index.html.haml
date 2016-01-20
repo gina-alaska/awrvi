@@ -1,11 +1,13 @@
 = render 'header'
 .panel.panel-default
-  .panel-header
-    
   .panel-body
-    - if @communities.blank?
-      %h3 No communities to list
-    - else
-      - @communities.each do |community|
-        = link_to community_path(community) do
-          %b= community.name
+    = search_form_for @q do |f|
+      .form-group
+        .input-group
+          = f.search_field :name_cont, class: 'form-control', placeholder: 'Search by community name'
+
+          .input-group-btn
+            = link_to communities_path, class: 'btn btn-default', data: { behavior: 'clear-field', target: '#q_name_cont', autosubmit: 'true' }  do
+              %i.fa.fa-times
+            = button_tag type: 'submit', class: 'btn btn-primary' do
+              %i.fa.fa-search
