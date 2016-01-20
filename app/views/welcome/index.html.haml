@@ -1,1 +1,11 @@
-%h2 Welcome to AWRVI
+= render 'header'
+.panel.panel-default
+  .panel-header
+    
+  .panel-body
+    - if @communities.blank?
+      %h3 No communities to list
+    - else
+      - @communities.each do |community|
+        = link_to community_path(community) do
+          %b= community.name
