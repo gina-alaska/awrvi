@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
 
-  # TODO: Set this to something real.  Devise requires it to be set, so I'm using
-  # communities#index until the welcome page PR is merged.
-  root to: 'communities#index'
+  root 'welcome#index'
+
+  get '/welcome' => 'welcome#index'
 end
