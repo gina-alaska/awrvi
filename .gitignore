@@ -24,4 +24,4 @@
 .otto
 
 # Ignore geojson files
-.geojson
+*.geojson
