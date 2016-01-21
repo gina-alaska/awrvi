@@ -20,7 +20,7 @@ gem 'closure_tree'
 gem 'simple_form'
 gem 'devise', github: 'plataformatec/devise'
 gem 'omniauth'
-gem 'omniauth-oauth2'
+gem 'omniauth-openid'
 
 group :development, :test do
   gem 'byebug'
