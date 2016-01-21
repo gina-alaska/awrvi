@@ -1,4 +1,8 @@
-%nav.navbar.navbar-default.navbar-gina.navbar-static-top
+%nav.navbar.navbar-default.navbar-gina
   .container-fluid
-    .navbar-header
-      %span.gina manager menu here
+    %ul.nav.navbar-nav
+      %li
+        = link_to 'Welcome', welcome_path
+      %li
+        = link_to 'Communities', communities_path
+
