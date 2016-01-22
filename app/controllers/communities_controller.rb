@@ -10,7 +10,7 @@ class CommunitiesController < ApplicationController
       @communities = Community.all
     end
 
-    redirect_to community_path(@communities.first) if @communities.count == 1
+    # redirect_to community_path(@communities.first) if @communities.count == 1
   end
 
   # GET /communities/1
