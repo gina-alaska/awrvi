@@ -24,6 +24,7 @@ gem 'omniauth-openid'
 
 group :development, :test do
   gem 'byebug'
+  gem 'rubocop'
 end
 
 group :development do
