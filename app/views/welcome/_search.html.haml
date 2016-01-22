@@ -1,10 +1,7 @@
-= search_form_for @q do |f|
+= form_tag :communities, method: :get do
   .form-group
     .input-group
-      = f.search_field :name_cont, class: 'form-control', placeholder: 'Search by community name'
-
+      = text_field_tag :q, params[:q], class: 'form-control', placeholder: 'Search by community name'
       .input-group-btn
-        = link_to communities_path, class: 'btn btn-default', data: { behavior: 'clear-field', target: '#q_name_cont', autosubmit: 'true' }  do
-          %i.fa.fa-times
         = button_tag type: 'submit', class: 'btn btn-primary' do
           %i.fa.fa-search

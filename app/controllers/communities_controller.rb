@@ -4,8 +4,13 @@ class CommunitiesController < ApplicationController
   # GET /communities
   # GET /communities.json
   def index
-    @q = Community.ransack(params[:q])
-    @communities = @q.result(distinct: true)
+    if params[:q].present?
+      @communities = Community.where('name ilike ?', "%#{params[:q]}%")
+    else
+      @communities = Community.all
+    end
+
+    redirect_to community_path(@communities.first) if @communities.count == 1
   end
 
   # GET /communities/1
