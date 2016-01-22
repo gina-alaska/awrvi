@@ -7,7 +7,7 @@ one:
   location: MyText
 
 two:
-  name: MyString
+  name: Test
   gnis_id: MyString
   census_id: MyString
   location: MyText
