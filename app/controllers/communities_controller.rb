@@ -5,7 +5,7 @@ class CommunitiesController < ApplicationController
   # GET /communities.json
   def index
     @q = Community.ransack(params[:q])
-    @communities = @q.result
+    @communities = @q.result(distinct: true)
   end
 
   # GET /communities/1
