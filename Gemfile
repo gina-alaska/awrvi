@@ -18,9 +18,13 @@ gem 'dotenv-rails'
 gem 'friendly_id'
 gem 'closure_tree'
 gem 'simple_form'
+gem 'devise', github: 'plataformatec/devise'
+gem 'omniauth'
+gem 'omniauth-openid'
 
 group :development, :test do
   gem 'byebug'
+  gem 'rubocop'
 end
 
 group :development do

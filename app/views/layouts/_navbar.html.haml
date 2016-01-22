@@ -1,4 +1,21 @@
 %nav.navbar.navbar-default.navbar-gina.navbar-static-top
   .container-fluid
     .navbar-header
-      %span.gina Alaska Water Resources Vulnerablility Index
+      %button.navbar-toggle.collapsed{type: 'button', data: {toggle: 'collapse', target: '#navbar'}}
+        %span.sr-only Toggle Navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to 'Alaska Water Resources Vulnerability Index', '#', class: 'navbar-brand'
+    #navbar.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          %li
+            = link_to 'Sign Out', destroy_user_session_path, method: :delete
+        - else
+          %li.dropdown
+            = link_to '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } do
+              Signin
+              %span.caret
+            %ul.dropdown-menu
+              %li= link_to 'GINA::ID', user_omniauth_authorize_path(:open_id, openid_url: 'https://id.gina.alaska.edu')
