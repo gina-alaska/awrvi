@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 20160115012332) do
     t.text     "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "slug"
+    t.index ["slug"], name: "index_communities_on_slug", unique: true, using: :btree
   end
 
   create_table "index_choices", force: :cascade do |t|
