@@ -10,6 +10,7 @@ script:
 - bundle exec rake db:fixtures:load
 - bundle exec rake test
 - bundle exec rake test:schema
+- bundle exec rubocop
 sudo: false
 env:
 - DATABASE_URL=postgresql://localhost/travis_ci_test RAILS_ENV=test
