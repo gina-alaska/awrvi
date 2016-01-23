@@ -1,7 +1,7 @@
 = form_tag :communities, method: :get do
   .form-group
     .input-group
-      = text_field_tag :q, params[:q], class: 'form-control', placeholder: 'Search by community name'
+      = text_field_tag :q, search_params, class: 'form-control', placeholder: 'Search by community name'
       .input-group-btn
         = button_tag type: 'submit', class: 'btn btn-primary' do
           %i.fa.fa-search
