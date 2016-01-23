@@ -8,6 +8,5 @@ class ApplicationController < ActionController::Base
 
   def search_params
     params.permit(:q)
-    params[:q]
   end
 end
