@@ -3,5 +3,5 @@ class Community < ApplicationRecord
   friendly_id :name, use: :slugged
 
   validates :name, presence: true
-  validates_uniqueness_of :slug
+  validates :slug, uniqueness: true
 end
