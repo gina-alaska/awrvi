@@ -15,6 +15,9 @@ AllCops:
 Metrics/LineLength:
   Max: 180
 
+Style/AlignHash:
+  Enabled: false
+
 # Offense count: 2
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: nested, compact
