@@ -21,6 +21,7 @@ gem 'simple_form'
 
 group :development, :test do
   gem 'byebug'
+  gem 'rubocop'
 end
 
 group :development do
