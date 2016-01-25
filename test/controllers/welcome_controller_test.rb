@@ -5,5 +5,4 @@ class WelcomeControllerTest < ActionDispatch::IntegrationTest
     get welcome_url
     assert_response :success
   end
-
 end
