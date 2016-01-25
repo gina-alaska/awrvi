@@ -2,14 +2,14 @@
 
 one:
   finalized_at: 2016-01-13 16:11:26
-  category_id: :one
   awrvi_index: 9.99
   rejected_at: 2016-01-13 16:11:26
   rejected_reason: MyText
+  category: one
 
 two:
   finalized_at: 2016-01-13 16:11:26
-  category_id: :one
   awrvi_index: 9.99
   rejected_at: 2016-01-13 16:11:26
   rejected_reason: MyText
+  category: one
