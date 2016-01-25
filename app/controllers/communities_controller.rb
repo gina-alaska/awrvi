@@ -6,8 +6,6 @@ class CommunitiesController < ApplicationController
   def index
     @communities = Community.all
     @communities = Community.where('name ilike ?', "%#{search_params[:q]}%") if search_params.present?
-
-    # redirect_to community_path(@communities.first) if @communities.count == 1
   end
 
   # GET /communities/1
