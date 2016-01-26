@@ -62,13 +62,14 @@ class IndicesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_index
-      @index = Index.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def index_params
-      params.require(:index).permit(:finalized_at, :category_id, :awrvi_index, :rejected_at, :rejected_reason)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_index
+    @index = Index.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def index_params
+    params.require(:index).permit(:finalized_at, :category_id, :awrvi_index, :rejected_at, :rejected_reason)
+  end
 end
