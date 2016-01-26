@@ -62,13 +62,14 @@ class ChoicesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_choice
-      @choice = Choice.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def choice_params
-      params.require(:choice).permit(:category_id, :index, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_choice
+    @choice = Choice.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def choice_params
+    params.require(:choice).permit(:category_id, :index, :description)
+  end
 end
