@@ -17,7 +17,14 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create index" do
     assert_difference('Index.count') do
-      post indices_url, params: { index: { awrvi_index: @index.awrvi_index, finalized_at: @index.finalized_at, rejected_at: @index.rejected_at, rejected_reason: @index.rejected_reason } }
+      post indices_url, params: {
+        index: {
+          awrvi_index: @index.awrvi_index,
+          finalized_at: @index.finalized_at,
+          rejected_at: @index.rejected_at,
+          rejected_reason: @index.rejected_reason
+        }
+      }
     end
 
     assert_redirected_to index_path(Index.last)
@@ -34,7 +41,14 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update index" do
-    patch index_url(@index), params: { index: { awrvi_index: @index.awrvi_index, finalized_at: @index.finalized_at, rejected_at: @index.rejected_at, rejected_reason: @index.rejected_reason } }
+    patch index_url(@index), params: {
+      index: {
+        awrvi_index: @index.awrvi_index,
+        finalized_at: @index.finalized_at,
+        rejected_at: @index.rejected_at,
+        rejected_reason: @index.rejected_reason
+      }
+    }
     assert_redirected_to index_path(@index)
   end
 
