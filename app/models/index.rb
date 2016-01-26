@@ -1,4 +1,4 @@
 class Index < ApplicationRecord
   belongs_to :community
-  # belongs_to :user
+  belongs_to :category
 end
