@@ -63,13 +63,14 @@ class CommunitiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_community
-      @community = Community.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def community_params
-      params.require(:community).permit(:name, :gnis_id, :census_id, :location)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_community
+    @community = Community.friendly.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def community_params
+    params.require(:community).permit(:name, :gnis_id, :census_id, :location)
+  end
 end
