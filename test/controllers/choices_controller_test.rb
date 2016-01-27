@@ -38,11 +38,9 @@ class ChoicesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to choice_path(@choice)
   end
 
-  test "should destroy choice" do
-    assert_difference('Choice.count', -1) do
+  test "should not destroy choice" do
+    assert_raises ActionController::RoutingError do
       delete choice_url(@choice)
     end
-
-    assert_redirected_to choices_path
   end
 end
