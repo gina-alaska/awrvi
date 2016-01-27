@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %strong Finalized at:
+  = @index.finalized_at
+%p
+  %strong Awrvi index:
+  = @index.awrvi_index
+%p
+  %strong Rejected at:
+  = @index.rejected_at
+%p
+  %strong Rejected reason:
+  = @index.rejected_reason
+= link_to 'Edit', edit_index_path(@index)
+|
+= link_to 'Back', indices_path
