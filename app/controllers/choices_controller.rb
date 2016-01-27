@@ -51,16 +51,6 @@ class ChoicesController < ApplicationController
     end
   end
 
-  # DELETE /choices/1
-  # DELETE /choices/1.json
-  def destroy
-    @choice.destroy
-    respond_to do |format|
-      format.html { redirect_to choices_url, notice: 'Choice was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
   private
 
   # Use callbacks to share common setup or constraints between actions.
