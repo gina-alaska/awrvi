@@ -55,11 +55,11 @@ ActiveRecord::Schema.define(version: 20160125192913) do
 
   create_table "indices", force: :cascade do |t|
     t.datetime "finalized_at"
-    t.integer  "category_id"
-    t.decimal  "awrvi_index",     precision: 6, scale: 5
+    t.integer  "awrvi_version_id"
+    t.decimal  "awrvi_index",      precision: 6, scale: 5
     t.datetime "rejected_at"
     t.text     "rejected_reason"
-    t.index ["category_id"], name: "index_indices_on_category_id", using: :btree
+    t.index ["awrvi_version_id"], name: "index_indices_on_awrvi_version_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,5 +83,5 @@ ActiveRecord::Schema.define(version: 20160125192913) do
   end
 
   add_foreign_key "choices", "categories"
-  add_foreign_key "indices", "categories"
+  add_foreign_key "indices", "categories", column: "awrvi_version_id"
 end
