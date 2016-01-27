@@ -5,6 +5,7 @@ class CommunitiesController < ApplicationController
   # GET /communities.json
   def index
     @communities = Community.all
+    @communities = Community.where('name ilike ?', "%#{search_params[:q]}%") if search_params.present?
   end
 
   # GET /communities/1
