@@ -65,10 +65,12 @@ ActiveRecord::Schema.define(version: 20160125192913) do
   create_table "indices", force: :cascade do |t|
     t.datetime "finalized_at"
     t.integer  "awrvi_version_id"
+    t.integer  "community_id"
     t.decimal  "awrvi_index",      precision: 6, scale: 5
     t.datetime "rejected_at"
     t.text     "rejected_reason"
     t.index ["awrvi_version_id"], name: "index_indices_on_awrvi_version_id", using: :btree
+    t.index ["community_id"], name: "index_indices_on_community_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -95,4 +97,5 @@ ActiveRecord::Schema.define(version: 20160125192913) do
   add_foreign_key "index_choices", "choices"
   add_foreign_key "index_choices", "indices"
   add_foreign_key "indices", "categories", column: "awrvi_version_id"
+  add_foreign_key "indices", "communities"
 end

@@ -1,0 +1,22 @@
+%p#notice= notice
+%h1 Indices
+%table
+  %thead
+    %tr
+      %th Finalized at
+      %th Awrvi index
+      %th Rejected at
+      %th Rejected reason
+      %th{:colspan => "3"}
+  %tbody
+    - @indices.each do |index|
+      %tr
+        %td= index.finalized_at
+        %td= index.awrvi_index
+        %td= index.rejected_at
+        %td= index.rejected_reason
+        %td= link_to 'Show', index
+        %td= link_to 'Edit', edit_index_path(index)
+        %td= link_to 'Destroy', index, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Index', new_index_path

@@ -39,11 +39,9 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to category_path(@category)
   end
 
-  test "should destroy category" do
-    assert_difference('Category.count', -1) do
+  test "should not destroy category" do
+    assert_raises ActionController::RoutingError do
       delete category_url(@category)
     end
-
-    assert_redirected_to categories_path
   end
 end
