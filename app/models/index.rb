@@ -1,6 +1,8 @@
 class Index < ApplicationRecord
   belongs_to :community
   belongs_to :category
+  belongs_to :user
+  
   has_many :index_choices, dependent: :destroy
   has_many :choices, through: :index_choices
 end
