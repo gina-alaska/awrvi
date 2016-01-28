@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160127193036) do
+ActiveRecord::Schema.define(version: 20160128235605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20160127193036) do
 
   create_table "indices", force: :cascade do |t|
     t.datetime "finalized_at"
-    t.integer  "awrvi_version_id"
+    t.integer  "awrvi_version_id",                         null: false
     t.integer  "community_id"
     t.decimal  "awrvi_index",      precision: 6, scale: 5
     t.datetime "rejected_at"
