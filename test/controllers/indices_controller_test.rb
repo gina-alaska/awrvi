@@ -22,7 +22,8 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
           awrvi_index: @index.awrvi_index,
           finalized_at: @index.finalized_at,
           rejected_at: @index.rejected_at,
-          rejected_reason: @index.rejected_reason
+          rejected_reason: @index.rejected_reason,
+          awrvi_version_id: @index.awrvi_version.id
         }
       }
     end
