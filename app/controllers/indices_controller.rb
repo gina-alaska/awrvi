@@ -14,7 +14,9 @@ class IndicesController < ApplicationController
 
   # GET /indices/new
   def new
-    @index = Index.new
+    category = Category.root
+    @index = Index.new awrvi_version: category
+
   end
 
   # GET /indices/1/edit
