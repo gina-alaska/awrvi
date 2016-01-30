@@ -1,7 +1,8 @@
 %h2= category.short_name
 - if category.choices.any?
-  -# = f.simple_fields_for :index_choices, category.choices do |choice|
-  = f.association :choices, collection: category.choices, as: :radio_buttons, label_method: :description
-
+  = f.simple_fields_for :index_category_choices, category_choices(@index, category) do |choice|
+    = choice.input :id, as: :hidden
+    = choice.input :category_id, as: :hidden
+    = choice.input :choice_id, collection: category.choices, label_method: :description
 
 = render partial: 'category', collection: category.children, locals: {f: f}
