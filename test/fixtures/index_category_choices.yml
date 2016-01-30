@@ -3,7 +3,9 @@
 one:
   index: one
   choice: one
+  category: one
 
 two:
   index: two
   choice: two
+  category: two
