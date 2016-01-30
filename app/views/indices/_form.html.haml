@@ -3,6 +3,7 @@
   %h2= @index.awrvi_version.name
 
   .form-inputs
+    = f.input :awrvi_version_id, as: :hidden
     = render partial: 'category', collection: @index.awrvi_version.children, locals: {f: f}
   .form-actions
     = f.button :submit

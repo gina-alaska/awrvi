@@ -4,5 +4,5 @@ class Index < ApplicationRecord
   has_many :index_category_choices, dependent: :destroy
   has_many :choices, through: :index_category_choices
 
-  accepts_nested_attributes_for :choices
+  accepts_nested_attributes_for :index_category_choices
 end
