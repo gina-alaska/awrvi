@@ -74,6 +74,6 @@ class IndicesController < ApplicationController
     params.require(:index).permit(
       :finalized_at, :awrvi_version_id, :awrvi_index,
       :rejected_at, :rejected_reason,
-      index_category_choices_attributes: [ :category_id, :choice_id, :id ])
+      index_category_choices_attributes: [:category_id, :choice_id, :id])
   end
 end
