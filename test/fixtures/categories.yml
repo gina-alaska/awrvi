@@ -2,11 +2,11 @@
 
 one:
   position: 1
-  name: MyString
-  short_name: ShortString
+  name: RootCategory
+  short_name: Root
 
 two:
   parent: one
   position: 2
-  name: MyString
-  short_name: ShortString
+  name: LeafCategory
+  short_name: Leaf
