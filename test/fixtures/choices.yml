@@ -1,11 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  category: 
-  index: 9.99
-  description: MyText
+low:
+  category: two
+  index: 0.0
+  description: low
 
-two:
-  category: 
-  index: 9.99
-  description: MyText
+med:
+  category: two
+  index: 0.50
+  description: med
+  
+high:
+  category: two
+  index: 1.0
+  description: high
