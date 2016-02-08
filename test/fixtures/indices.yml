@@ -5,11 +5,11 @@ one:
   awrvi_index: 9.99
   rejected_at: 2016-01-13 16:11:26
   rejected_reason: MyText
-  awrvi_version_id: 
+  awrvi_version: one
 
 two:
   finalized_at: 2016-01-13 16:11:26
   awrvi_index: 9.99
   rejected_at: 2016-01-13 16:11:26
   rejected_reason: MyText
-  awrvi_version_id:
+  awrvi_version: one
