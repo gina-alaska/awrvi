@@ -2,7 +2,7 @@ class Index < ApplicationRecord
   belongs_to :community
   belongs_to :category
   belongs_to :user
-  
+
   belongs_to :awrvi_version, class_name: Category
 
   has_many :index_choices, dependent: :destroy
