@@ -74,6 +74,7 @@ GEM
       terminal-table (~> 1.4)
     builder (3.2.2)
     byebug (8.2.1)
+    cancancan (1.13.1)
     celluloid (0.17.3)
       celluloid-essentials
       celluloid-extras
@@ -276,6 +277,7 @@ PLATFORMS
 DEPENDENCIES
   brakeman
   byebug
+  cancancan
   closure_tree
   coffee-rails (~> 4.1.0)
   devise!
