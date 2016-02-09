@@ -1,13 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  parent_id: 1
   position: 1
   name: MyString
   short_name: ShortString
 
 two:
-  parent_id: 1
-  position: 1
+  parent: one
+  position: 2
   name: MyString
   short_name: ShortString
