@@ -4,8 +4,8 @@ namespace :dev do
     install_phantomjs
   end
 
-
   private
+
   def install_phantomjs
     version = 'phantomjs-2.1.1-linux-x86_64'
     phantomjs = "#{version}.tar.bz2"
