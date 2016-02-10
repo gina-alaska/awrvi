@@ -2,7 +2,6 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    # rubocop:disable Lint/UselessAssignment
     user ||= User.new
 
     can [:read, :update], User, id: user.id

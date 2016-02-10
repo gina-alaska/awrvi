@@ -16,5 +16,4 @@ class AbilityTest < ActiveSupport::TestCase
 
     assert ability.can?(:manage, User.new), 'User Admin cannot manage users'
   end
-
 end
