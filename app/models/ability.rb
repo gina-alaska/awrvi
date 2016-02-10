@@ -5,6 +5,10 @@ class Ability
     # rubocop:disable Lint/UselessAssignment
     user ||= User.new
 
-    can :manage, :all
+    can [:read, :update], User, id: user.id
+    can :manage, User if user.user_admin?
+
+    can :read, Community
+    can :read, Index
   end
 end
