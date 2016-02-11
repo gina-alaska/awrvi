@@ -1,4 +1,5 @@
 class CommunitiesController < ApplicationController
+  authorize_resource
   before_action :set_community, only: [:show, :edit, :update, :destroy]
 
   # GET /communities

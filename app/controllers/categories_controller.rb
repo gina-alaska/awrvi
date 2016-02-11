@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  skip_authorization_check
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
