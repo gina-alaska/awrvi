@@ -14,7 +14,8 @@ class IndicesController < ApplicationController
 
   # GET /indices/new
   def new
-    @index = Index.new
+    category = Category.root
+    @index = Index.new awrvi_version: category
   end
 
   # GET /indices/1/edit
@@ -70,6 +71,9 @@ class IndicesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def index_params
-    params.require(:index).permit(:finalized_at, :awrvi_version_id, :awrvi_index, :rejected_at, :rejected_reason)
+    params.require(:index).permit(
+      :finalized_at, :awrvi_version_id, :awrvi_index,
+      :rejected_at, :rejected_reason,
+      index_category_choices_attributes: [:category_id, :choice_id, :id])
   end
 end

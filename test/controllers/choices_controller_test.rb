@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ChoicesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @choice = choices(:one)
+    @choice = choices(:low)
   end
 
   test "should get index" do

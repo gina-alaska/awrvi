@@ -26,6 +26,8 @@ gem 'cancancan'
 group :development, :test do
   gem 'byebug'
   gem 'rubocop'
+  gem 'capybara'
+  gem 'poltergeist'
 end
 
 group :development do
