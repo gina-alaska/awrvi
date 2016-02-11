@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160129234625) do
+ActiveRecord::Schema.define(version: 20160209020416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,8 +71,10 @@ ActiveRecord::Schema.define(version: 20160129234625) do
     t.decimal  "awrvi_index",      precision: 6, scale: 5
     t.datetime "rejected_at"
     t.text     "rejected_reason"
+    t.integer  "user_id"
     t.index ["awrvi_version_id"], name: "index_indices_on_awrvi_version_id", using: :btree
     t.index ["community_id"], name: "index_indices_on_community_id", using: :btree
+    t.index ["user_id"], name: "index_indices_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -101,4 +103,5 @@ ActiveRecord::Schema.define(version: 20160129234625) do
   add_foreign_key "index_category_choices", "indices"
   add_foreign_key "indices", "categories", column: "awrvi_version_id"
   add_foreign_key "indices", "communities"
+  add_foreign_key "indices", "users"
 end
