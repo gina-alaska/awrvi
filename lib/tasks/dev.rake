@@ -8,7 +8,7 @@ namespace :dev do
 
     10.times do
       community = Community.offset(rand(count)).first
-      index = community.indices.build(awrvi_version_id: root_category)
+      index = community.indices.build(awrvi_version: root_category)
       make_choices(index, root_category.leaves)
       community.save
     end
