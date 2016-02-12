@@ -5,9 +5,21 @@
 
 ## Setup
 
-The following tools will need to be installed
+This project uses [Otto](https://www.ottoproject.io) for a development environment.
 
-* ruby 2.2
+* Install otto
+* If it's the first time checking this code out
+  * `otto compile`
+* `otto dev`
+* `otto dev ssh`
+
+Now you are able to run your rake tasks to set up the database for development.
+
+An additional rake task has been provided for installing phantomjs, which is used in
+integration tests
+
+* Run `rake dev:setup`  to install phantomjs.
+
 
 ## Contributing
 

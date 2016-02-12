@@ -21,10 +21,13 @@ gem 'simple_form'
 gem 'devise', github: 'plataformatec/devise'
 gem 'omniauth'
 gem 'omniauth-openid'
+gem 'cancancan'
 
 group :development, :test do
   gem 'byebug'
   gem 'rubocop'
+  gem 'capybara'
+  gem 'poltergeist'
 end
 
 group :development do
