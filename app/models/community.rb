@@ -1,4 +1,5 @@
 class Community < ApplicationRecord
+  include CommunityConcerns
   include FriendlyId
   friendly_id :name, use: :slugged
 
