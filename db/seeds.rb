@@ -35,3 +35,5 @@ Dir.glob(File.join(File.dirname(__FILE__), "seeds", "categories", "*.yaml")).eac
   create_category(YAML.load_file(seed)).save!
 end
 
+# Read in communities from geojson files in db/seeds/communities
+Community.read_communities
