@@ -36,4 +36,7 @@ Dir.glob(File.join(File.dirname(__FILE__), "seeds", "categories", "*.yaml")).eac
 end
 
 # Read in communities from geojson files in db/seeds/communities
-Community.read_communities
+Dir.glob(File.join(File.dirname(__FILE__), "seeds", "communities", "*.geojson")).each do |filename|
+  puts "Loading commuities from #{filename}"
+  Community.read_communities(filename)
+end
