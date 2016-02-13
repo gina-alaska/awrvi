@@ -1,4 +1,5 @@
 class ChoicesController < ApplicationController
+  skip_authorization_check
   before_action :set_choice, only: [:show, :edit, :update, :destroy]
 
   # GET /choices

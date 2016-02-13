@@ -11,16 +11,15 @@ class CommunitiesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get new' do
-    get new_community_url
-    assert_response :success
+    assert_raises CanCan::AccessDenied do
+      get new_community_url
+    end
   end
 
   test 'should create community' do
-    assert_difference('Community.count') do
+    assert_raises CanCan::AccessDenied do
       post communities_url, params: { community: { census_id: @community.census_id, gnis_id: @community.gnis_id, location: @community.location, name: @community.name } }
     end
-
-    assert_redirected_to community_path(Community.last)
   end
 
   test 'should show community' do
@@ -29,20 +28,20 @@ class CommunitiesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get edit' do
-    get edit_community_url(@community)
-    assert_response :success
+    assert_raises CanCan::AccessDenied do
+      get edit_community_url(@community)
+    end
   end
 
   test 'should update community' do
-    patch community_url(@community), params: { community: { census_id: @community.census_id, gnis_id: @community.gnis_id, location: @community.location, name: @community.name } }
-    assert_redirected_to community_path(@community)
+    assert_raises CanCan::AccessDenied do
+      patch community_url(@community), params: { community: { census_id: @community.census_id, gnis_id: @community.gnis_id, location: @community.location, name: @community.name } }
+    end
   end
 
   test 'should destroy community' do
-    assert_difference('Community.count', -1) do
+    assert_raises CanCan::AccessDenied do
       delete community_url(@community)
     end
-
-    assert_redirected_to communities_path
   end
 end
