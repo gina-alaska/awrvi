@@ -32,3 +32,17 @@ two:
   uid: 'uniqueidtwo'
   provider: 'openid'
 #  column: value
+
+admin:
+  name: "Admin"
+  email: 'admin@example.com'
+  encrypted_password: 'garbage'
+  reset_password_token: 'admin_token'
+  reset_password_sent_at:
+  remember_created_at:
+  current_sign_in_at:
+  last_sign_in_at:
+  last_sign_in_ip: 127.0.0.1
+  uid: 'uniqueadminid'
+  provider: 'developer'
+  
