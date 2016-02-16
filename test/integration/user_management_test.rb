@@ -1,11 +1,12 @@
 require 'test_helper'
 
 class UserManagementTest < ActionDispatch::IntegrationTest
+  # rubocop:disable Metrics/AbcSize
   def test_admins_can_edit_users
     target_user = users(:one)
     login(:admin)
     visit manage_users_path
-    assert page.has_content?(target_user.name), 'Users not listed on page'
+    assert page.has_content?(target_user.name), 'User not listed on page'
 
     click_on("manage_user_#{target_user.id}")
     check('User admin')
@@ -13,5 +14,4 @@ class UserManagementTest < ActionDispatch::IntegrationTest
 
     assert page.has_content?("User was successfully updated.")
   end
-
 end

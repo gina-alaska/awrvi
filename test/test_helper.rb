@@ -27,7 +27,7 @@ class ActionDispatch::IntegrationTest
     click_button('Sign In')
   end
 
-  def logout(user)
+  def logout
     visit('/')
     click_link('Logout')
   end

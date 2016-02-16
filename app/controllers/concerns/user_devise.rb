@@ -33,5 +33,4 @@ module UserDevise
            :trackable, :validatable, :omniauthable,
            omniauth_providers: omniauth_providers
   end
-
 end
