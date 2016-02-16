@@ -9,6 +9,6 @@ class CategoryTest < ActiveSupport::TestCase
   end
 
   test "to_s must return category name" do
-    assert_equal "#{@category.name}", @category.to_s, "to_s failed and is not equal to name"
+    assert_equal @category.name, @category.to_s, "to_s failed and is not equal to name"
   end
 end
