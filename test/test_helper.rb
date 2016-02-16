@@ -6,6 +6,7 @@ require 'capybara/poltergeist'
 
 Capybara.default_driver = :poltergeist
 Capybara.javascript_driver = :poltergeist
+Capybara.default_max_wait_time = 5
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
