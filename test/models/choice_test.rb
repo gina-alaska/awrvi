@@ -1,7 +1,15 @@
 require 'test_helper'
 
 class ChoiceTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  setup do 
+    @choice = choices(:low)
+  end
+
+  test "no_destroy should return false" do
+    refute @choice.no_destroy
+  end
+
+  test "to_s must return choice description" do
+    assert_equal "#{@choice.description}", @choice.to_s, "to_s failed and is not equal to description"
+  end
 end
