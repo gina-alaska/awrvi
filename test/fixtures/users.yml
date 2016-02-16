@@ -14,7 +14,7 @@ one:
   current_sign_in_at:
   last_sign_in_at:
   last_sign_in_ip: 127.0.0.1
-  uid: 'uniqueidone'
+  uid: 'user_one@email.com'
   provider: 'openid'
 
 # column: value
@@ -29,7 +29,7 @@ two:
   current_sign_in_at:
   last_sign_in_at:
   last_sign_in_ip: 127.0.0.1
-  uid: 'uniqueidtwo'
+  uid: 'user_two@email.com'
   provider: 'openid'
 #  column: value
 
@@ -43,6 +43,6 @@ admin:
   current_sign_in_at:
   last_sign_in_at:
   last_sign_in_ip: 127.0.0.1
-  uid: 'uniqueadminid'
+  uid: 'admin@example.com'
   provider: 'developer'
-  
+  user_admin: true
