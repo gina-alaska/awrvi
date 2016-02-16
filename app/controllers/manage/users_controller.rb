@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Manage::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   authorize_resource
 
