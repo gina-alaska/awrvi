@@ -10,6 +10,6 @@ class ChoiceTest < ActiveSupport::TestCase
   end
 
   test "to_s must return choice description" do
-    assert_equal @choice.description, @choice.to_s, "to_s failed and is not equal to description"
+    assert_equal @choice.description, @choice.to_s
   end
 end
