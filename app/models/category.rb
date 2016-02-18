@@ -8,4 +8,8 @@ class Category < ApplicationRecord
   def no_destroy
     false
   end
+
+  def to_s
+    name
+  end
 end

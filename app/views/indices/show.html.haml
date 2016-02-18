@@ -1,7 +1,8 @@
 %p#notice= notice
 %p
   %strong Awrvi index:
-  = @index.awrvi_index
+  = @index.awrvi_version
 
-- @index.choices.each do |choice|
-  = "#{choice.category.name}: #{choice.index}"
+%ul
+  - @index.awrvi_version.children.each do |category|
+    = render 'show_category', category: category, index: @index
