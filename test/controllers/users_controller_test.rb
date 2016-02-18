@@ -24,17 +24,16 @@ module ManageUserControllerTests
 
     test 'admins can update user abilities' do
       login_as(users(:admin), scope: :user)
-      patch manage_user_url(@user), params: { user: {user_admin: true } }
+      patch manage_user_url(@user), params: { user: { user_admin: true } }
       assert_redirected_to manage_user_path(@user)
     end
   end
-
 
   class UserProfileTest < ActionDispatch::IntegrationTest
     setup do
       @user = users(:one)
     end
-    
+
     test "can't view other users" do
       assert_raises CanCan::AccessDenied do
         get profile_url(@user)
