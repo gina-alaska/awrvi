@@ -1,5 +1,6 @@
 class Manage::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_variant, only: [:show, :edit]
   authorize_resource
 
   # GET /users
@@ -51,5 +52,11 @@ class Manage::UsersController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
     params.require(:user).permit(:user_admin)
+  end
+
+  def set_variant
+    if request.path.starts_with?('/manage') && current_user.try(:user_admin?)
+      request.variant = :'user-admin'
+    end
   end
 end
