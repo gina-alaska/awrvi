@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   namespace :manage do
     resources :users, except: [:new, :create] # These are handled by devise
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resource :profile, only: [:show, :edit, :update], controller: 'manage/users'
 
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
