@@ -22,6 +22,7 @@ gem 'devise', github: 'plataformatec/devise'
 gem 'omniauth'
 gem 'omniauth-openid'
 gem 'cancancan'
+gem 'friendly_id'
 
 group :development, :test do
   gem 'byebug'
