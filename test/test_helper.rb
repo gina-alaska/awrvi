@@ -18,7 +18,9 @@ end
 class ActionDispatch::IntegrationTest
   # Make the Capybara DSL available in all integration tests
   include Capybara::DSL
-
+  include Warden::Test::Helpers
+  Warden.test_mode!
+  
   def login(user)
     u = users(user)
     visit('/users/auth/developer')
@@ -29,6 +31,6 @@ class ActionDispatch::IntegrationTest
 
   def logout
     visit('/')
-    click_link('Logout')
+    click_on('Sign Out')
   end
 end
