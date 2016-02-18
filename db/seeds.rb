@@ -35,3 +35,8 @@ Dir.glob(File.join(File.dirname(__FILE__), "seeds", "categories", "*.yaml")).eac
   create_category(YAML.load_file(seed)).save!
 end
 
+# Read in communities from geojson files in db/seeds/communities
+Dir.glob(File.join(File.dirname(__FILE__), "seeds", "communities", "*.geojson")).each do |filename|
+  puts "Loading commuities from #{filename}"
+  Community.create_from_geojson(filename)
+end
