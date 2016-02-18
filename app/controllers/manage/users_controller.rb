@@ -51,12 +51,18 @@ class Manage::UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:user_admin)
+    if managing_user?
+      params.require(:user).permit(:user_admin)
+    else
+      params.require(:user)
+    end
   end
 
   def set_variant
-    if request.path.starts_with?('/manage') && current_user.try(:user_admin?)
-      request.variant = :'user-admin'
-    end
+    request.variant = :'user-admin' if managing_user?
+  end
+
+  def managing_user?
+    request.path.starts_with?('/manage') && current_user.try(:user_admin?)
   end
 end
