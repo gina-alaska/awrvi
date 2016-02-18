@@ -22,6 +22,3 @@
 
 # Ignore .otto, unique to system otto is run on
 .otto
-
-# Ignore geojson files
-*.geojson
