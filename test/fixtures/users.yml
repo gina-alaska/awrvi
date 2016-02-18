@@ -16,7 +16,7 @@ one:
   last_sign_in_ip: 127.0.0.1
   uid: 'uniqueidone'
   provider: 'openid'
-
+  category_admin: false
 # column: value
 #
 two:
@@ -31,4 +31,5 @@ two:
   last_sign_in_ip: 127.0.0.1
   uid: 'uniqueidtwo'
   provider: 'openid'
+  category_admin: false
 #  column: value
