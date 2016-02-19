@@ -30,7 +30,7 @@
         %tr
           %td
             Index:
-            = index.awrvi_index.to_f
+            = number_with_precision(index.awrvi_index.to_f, precision: 2)
           %td
             Version:
             = index.awrvi_version.name
