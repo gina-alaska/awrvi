@@ -9,6 +9,26 @@
       = link_to 'Alaska Water Resources Vulnerability Index', '#', class: 'navbar-brand'
     #navbar.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
+        %li
+          = link_to welcome_path do 
+            %i.fa.fa-home
+            Welcome
+        %li
+          = link_to communities_path do 
+            %i.fa.fa-users
+            Communities
+        %li
+          = link_to indices_path do 
+            %i.fa.fa-info-circle
+            Indices
+        %li
+          = link_to categories_path do 
+            %i.fa.fa-sitemap
+            Categories
+        %li
+          = link_to choices_path do 
+            %i.fa.fa-sliders
+            Choices
         - if user_signed_in?
           %li
             = link_to 'Sign Out', destroy_user_session_path, method: :delete
