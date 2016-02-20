@@ -22,6 +22,8 @@ gem 'devise', github: 'plataformatec/devise'
 gem 'omniauth'
 gem 'omniauth-openid'
 gem 'cancancan'
+gem 'rgeo'
+gem 'rgeo-geojson'
 
 group :development, :test do
   gem 'byebug'
@@ -34,8 +36,6 @@ group :development do
   gem 'web-console', '~> 3.0'
   gem 'spring'
   gem 'brakeman', require: false
-  gem 'rgeo'
-  gem 'rgeo-geojson'
   gem 'pry-rails'
 end
 

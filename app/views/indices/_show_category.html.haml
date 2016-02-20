@@ -1,0 +1,17 @@
+%li
+  = category.name
+  - current_index_category = index.index_category_choices.where(category: category).first
+  - if current_index_category
+    %strong
+      = current_index_category.try(:choice).try(:index)
+  - elsif category.leaf?
+    %strong None selected
+  - else
+    %strong
+      = index.choices.where(category: category.leaves.pluck(:id) ).sum(:index) / category.leaves.count
+  
+  - if !category.children.empty?
+    %ul
+      - category.children.each do |child|
+        = render 'show_category', category: child, index: index
+
