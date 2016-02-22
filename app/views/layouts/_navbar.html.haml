@@ -21,10 +21,11 @@
           = link_to indices_path do 
             %i.fa.fa-info-circle
             Indices
-        %li
-          = link_to categories_path do 
-            %i.fa.fa-sitemap
-            Categories
+        -if current_user.category_admin?
+          %li
+            = link_to categories_path do 
+              %i.fa.fa-sitemap
+              Categories
         %li
           = link_to choices_path do 
             %i.fa.fa-sliders
