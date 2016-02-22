@@ -29,6 +29,26 @@ namespace :dev do
     install_phantomjs
   end
 
+  desc 'Toggle user permission for category admin'
+  task :toggle_category, [:email] => :environment do |_t, args|
+    email = args[:email]
+    if email.blank?
+      puts "Usage: rake \"dev:toggle_category[user@email.com]\""
+      exit 1
+    end
+
+    user = User.where(email: email).first
+
+    if user.nil?
+      puts "Could not find user with email: #{email}"
+      exit 1
+    end
+
+    user.category_admin ^= true
+    user.save
+    puts "User #{user.name} category_admin is now set to #{user.category_admin}"
+  end
+
   private
 
   def install_phantomjs
