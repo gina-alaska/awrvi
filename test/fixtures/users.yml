@@ -17,7 +17,7 @@ one:
   last_sign_in_ip: 127.0.0.1
   uid: 'user_one@email.com'
   provider: 'openid'
-
+  category_admin: false
 # column: value
 #
 two:
@@ -33,6 +33,7 @@ two:
   last_sign_in_ip: 127.0.0.1
   uid: 'user_two@email.com'
   provider: 'openid'
+  category_admin: false
 #  column: value
 
 admin:
