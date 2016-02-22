@@ -29,6 +29,15 @@ namespace :dev do
     install_phantomjs
   end
 
+  desc 'Toggle users user_admin flag'
+  task user_admin: :environment do
+    return unless Rails.env.development?
+
+    user = User.where(email: ENV['AWRVI_USER']).first || User.last
+    user.update_attribute(:user_admin, !!user.user_admin)
+    puts "Set #{user.email} user_admin to #{!!user.user_admin}."
+  end
+
   private
 
   def install_phantomjs
