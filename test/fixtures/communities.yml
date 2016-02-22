@@ -13,3 +13,10 @@ two:
   census_id: MyString
   location: MyText
   slug: MyString2
+
+three:
+  name: Testing
+  gnis_id: MyString
+  census_id: MyString
+  location: MyText
+  slug: MyString3
