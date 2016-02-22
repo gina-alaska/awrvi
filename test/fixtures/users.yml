@@ -33,3 +33,18 @@ two:
   provider: 'openid'
   category_admin: false
 #  column: value
+#
+category_admin:
+  name: "User with category_admin"
+  email: 'user_ca@email.com'
+  encrypted_password: "garbage"
+  reset_password_token: 'tokens_three'
+  reset_password_sent_at:
+  remember_created_at:
+  current_sign_in_at:
+  last_sign_in_at:
+  last_sign_in_ip: 127.0.0.1
+  uid: 'uniqueidthree'
+  provider: 'openid'
+  category_admin: true
+#  column: value
