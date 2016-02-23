@@ -7,6 +7,11 @@ class Ability
     can [:read, :update], User, id: user.id
     can :manage, User if user.user_admin?
 
+    unless user.new_record?
+      can :create, Index
+      can :manage, Index, user_id: user.id
+    end
+
     can :read, Community
     can :read, Index
   end
