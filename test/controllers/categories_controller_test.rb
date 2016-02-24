@@ -4,6 +4,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
     Category.rebuild!
     @category = categories(:one)
+    login_as(users(:category_admin))
   end
 
   test "should get index" do
