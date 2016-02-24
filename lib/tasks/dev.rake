@@ -29,6 +29,15 @@ namespace :dev do
     install_phantomjs
   end
 
+  desc 'Toggle user permission for category admin'
+  task category_admin: :environment do
+    return unless Rails.env.development?
+
+    user = User.where(email: ENV['AWRVI_USER']).first || User.last
+    user.update_attribute(:category_admin, !user.category_admin)
+    puts "User #{user.name} category_admin is now set to #{user.category_admin}"
+  end
+
   desc 'Toggle users user_admin flag'
   task user_admin: :environment do
     return unless Rails.env.development?
