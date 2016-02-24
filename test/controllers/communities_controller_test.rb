@@ -52,7 +52,7 @@ class CommunitiesControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :redirect
     assert_redirected_to community_url
-    
+
     follow_redirect!
     assert_response :success
   end
