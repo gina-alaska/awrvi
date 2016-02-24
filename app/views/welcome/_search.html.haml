@@ -3,5 +3,5 @@
     .input-group
       = text_field_tag :q, search_params[:q], class: 'form-control', placeholder: 'Search for community'
       .input-group-btn
-        = button_tag type: 'submit', class: 'btn btn-primary' do
+        = button_tag type: 'submit', class: 'btn btn-primary', id: 'search' do
           %i.fa.fa-search
