@@ -1,0 +1,11 @@
+application {
+    type = "rails"
+
+    dependency {
+        source = "otto/mailcatcher"
+    }
+
+    dependency {
+        source = "otto/postgresql"
+    }
+}
