@@ -1,6 +1,6 @@
 class CommunitiesController < ApplicationController
   helper_method :search_params
-  
+
   authorize_resource
   before_action :set_community, only: [:show, :edit, :update, :destroy]
 
