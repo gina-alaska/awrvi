@@ -51,7 +51,7 @@ class CommunitiesControllerTest < ActionDispatch::IntegrationTest
     get communities_url, params: { q: community.name }
 
     assert_response :redirect
-    assert_redirected_to community_url
+    assert_redirected_to community_url(community)
 
     follow_redirect!
     assert_response :success
