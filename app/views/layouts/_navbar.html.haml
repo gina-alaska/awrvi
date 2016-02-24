@@ -21,7 +21,7 @@
           = link_to indices_path do 
             %i.fa.fa-info-circle
             Indices
-        -if current_user.category_admin?
+        -if can?(:manage, Category)
           %li
             = link_to categories_path do 
               %i.fa.fa-sitemap
