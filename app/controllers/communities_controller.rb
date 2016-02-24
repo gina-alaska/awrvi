@@ -76,4 +76,8 @@ class CommunitiesController < ApplicationController
   def community_params
     params.require(:community).permit(:name, :gnis_id, :census_id, :location)
   end
+  
+  def search_params
+    params.permit(:q)
+  end
 end

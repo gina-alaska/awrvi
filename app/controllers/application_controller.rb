@@ -4,10 +4,4 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :search_params
   check_authorization
-
-  private
-
-  def search_params
-    params.permit(:q)
-  end
 end
