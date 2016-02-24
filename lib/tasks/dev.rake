@@ -30,22 +30,11 @@ namespace :dev do
   end
 
   desc 'Toggle user permission for category admin'
-  task :toggle_category, [:email] => :environment do |_t, args|
-    email = args[:email]
-    if email.blank?
-      puts "Usage: rake \"dev:toggle_category[user@email.com]\""
-      exit 1
-    end
+  task category_admin: :environment do
+    return unless Rails.env.development?
 
-    user = User.where(email: email).first
-
-    if user.nil?
-      puts "Could not find user with email: #{email}"
-      exit 1
-    end
-
-    user.category_admin ^= true
-    user.save
+    user = User.where(email: ENV['AWRVI_USER']).first || User.last
+    user.update_attribute(:category_admin, !user.category_admin)
     puts "User #{user.name} category_admin is now set to #{user.category_admin}"
   end
 
