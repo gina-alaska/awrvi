@@ -42,8 +42,9 @@ category_admin:
   encrypted_password: "garbage"
   reset_password_token: 'tokens_three'
   uid: 'uniqueidthree'
-  provider: 'openid'
+  provider: 'developer'
   category_admin: true
+  user_admin: false
 #  column: value
 
 admin:
@@ -59,4 +60,5 @@ admin:
   last_sign_in_ip: 127.0.0.1
   uid: 'admin@example.com'
   provider: 'developer'
+  category_admin: false
   user_admin: true
