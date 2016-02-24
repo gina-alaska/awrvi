@@ -1,0 +1,7 @@
+= simple_form_for([:manage, @user]) do |f|
+  = f.error_notification
+  .form-inputs
+    = field_set_tag 'Abilities' do
+      = f.input :user_admin
+  .form-actions
+    = f.button :submit

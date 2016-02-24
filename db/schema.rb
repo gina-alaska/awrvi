@@ -53,6 +53,18 @@ ActiveRecord::Schema.define(version: 20160218192253) do
     t.index ["slug"], name: "index_communities_on_slug", unique: true, using: :btree
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+  end
+
   create_table "index_category_choices", force: :cascade do |t|
     t.integer  "index_id"
     t.integer  "choice_id"
@@ -94,9 +106,11 @@ ActiveRecord::Schema.define(version: 20160218192253) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "user_admin",             default: false, null: false
+    t.string   "slug"
     t.boolean  "category_admin",         default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["slug"], name: "index_users_on_slug", unique: true, using: :btree
   end
 
   add_foreign_key "choices", "categories"

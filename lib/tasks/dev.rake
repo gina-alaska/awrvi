@@ -47,6 +47,14 @@ namespace :dev do
     user.category_admin ^= true
     user.save
     puts "User #{user.name} category_admin is now set to #{user.category_admin}"
+
+  desc 'Toggle users user_admin flag'
+  task user_admin: :environment do
+    return unless Rails.env.development?
+
+    user = User.where(email: ENV['AWRVI_USER']).first || User.last
+    user.update_attribute(:user_admin, !user.user_admin)
+    puts "Set #{user.email} user_admin to #{user.user_admin}."
   end
 
   private

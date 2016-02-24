@@ -1,0 +1,12 @@
+%p#notice= notice
+%h1 Users
+%table.table.table-striped
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.name
+        %td
+          = link_to edit_manage_user_path(user), class: 'btn btn-default btn-small', id: dom_id(user, :manage) do
+            .fa.fa-edit
+          = link_to manage_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-small' do
+            .fa.fa-trash
