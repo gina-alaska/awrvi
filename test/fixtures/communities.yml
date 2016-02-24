@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: Onecommunity
   gnis_id: MyString
   census_id: MyString
   location: MyText
