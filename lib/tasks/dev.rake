@@ -47,6 +47,7 @@ namespace :dev do
     user.category_admin ^= true
     user.save
     puts "User #{user.name} category_admin is now set to #{user.category_admin}"
+  end
 
   desc 'Toggle users user_admin flag'
   task user_admin: :environment do
