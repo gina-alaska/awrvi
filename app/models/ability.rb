@@ -6,7 +6,11 @@ class Ability
 
     can [:read, :update], User, id: user.id
     can :manage, User if user.user_admin?
-    can :manage, Category if user.category_admin?
+
+    if user.category_admin?
+      can :manage, Category
+      can :manage, Choice
+    end
 
     can :read, Community
     can :read, Index
