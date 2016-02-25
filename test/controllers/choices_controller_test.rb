@@ -3,6 +3,7 @@ require 'test_helper'
 class ChoicesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @choice = choices(:low)
+    login_as(users(:category_admin))
   end
 
   test "should get index" do
