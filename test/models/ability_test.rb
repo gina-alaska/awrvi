@@ -16,4 +16,27 @@ class AbilityTest < ActiveSupport::TestCase
 
     assert ability.can?(:manage, User.new), 'User Admin cannot manage users'
   end
+
+  def test_users_cannot_create_choices
+    user = users(:one)
+    ability = Ability.new(user)
+
+    assert ability.cannot?(:create, Choice.new), "User can create a choice"
+  end
+
+  def test_guests_can_only_read_choices
+    user = User.new
+    ability = Ability.new(user)
+
+    assert ability.can?(:read, choices(:med)), "Guest cannot read choice"
+    assert ability.cannot?(:create, Choice.new), "Guest can create choice"
+  end
+
+  def test_only_category_admin_can_edit
+    user = users(:category_admin)
+    ability = Ability.new(user)
+
+    assert ability.can?(:manage, choices(:med)), "Category admin cannot manage choices"
+    assert ability.can?(:edit, choices(:low)), "category_admin cannot edit choices"
+  end
 end
