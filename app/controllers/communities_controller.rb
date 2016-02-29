@@ -1,4 +1,6 @@
 class CommunitiesController < ApplicationController
+  helper_method :search_params
+
   authorize_resource
   before_action :set_community, only: [:show, :edit, :update, :destroy]
 
@@ -7,6 +9,8 @@ class CommunitiesController < ApplicationController
   def index
     @communities = Community.all
     @communities = Community.where('name ilike ?', "%#{search_params[:q]}%") if search_params.present?
+
+    redirect_to community_path(@communities.first) if @communities.count == 1
   end
 
   # GET /communities/1
@@ -73,5 +77,9 @@ class CommunitiesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def community_params
     params.require(:community).permit(:name, :gnis_id, :census_id, :location)
+  end
+
+  def search_params
+    params.permit(:q)
   end
 end

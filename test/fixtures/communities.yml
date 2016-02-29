@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: Onecommunity
   gnis_id: MyString
   census_id: MyString
   location: MyText
@@ -13,3 +13,10 @@ two:
   census_id: MyString
   location: MyText
   slug: MyString2
+
+three:
+  name: Testing
+  gnis_id: MyString
+  census_id: MyString
+  location: MyText
+  slug: MyString3
