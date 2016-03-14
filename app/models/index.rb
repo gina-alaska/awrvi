@@ -7,4 +7,6 @@ class Index < ApplicationRecord
   has_many :choices, through: :index_category_choices
 
   accepts_nested_attributes_for :index_category_choices
+
+  validate presence: :community_id
 end
