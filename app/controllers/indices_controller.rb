@@ -1,5 +1,5 @@
 class IndicesController < ApplicationController
-  skip_authorization_check
+  authorize_resource
   before_action :set_index, only: [:show, :edit, :update, :destroy]
 
   # GET /indices
