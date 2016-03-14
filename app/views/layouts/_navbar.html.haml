@@ -6,28 +6,28 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to 'Arctic Water Resources Vulnerability Index', '#', class: 'navbar-brand'
+      = link_to 'Arctic Water Resources Vulnerability Index', root_url, class: 'navbar-brand'
     #navbar.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         %li
-          = link_to welcome_path do 
+          = link_to welcome_path do
             %i.fa.fa-home
-            Welcome
+            Home
         %li
-          = link_to communities_path do 
+          = link_to communities_path do
             %i.fa.fa-users
             Communities
         %li
-          = link_to indices_path do 
+          = link_to indices_path do
             %i.fa.fa-info-circle
             Indices
         -if can?(:manage, Category)
           %li
-            = link_to categories_path do 
+            = link_to categories_path do
               %i.fa.fa-sitemap
               Categories
         %li
-          = link_to choices_path do 
+          = link_to choices_path do
             %i.fa.fa-sliders
             Choices
         - if user_signed_in?
@@ -44,7 +44,7 @@
         - else
           %li.dropdown
             = link_to '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } do
-              Signin
+              Sign In
               %span.caret
             %ul.dropdown-menu
               %li= link_to 'GINA::ID', user_omniauth_authorize_path(:open_id, openid_url: 'https://id.gina.alaska.edu')
