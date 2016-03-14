@@ -1,7 +1,3 @@
-.pull-right
-  = link_to new_community_path, class: 'btn btn-success btn-block' do
-    %i.fa.fa-plus
-    New Community
 %h1 Communities
 
 .panel.panel-default
@@ -24,3 +20,8 @@
           %td= link_to 'Show', community
           %td= link_to 'Edit', edit_community_path(community)
           %td= link_to 'Destroy', community, method: :delete, data: { confirm: 'Are you sure?' }
+
+- content_for :sidebar do
+  = link_to new_community_path, class: 'btn btn-success btn-block' do
+    %i.fa.fa-plus
+    New Community
