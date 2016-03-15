@@ -1,5 +1,5 @@
 class IndicesController < ApplicationController
-  layout 'community'
+  layout 'communities'
 
   authorize_resource
   before_action :set_community, only: [:index, :create, :new]

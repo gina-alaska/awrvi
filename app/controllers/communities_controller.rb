@@ -1,5 +1,4 @@
 class CommunitiesController < ApplicationController
-  layout 'community'
   helper_method :search_params
 
   authorize_resource
