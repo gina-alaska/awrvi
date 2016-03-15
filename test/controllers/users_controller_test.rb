@@ -58,13 +58,13 @@ module ManageUserControllerTests
       assert_response :success
     end
 
-    test "should update user" do
+    test "should not update user" do
       assert_raises CanCan::AccessDenied do
         patch manage_user_url(@user), params: { user: { user_admin: true } }
       end
     end
 
-    test "should destroy user" do
+    test "should not destroy user" do
       assert_raises CanCan::AccessDenied do
         delete manage_user_url(@user)
       end

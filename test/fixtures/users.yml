@@ -18,8 +18,8 @@ one:
   uid: 'user_one@email.com'
   provider: 'openid'
   category_admin: false
-# column: value
-#
+  user_admin: false
+  
 two:
   name: "User Two"
   email: 'user_two@email.com'
@@ -34,8 +34,8 @@ two:
   uid: 'user_two@email.com'
   provider: 'openid'
   category_admin: false
-#  column: value
-#
+  user_admin: false
+
 category_admin:
   name: "User with category_admin"
   email: 'user_ca@email.com'
@@ -45,7 +45,6 @@ category_admin:
   provider: 'developer'
   category_admin: true
   user_admin: false
-#  column: value
 
 admin:
   name: "Admin"
