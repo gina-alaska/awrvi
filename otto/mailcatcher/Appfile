@@ -1,0 +1,9 @@
+application {
+    name = "mailcatcher"
+    type = "docker-external"
+}
+
+customization {
+    image = "schickling/mailcatcher"
+    run_args = "-p 1025:1025 -p 1080:1080"
+}

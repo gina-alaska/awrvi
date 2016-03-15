@@ -12,6 +12,11 @@ class Ability
       can :manage, Choice
     end
 
+    unless user.new_record?
+      can :create, Index
+      can :manage, Index, user_id: user.id
+    end
+
     can :read, Community
     can :read, Index
     can :read, Choice

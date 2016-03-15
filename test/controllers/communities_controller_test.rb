@@ -44,4 +44,22 @@ class CommunitiesControllerTest < ActionDispatch::IntegrationTest
       delete community_url(@community)
     end
   end
+
+  test 'Search for one community' do
+    community = communities(:one)
+
+    get communities_url, params: { q: community.name }
+
+    assert_response :redirect
+    assert_redirected_to community_url(community)
+
+    follow_redirect!
+    assert_response :success
+  end
+
+  test 'Search for multiple communities' do
+    get communities_url, params: { q: 'Test' }
+
+    assert_response :success
+  end
 end
