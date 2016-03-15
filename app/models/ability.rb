@@ -19,6 +19,5 @@ class Ability
 
     can :read, Community
     can :read, Index
-    can :read, Choice
   end
 end
