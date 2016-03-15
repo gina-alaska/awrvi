@@ -37,3 +37,11 @@
           %td
             = link_to index_path(index) do
               %i.fa.fa-info-circle.fa-lg
+
+- content_for :sidebar do
+  %ul.list-group
+    %li.list-group-item.active
+      Indices
+    %li.list-group-item
+      - if can? :create, Index
+        = link_to "New Index", new_community_index_path(@community)
