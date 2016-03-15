@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %title
+      AWRVI
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = render 'layouts/navbar'
+    .container-fluid
+      .row
+        = render 'layouts/flash_messages'
+        .col-xs-9.col-s-10
+          = yield
+        .col-xs-3.col-s-2
+          = yield :sidebar
