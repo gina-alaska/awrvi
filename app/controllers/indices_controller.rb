@@ -1,11 +1,12 @@
 class IndicesController < ApplicationController
   authorize_resource
+  before_action :set_community, only: [:index, :create, :new]
   before_action :set_index, only: [:show, :edit, :update, :destroy]
 
   # GET /indices
   # GET /indices.json
   def index
-    @indices = Index.all
+    @indices = @community.indices
   end
 
   # GET /indices/1
@@ -16,7 +17,7 @@ class IndicesController < ApplicationController
   # GET /indices/new
   def new
     category = Category.root
-    @index = Index.new awrvi_version: category
+    @index = @community.indices.build awrvi_version: category
   end
 
   # GET /indices/1/edit
@@ -26,7 +27,7 @@ class IndicesController < ApplicationController
   # POST /indices
   # POST /indices.json
   def create
-    @index = Index.new(index_params)
+    @index = @community.indices.new(index_params)
 
     respond_to do |format|
       if @index.save
@@ -58,7 +59,7 @@ class IndicesController < ApplicationController
   def destroy
     @index.destroy
     respond_to do |format|
-      format.html { redirect_to indices_url, notice: 'Index was successfully destroyed.' }
+      format.html { redirect_to community_url(@index.community), notice: 'Index was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -68,6 +69,10 @@ class IndicesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_index
     @index = Index.find(params[:id])
+  end
+
+  def set_community
+    @community = Community.friendly.find(params[:community_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

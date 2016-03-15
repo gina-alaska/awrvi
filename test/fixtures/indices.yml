@@ -7,6 +7,7 @@ one:
   rejected_reason: MyText
   awrvi_version: one
   user: one
+  community: one
 
 two:
   finalized_at: 2016-01-13 16:11:26
@@ -15,3 +16,4 @@ two:
   rejected_reason: MyText
   awrvi_version: one
   user: two
+  community: two

@@ -6,20 +6,20 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get indices_url
+    get community_indices_url(communities(:one))
     assert_response :success
   end
 
   test "should get new" do
     login_as(users(:one))
-    get new_index_url
+    get community_indices_url(communities(:one))
     assert_response :success
   end
 
   test "should create index" do
     login_as(users(:one))
     assert_difference('Index.count') do
-      post indices_url, params: {
+      post community_indices_url(communities(:one)), params: {
         index: {
           awrvi_index: @index.awrvi_index,
           finalized_at: @index.finalized_at,
@@ -75,6 +75,6 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
       delete index_url(@index)
     end
 
-    assert_redirected_to indices_path
+    assert_redirected_to community_path(@index.community)
   end
 end

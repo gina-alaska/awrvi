@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
-  resources :indices
   resources :choices, except: :destroy
   resources :categories, except: :destroy
-  resources :communities
+  resources :communities, shallow: true do
+    resources :indices
+  end
 
   namespace :manage do
     resources :users, except: [:new, :create] # These are handled by devise

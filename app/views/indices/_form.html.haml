@@ -1,4 +1,4 @@
-= simple_form_for(@index) do |f|
+= simple_form_for([@community,@index]) do |f|
   = f.error_notification
   %h2= @index.awrvi_version.name
 
