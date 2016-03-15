@@ -8,5 +8,5 @@ class Index < ApplicationRecord
 
   accepts_nested_attributes_for :index_category_choices
 
-  validate presence: :community_id
+  validates :community_id, presence: true
 end
