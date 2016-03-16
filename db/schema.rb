@@ -112,8 +112,8 @@ ActiveRecord::Schema.define(version: 20160314233211) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "user_admin",             default: false, null: false
-    t.boolean  "category_admin",         default: false, null: false
     t.string   "slug"
+    t.boolean  "category_admin",         default: false, null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
