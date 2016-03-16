@@ -7,4 +7,8 @@ class Community < ApplicationRecord
 
   validates :name, presence: true
   validates :slug, uniqueness: true
+
+  def to_s
+    name
+  end
 end

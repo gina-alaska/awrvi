@@ -1,4 +1,21 @@
 %p#notice= notice
+
+%h1= @community
+
+.container-fluid
+  .row
+    - @index.awrvi_version.children.each do |subindex|
+      .col-xs-5
+        .panel.panel-default
+          .panel-heading
+            %strong= subindex
+          .panel-body
+            - subindex.children.each do |indicator|
+              - percentage = indicator_percentage(@index, indicator)
+              %strong= indicator.short_name
+              .progress
+                .progress-bar{style: "width: #{percentage}%;", class: progress_bar_for_percentage(percentage)}
+
 %p
   %strong Awrvi index:
   = @index.awrvi_version
