@@ -6,7 +6,7 @@ class AbilityTest < ActiveSupport::TestCase
     ability = Ability.new(user)
     assert ability.can?(:read, users(:one)), 'User cannot read themself'
     assert ability.can?(:update, users(:one)), 'User cannot update themself'
-    assert ability.cannot?(:read, User.new), 'User can read other users'
+    assert ability.cannot?(:read, users(:two)), 'User can read other users'
   end
 
   def test_admins_can_manage_all_users
