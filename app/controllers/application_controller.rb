@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   check_authorization unless: :devise_controller?
 
-  rescue_from CanCan::AccessDenied do |exception|
+  rescue_from CanCan::AccessDenied do |_exception|
     if signed_in?
       flash[:error] = 'You do not have permission to view this page'
       redirect_to session[:referred_from_url] || request.referer || root_url
