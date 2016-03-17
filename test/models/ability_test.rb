@@ -36,7 +36,6 @@ class AbilityTest < ActiveSupport::TestCase
     user = users(:one)
     ability = Ability.new(user)
 
-    assert ability.can?(:manage, indices(:one)), "User cannot manage their index"
     assert ability.cannot?(:edit, indices(:two)), "User can edit index they don't own"
   end
 
