@@ -34,6 +34,10 @@ module ManageUserControllerTests
       @user = users(:one)
     end
 
+    teardown do
+      Warden.test_reset!
+    end    
+
     test "can't view other users" do
       get profile_url(@user)
       assert_redirected_to user_omniauth_authorize_path(:open_id, openid_url: 'https://id.gina.alaska.edu')
