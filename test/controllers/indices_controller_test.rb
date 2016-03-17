@@ -77,4 +77,10 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to community_path(@index.community)
   end
+
+  test "should get finalize" do
+    login_as(users(:one))
+    get finalize_index_url(@index)
+    assert_response :success
+  end
 end

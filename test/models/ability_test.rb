@@ -66,4 +66,11 @@ class AbilityTest < ActiveSupport::TestCase
 
     assert ability.cannot?(:destroy, indices(:two)), 'User can delete a finalized index'
   end
+
+  def test_only_user_can_finalize_index
+    user = users(:one)
+    ability = Ability.new(user)
+
+    assert ability.can?(:finalize, indices(:one)), 'User cannot finalize their index'
+  end
 end
