@@ -10,7 +10,7 @@ class Ability
 
     unless user.new_record?
       can :create, Index
-      can :manage, Index, user_id: user.id
+      can [:update, :destroy], Index, finalized_at: nil, user_id: user.id
     end
 
     can :read, Community
