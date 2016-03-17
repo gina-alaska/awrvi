@@ -17,10 +17,6 @@
           = link_to communities_path do
             %i.fa.fa-users
             Communities
-        %li
-          = link_to '#' do 
-            %i.fa.fa-info-circle
-            Indices
         -if can?(:manage, Category)
           %li
             = link_to categories_path do
