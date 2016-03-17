@@ -12,14 +12,24 @@
           .panel-body
             - subindex.children.each do |indicator|
               - percentage = indicator_percentage(@index, indicator)
-              %strong= indicator.short_name
+              %strong= indicator.short_name.upcase
               .progress
                 .progress-bar{style: "width: #{percentage}%;", class: progress_bar_for_percentage(percentage)}
+  .row
+    .col-xs-10
+      .panel.panel-default
+        .panel-heading
+          %strong= "Index Summary"
+        .panel-body
+          %strong= "Completeness: #{@index.completeness.to_i}%"
+          .progress
+            .progress-bar{style: "width: #{@index.completeness}%"}
+          %strong= "Vulnerability Index: #{@index.vulnerability_index}"
 
-%p
-  %strong Awrvi index:
-  = @index.awrvi_version
-
-%ul
-  - @index.awrvi_version.children.each do |category|
-    = render 'show_category', category: category, index: @index
+- content_for :sidebar do
+  - if can? [:edit, :manage], @index
+    %ul.list-group
+      %li.list-group-item.active Manage index
+      - if can? :edit, @index
+        %li.list-group-item
+          = link_to 'Edit', edit_index_path(@index)
