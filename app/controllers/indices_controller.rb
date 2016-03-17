@@ -5,7 +5,7 @@ class IndicesController < ApplicationController
   before_action :set_index, only: [:show, :edit, :update, :destroy]
 
   authorize_resource
-  
+
   # GET /indices
   # GET /indices.json
   def index
