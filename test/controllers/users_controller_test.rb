@@ -36,7 +36,7 @@ module ManageUserControllerTests
 
     teardown do
       Warden.test_reset!
-    end    
+    end
 
     test "can't view other users" do
       get profile_url(@user)
