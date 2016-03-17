@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ChoiceTest < ActiveSupport::TestCase
   setup do
-    @choice = choices(:low)
+    @choice = choices(:low_1)
   end
 
   test "no_destroy should return false" do
