@@ -2,7 +2,7 @@ class IndicesController < ApplicationController
   layout 'communities'
 
   before_action :set_community, only: [:index, :create, :new]
-  before_action :set_index, only: [:show, :edit, :update, :destroy]
+  before_action :set_index, only: [:show, :edit, :update, :destroy, :finalize]
 
   authorize_resource
 
@@ -65,6 +65,11 @@ class IndicesController < ApplicationController
       format.html { redirect_to community_url(@index.community), notice: 'Index was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def finalize
+    @index.finalized_at = DateTime.now()
+    @index.save
   end
 
   private
