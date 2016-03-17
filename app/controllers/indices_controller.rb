@@ -68,7 +68,7 @@ class IndicesController < ApplicationController
   end
 
   def finalize
-    @index.finalized_at = DateTime.now()
+    @index.finalized_at = DateTime.current
     @index.save
   end
 
