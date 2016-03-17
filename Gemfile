@@ -24,6 +24,7 @@ gem 'omniauth-openid'
 gem 'cancancan'
 gem 'rgeo'
 gem 'rgeo-geojson'
+gem 'rails_12factor', group: [:production, :development]
 
 group :development, :test do
   gem 'byebug'
