@@ -1,10 +1,11 @@
 class IndicesController < ApplicationController
   layout 'communities'
 
-  authorize_resource
   before_action :set_community, only: [:index, :create, :new]
   before_action :set_index, only: [:show, :edit, :update, :destroy]
 
+  authorize_resource
+  
   # GET /indices
   # GET /indices.json
   def index
