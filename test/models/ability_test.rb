@@ -39,4 +39,11 @@ class AbilityTest < ActiveSupport::TestCase
     assert ability.can?(:manage, indices(:one)), "User cannot manage their index"
     assert ability.cannot?(:edit, indices(:two)), "User can edit index they don't own"
   end
+
+  def test_only_update_unfinalized_indicies
+    user = users(:one)
+    ability = Ability.new(user)
+
+    assert ability.can?(:update, indices(:one)), 'User cannot update an unfinalized index'
+  end
 end

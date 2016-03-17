@@ -1,7 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  finalized_at: 2016-01-13 16:11:26
   awrvi_index: 9.99
   rejected_at: 2016-01-13 16:11:26
   rejected_reason: MyText
