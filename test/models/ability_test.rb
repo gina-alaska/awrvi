@@ -45,4 +45,25 @@ class AbilityTest < ActiveSupport::TestCase
 
     assert ability.can?(:update, indices(:one)), 'User cannot update an unfinalized index'
   end
+
+  def test_cannot_update_finalized_indicies
+    user = users(:one)
+    ability = Ability.new(user)
+
+    assert ability.cannot?(:update, indices(:two)), 'User can update a finalized index'
+  end
+
+  def test_only_delete_unfinalized_indicies
+    user = users(:one)
+    ability = Ability.new(user)
+
+    assert ability.can?(:destroy, indices(:one)), 'User cannot delete an unfinalized index'
+  end
+
+  def test_cannot_delete_finalized_indicies
+    user = users(:one)
+    ability = Ability.new(user)
+
+    assert ability.cannot?(:destroy, indices(:two)), 'User can delete a finalized index'
+  end
 end
