@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :choices, except: :destroy
   resources :categories, except: :destroy
   resources :communities, shallow: true do
-    resources :indices
+    resources :indices do
+      get :finalize, on: :member
+    end
   end
 
   namespace :manage do
