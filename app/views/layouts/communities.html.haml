@@ -9,9 +9,20 @@
   %body
     = render 'layouts/navbar'
     .container-fluid
+      = render 'layouts/flash_messages'
+      -# .row
+      -#   - if content_for? :sidebar
+      -#     .col-xs-9.col-sm-10
+      -#       = yield
+      -#     .col-xs-3.col-sm-2
+      -#       = yield :sidebar
+      -#   - else
+      -#     .col-xs-12
+      -#       = yield
+
       .row
-        = render 'layouts/flash_messages'
-        .col-xs-9.col-s-10
+        %div{class=main_column_css(content_for? :sidebar)}
           = yield
-        .col-xs-3.col-s-2
-          = yield :sidebar
+        - if content_for? :sidebar
+          .col-xs-3.col-sm-2
+            = yield :sidebar
