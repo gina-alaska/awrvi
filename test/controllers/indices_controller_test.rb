@@ -80,7 +80,7 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
 
   test "should get finalize" do
     login_as(users(:one))
-    get finalize_index_url(@index)
+    patch finalize_index_url(@index)
     assert_response :success
   end
 end

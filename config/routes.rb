@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :categories, except: :destroy
   resources :communities, shallow: true do
     resources :indices do
-      get :finalize, on: :member
+      patch :finalize, on: :member
     end
   end
 
