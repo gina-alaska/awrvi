@@ -14,3 +14,23 @@
  *= require_tree .
  *= require_self
  */
+
+.community-block {
+  min-height: 75px;
+  line-height: 33px;
+  vertical-align: middle;
+}
+
+.community-name {
+  font-family: arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.8em;
+  float: left;
+  margin-right: 10px;
+}
+
+.community-index {
+  font-family: arial, sans-serif;
+  font-size: 1.5em;
+  float: left;
+}
