@@ -10,19 +10,9 @@
     = render 'layouts/navbar'
     .container-fluid
       = render 'layouts/flash_messages'
-      -# .row
-      -#   - if content_for? :sidebar
-      -#     .col-xs-9.col-sm-10
-      -#       = yield
-      -#     .col-xs-3.col-sm-2
-      -#       = yield :sidebar
-      -#   - else
-      -#     .col-xs-12
-      -#       = yield
 
-      .row
-        %div{class=main_column_css(content_for? :sidebar)}
+      .community-row{ class: content_for?(:sidebar) ? 'with-sidebar' : 'no-sidebar' }
+        .community-body
           = yield
-        - if content_for? :sidebar
-          .col-xs-3.col-sm-2
-            = yield :sidebar
+        .community-sidebar
+          = yield :sidebar
