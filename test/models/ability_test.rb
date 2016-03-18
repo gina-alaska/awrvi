@@ -56,4 +56,12 @@ class AbilityTest < ActiveSupport::TestCase
     assert ability.can?(:manage, indices(:one)), "User cannot manage their index"
     assert ability.cannot?(:edit, indices(:two)), "User can edit index they don't own"
   end
+
+  def test_only_indicies_owner_can_delete
+    user = users(:one)
+    ability = Ability.new(user)
+
+    assert ability.can?(:destroy, indices(:unfinalized)), "User cannot destroy their unfinalized index"
+    assert ability.cannot?(:destroy, indices(:two)), "User can destroy an index they don't own"
+  end
 end
