@@ -13,7 +13,7 @@
       @extend .col-sm-2;
     }
   }
-  &.no-sidebar {
+  &.without-sidebar {
     .community-body {
       @extend .col-xs-12;
     }

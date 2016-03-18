@@ -11,7 +11,7 @@
     .container-fluid
       = render 'layouts/flash_messages'
 
-      .community-row{ class: content_for?(:sidebar) ? 'with-sidebar' : 'no-sidebar' }
+      .community-row{ class: sidebar_css(content_for?(:sidebar)) }
         .community-body
           = yield
         .community-sidebar
