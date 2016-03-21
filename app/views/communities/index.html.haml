@@ -6,7 +6,7 @@
 
   .panel-body
     - @communities.each do |community|
-      = render 'community', community: community
+      = render community
 
 - content_for :sidebar do
   = link_to new_community_path, class: 'btn btn-success btn-block' do
