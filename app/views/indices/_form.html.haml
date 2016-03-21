@@ -1,9 +1,22 @@
 = simple_form_for([@community,@index]) do |f|
   = f.error_notification
   %h2= @index.awrvi_version.name
+  .row
+    .col-xs-4.col-sm-3.col-m-2
+      %ul.nav.nav-pills.nav-stacked
+        - @index.awrvi_version.children.each do |subindex|
+          %li
+            = subindex.short_name
+          - subindex.children.each do |category|
+            %li.text-right
+              = link_to category.short_name, "##{dom_id(category)}", data: {toggle: 'tab'}
 
-  .form-inputs
-    = f.input :awrvi_version_id, as: :hidden
-    = render partial: 'category', collection: @index.awrvi_version.children, locals: {f: f}
-  .form-actions
-    = f.submit 'Create Index'
+      = f.submit 'Create Index', class: 'btn btn-default btn-block'
+
+    .col-xs-8.col-sm-9.col-m-10
+      .form-inputs
+        = f.input :awrvi_version_id, as: :hidden
+        .tab-content
+          - @index.awrvi_version.find_all_by_generation(2).each do |category|
+            .tab-pane{id: dom_id(category)}
+              = render partial: 'category', collection: category.children, locals: {f: f}
