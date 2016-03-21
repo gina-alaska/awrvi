@@ -24,6 +24,7 @@ gem 'omniauth-openid'
 gem 'cancancan'
 gem 'rgeo'
 gem 'rgeo-geojson'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug'
