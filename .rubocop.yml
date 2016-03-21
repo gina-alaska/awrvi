@@ -44,3 +44,6 @@ Style/TrailingWhitespace:
 # Method length
 Metrics/MethodLength:
   Max: 25
+
+Metrics/AbcSize:
+  Max: 40
