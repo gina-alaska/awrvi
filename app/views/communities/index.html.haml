@@ -7,7 +7,13 @@
 .community-list.row-fluid.text-center
   - @communities.each do |community|
     .community-item.col-xs-12.col-sm-6.col-lg-4
-      = render community
+      .panel.panel-default
+        .panel-body
+          = render community
+          .community-actions
+            = link_to community, class: 'btn btn-default btn-block' do
+              View community
+              %i.fa.fa-arrow-right
 
 - content_for :sidebar do
   = link_to new_community_path, class: 'btn btn-success btn-block' do
