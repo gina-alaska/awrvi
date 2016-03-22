@@ -8,11 +8,14 @@
       .col-xs-5
         .panel.panel-default
           .panel-heading
-            %strong= subindex
+            - subindex_value = indicator_value(@index, subindex).round(3)
+            %strong= "#{subindex} - #{subindex_value}"
           .panel-body
             - subindex.children.each do |indicator|
-              - percentage = indicator_percentage(@index, indicator)
-              %strong= indicator.short_name.upcase
+              - value = indicator_value(@index, indicator)
+              - percentage = value * 100
+              %strong
+                = "#{indicator.short_name.upcase} - #{value.round(3)}"
               .progress
                 .progress-bar{style: "width: #{percentage}%;", class: progress_bar_for_percentage(percentage)}
   .row
@@ -24,7 +27,7 @@
           %strong= "Completeness: #{@index.completeness.to_i}%"
           .progress
             .progress-bar{style: "width: #{@index.completeness}%"}
-          %strong= "Vulnerability Index: #{@index.vulnerability_index}"
+          %strong= "Vulnerability Index: #{@index.vulnerability_index.round(3)}"
 
 - content_for :sidebar do
   - if can? [:edit, :manage], @index
