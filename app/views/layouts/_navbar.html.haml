@@ -22,10 +22,11 @@
             = link_to categories_path do
               %i.fa.fa-sitemap
               Categories
-        %li
-          = link_to choices_path do
-            %i.fa.fa-sliders
-            Choices
+        -if can?(:manage, Choice)
+          %li
+            = link_to choices_path do 
+              %i.fa.fa-sliders
+              Choices
         - if user_signed_in?
           - if current_user.user_admin?
             %li.dropdown
