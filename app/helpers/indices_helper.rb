@@ -1,8 +1,7 @@
 module IndicesHelper
-  def indicator_percentage(index, indicator)
+  def indicator_value(index, indicator)
     leaves = indicator.leaves.pluck(:id)
-    percentage = index.choices.where(category: leaves).sum(:index) / leaves.count
-    percentage * 100
+    index.choices.where(category: leaves).sum(:index) / leaves.count
   end
 
   def progress_bar_for_percentage(percentage)
