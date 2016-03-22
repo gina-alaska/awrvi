@@ -10,16 +10,14 @@ class CommunitiesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should get new' do
-    assert_raises CanCan::AccessDenied do
-      get new_community_url
-    end
+  test 'should not get new' do
+    get new_community_url
+    assert_redirected_to user_omniauth_authorize_path(:open_id, openid_url: 'https://id.gina.alaska.edu')
   end
 
-  test 'should create community' do
-    assert_raises CanCan::AccessDenied do
-      post communities_url, params: { community: { census_id: @community.census_id, gnis_id: @community.gnis_id, location: @community.location, name: @community.name } }
-    end
+  test 'should not create community' do
+    post communities_url, params: { community: { census_id: @community.census_id, gnis_id: @community.gnis_id, location: @community.location, name: @community.name } }
+    assert_redirected_to user_omniauth_authorize_path(:open_id, openid_url: 'https://id.gina.alaska.edu')
   end
 
   test 'should show community' do
@@ -27,22 +25,19 @@ class CommunitiesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should get edit' do
-    assert_raises CanCan::AccessDenied do
-      get edit_community_url(@community)
-    end
+  test 'should not get edit' do
+    get edit_community_url(@community)
+    assert_redirected_to user_omniauth_authorize_path(:open_id, openid_url: 'https://id.gina.alaska.edu')
   end
 
-  test 'should update community' do
-    assert_raises CanCan::AccessDenied do
-      patch community_url(@community), params: { community: { census_id: @community.census_id, gnis_id: @community.gnis_id, location: @community.location, name: @community.name } }
-    end
+  test 'should not update community' do
+    patch community_url(@community), params: { community: { census_id: @community.census_id, gnis_id: @community.gnis_id, location: @community.location, name: @community.name } }
+    assert_redirected_to user_omniauth_authorize_path(:open_id, openid_url: 'https://id.gina.alaska.edu')
   end
 
-  test 'should destroy community' do
-    assert_raises CanCan::AccessDenied do
-      delete community_url(@community)
-    end
+  test 'should not destroy community' do
+    delete community_url(@community)
+    assert_redirected_to user_omniauth_authorize_path(:open_id, openid_url: 'https://id.gina.alaska.edu')
   end
 
   test 'Search for one community' do
