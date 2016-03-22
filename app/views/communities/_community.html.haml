@@ -1,12 +1,8 @@
-.well.community-block
-  .pull-right
-    = link_to community_url(community), class: 'btn btn-default' do
-      Show
-
-  .community-name
-    = community.name
-  .community-index
+.panel.panel-default
+  .panel-heading
+    %h1.panel-title= community.name
+  .panel-body
     - if community.indices.count > 0
       = community.indices.first.awrvi_index.to_f
     - else
-      No Index Defined
+      No index available

@@ -1,11 +1,12 @@
-%h1 Communities
-
 .panel.panel-default
   .panel-heading
-    = render 'search'
+    %h1.panel-title Communities
 
   .panel-body
-    - @communities.each do |community|
+    = render 'search'
+.community-list.row-fluid.text-center
+  - @communities.each do |community|
+    .community-item.col-xs-12.col-sm-6.col-lg-4
       = render community
 
 - content_for :sidebar do
