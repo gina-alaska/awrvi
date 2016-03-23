@@ -2,7 +2,7 @@
 = simple_form_for([@community,@index], html: { class: 'vulnerability-index-form'}) do |f|
   .panel.panel-default
     .panel-heading
-      %h1.panel-title= @index.awrvi_version.name
+      %h1.panel-title= "#{@community.name} - #{@index.awrvi_version.name}"
     .panel-body{ style: 'padding: 0px;' }
       = f.error_notification
       .form-sidebar
