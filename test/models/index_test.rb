@@ -19,7 +19,7 @@ class IndexTest < ActiveSupport::TestCase
   def test_vulnerability_index
     {
       incomplete: 0.0,
-      partial_complete: 0.5,
+      partial_complete: 0.25,
       complete: 0.5
     }.each do |name, expected|
       index = indices(name)
