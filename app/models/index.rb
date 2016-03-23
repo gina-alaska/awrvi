@@ -11,6 +11,10 @@ class Index < ApplicationRecord
   validates :community_id, presence: true
 
   def completeness
+    "#{choices.count} / #{awrvi_version.leaves.count}"
+  end
+
+  def completeness_percentage
     (choices.count.to_f / awrvi_version.leaves.count) * 100
   end
 
