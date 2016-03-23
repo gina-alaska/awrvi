@@ -1,3 +1,4 @@
+- first_category = nil
 = simple_form_for([@community,@index], html: { class: 'vulnerability-index-form'}) do |f|
   .panel.panel-default
     .panel-heading
@@ -9,13 +10,14 @@
           - @index.awrvi_version.children.each do |subindex|
             %li.heading= subindex.short_name
             - subindex.children.each do |category|
-              %li= link_to category.short_name, "##{dom_id(category)}", data: {toggle: 'pill'}
+              - first_category ||= category
+              %li{ class: first_category == category ? 'active' : '' }= link_to category.short_name, "##{dom_id(category)}", data: {toggle: 'pill'}
 
       .form-inputs
         = f.input :awrvi_version_id, as: :hidden
         .tab-content
           - @index.awrvi_version.find_all_by_generation(2).each do |category|
-            .tab-pane{id: dom_id(category)}
+            .tab-pane{id: dom_id(category), class: category == first_category ? 'active' : '' }
               = render partial: 'category', collection: category.children, locals: {f: f}
     .panel-footer.text-right
       = f.submit 'Create Index', class: 'btn btn-primary'
