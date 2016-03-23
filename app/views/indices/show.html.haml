@@ -28,7 +28,9 @@
           .progress
             .progress-bar{style: "width: #{@index.completeness}%"}
           %strong= "Vulnerability Index: #{@index.vulnerability_index.round(3)}"
-
+          .progress
+            - percentage = @index.vulnerability_index * 100
+            .progress-bar{style: "width: #{percentage}%", class: progress_bar_for_percentage(percentage)}
 - content_for :sidebar do
   - if can? [:edit, :manage], @index
     %ul.list-group
