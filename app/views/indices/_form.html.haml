@@ -1,23 +1,23 @@
-= simple_form_for([@community,@index]) do |f|
-  = f.error_notification
+- first_category = nil
+= simple_form_for([@community,@index], html: { class: 'vulnerability-index-form'}) do |f|
   .panel.panel-default
     .panel-heading
       %h1.panel-title= @index.awrvi_version.name
-    .panel-body
-      .row
-        .col-xs-4.col-sm-3.col-m-2
-          %ul.nav.nav-pills.nav-stacked
-            - @index.awrvi_version.children.each do |subindex|
-              %li.heading= subindex.short_name
-              - subindex.children.each do |category|
-                %li= link_to category.short_name, "##{dom_id(category)}", data: {toggle: 'pill'}
+    .panel-body{ style: 'padding: 0px;' }
+      = f.error_notification
+      .form-sidebar
+        %ul.nav.nav-pills.nav-stacked
+          - @index.awrvi_version.children.each do |subindex|
+            %li.heading= subindex.short_name
+            - subindex.children.each do |category|
+              - first_category ||= category
+              %li{ class: first_category == category ? 'active' : '' }= link_to category.short_name, "##{dom_id(category)}", data: {toggle: 'pill'}
 
-        .col-xs-8.col-sm-9.col-m-10
-          .form-inputs
-            = f.input :awrvi_version_id, as: :hidden
-            .tab-content
-              - @index.awrvi_version.find_all_by_generation(2).each do |category|
-                .tab-pane{id: dom_id(category)}
-                  = render partial: 'category', collection: category.children, locals: {f: f}
+      .form-inputs
+        = f.input :awrvi_version_id, as: :hidden
+        .tab-content
+          - @index.awrvi_version.find_all_by_generation(2).each do |category|
+            .tab-pane{id: dom_id(category), class: category == first_category ? 'active' : '' }
+              = render partial: 'category', collection: category.children, locals: {f: f}
     .panel-footer.text-right
       = f.submit 'Create Index', class: 'btn btn-primary'
