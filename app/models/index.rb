@@ -15,7 +15,8 @@ class Index < ApplicationRecord
   end
 
   def vulnerability_index
+    return 0.0 if awrvi_version.leaves.count == 0
     return 0.0 if choices.count == 0
-    choices.sum(:index) / choices.count
+    choices.sum(:index) / awrvi_version.leaves.count
   end
 end
