@@ -8,26 +8,26 @@
       .col-xs-5
         .panel.panel-default
           .panel-heading
-            - subindex_value = indicator_value(@index, subindex).round(3)
+            - subindex_value = indicator_value(@index, subindex).round(2)
             %strong= "#{subindex} - #{subindex_value}"
           .panel-body
             - subindex.children.each do |indicator|
               - value = indicator_value(@index, indicator)
               - percentage = value * 100
               %strong
-                = "#{indicator.short_name.upcase} - #{value.round(3)}"
+                = "#{indicator.short_name.upcase} - #{value.round(2)}"
               .progress
                 .progress-bar{style: "width: #{percentage}%;", class: progress_bar_for_percentage(percentage)}
   .row
     .col-xs-10
       .panel.panel-default
         .panel-heading
-          %strong= "Index Summary"
+          %strong= "AWRVI Index Summary"
         .panel-body
-          %strong= "Completeness: #{@index.completeness.to_i}%"
+          %strong= "Completeness: #{@index.completeness}"
           .progress
-            .progress-bar{style: "width: #{@index.completeness}%"}
-          %strong= "Vulnerability Index: #{@index.vulnerability_index.round(3)}"
+            .progress-bar{style: "width: #{@index.completeness_percentage}%"}
+          %strong= "AWRVI Vulnerability Index: #{@index.vulnerability_index.round(2)}"
           .progress
             - percentage = @index.vulnerability_index * 100
             .progress-bar{style: "width: #{percentage}%", class: progress_bar_for_percentage(percentage)}
