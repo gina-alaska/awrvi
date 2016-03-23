@@ -9,13 +9,13 @@
         .panel.panel-default
           .panel-heading
             - subindex_value = indicator_value(@index, subindex)
-            %strong= "#{subindex} - #{number_with_precision(subindex_value, precision: 2)}"
+            %strong= "#{subindex}: #{number_with_precision(subindex_value, precision: 2)}"
           .panel-body
             - subindex.children.each do |indicator|
               - value = indicator_value(@index, indicator)
               - percentage = value * 100
               %strong
-                = "#{indicator.short_name.upcase} - #{number_with_precision(value, precision: 2)}"
+                = "#{indicator.short_name.upcase}: #{number_with_precision(value, precision: 2)}"
               .progress
                 .progress-bar{style: "width: #{percentage}%;", class: progress_bar_for_percentage(percentage)}
   .row
