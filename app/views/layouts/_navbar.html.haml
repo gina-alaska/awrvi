@@ -24,7 +24,7 @@
               Categories
         -if can?(:manage, Choice)
           %li
-            = link_to choices_path do 
+            = link_to choices_path do
               %i.fa.fa-sliders
               Choices
         - if user_signed_in?
@@ -44,4 +44,4 @@
               Sign In
               %span.caret
             %ul.dropdown-menu
-              %li= link_to 'GINA::ID', user_omniauth_authorize_path(:open_id, openid_url: 'https://id.gina.alaska.edu')
+              %li= link_to 'GINA::ID', user_omniauth_authorize_path(:gina_id)

@@ -3,7 +3,7 @@ module UserDevise
 
   module ClassMethods
     def omniauth_providers
-      providers = [:open_id]
+      providers = [:gina_id]
       providers << :developer unless Rails.env.production?
 
       providers
@@ -29,7 +29,7 @@ module UserDevise
   end
 
   included do
-    devise :database_authenticatable, :registerable, :recoverable, :rememberable,
+    devise :database_authenticatable, :recoverable, :rememberable,
            :trackable, :validatable, :omniauthable,
            omniauth_providers: omniauth_providers
   end
