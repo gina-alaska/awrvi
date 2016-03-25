@@ -29,7 +29,7 @@ module UserDevise
   end
 
   included do
-    devise :database_authenticatable, :recoverable, :rememberable,
+    devise :database_authenticatable, :rememberable,
            :trackable, :validatable, :omniauthable,
            omniauth_providers: omniauth_providers
   end
