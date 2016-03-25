@@ -79,38 +79,40 @@ module AbilityTests
     end
   end
 
-  def test_only_update_unfinalized_indicies
-    user = users(:one)
-    ability = Ability.new(user)
+  class IndiciesFinalizeTest < ActiveSupport::TestCase
+    def test_only_update_unfinalized_indicies
+      user = users(:one)
+      ability = Ability.new(user)
 
-    assert ability.can?(:update, indices(:one)), 'User cannot update an unfinalized index'
-  end
+      assert ability.can?(:update, indices(:one)), 'User cannot update an unfinalized index'
+    end
 
-  def test_cannot_update_finalized_indicies
-    user = users(:one)
-    ability = Ability.new(user)
+    def test_cannot_update_finalized_indicies
+      user = users(:one)
+      ability = Ability.new(user)
 
-    assert ability.cannot?(:update, indices(:two)), 'User can update a finalized index'
-  end
+      assert ability.cannot?(:update, indices(:two)), 'User can update a finalized index'
+    end
 
-  def test_only_delete_unfinalized_indicies
-    user = users(:one)
-    ability = Ability.new(user)
+    def test_only_delete_unfinalized_indicies
+      user = users(:one)
+      ability = Ability.new(user)
 
-    assert ability.can?(:destroy, indices(:one)), 'User cannot delete an unfinalized index'
-  end
+      assert ability.can?(:destroy, indices(:one)), 'User cannot delete an unfinalized index'
+    end
 
-  def test_cannot_delete_finalized_indicies
-    user = users(:one)
-    ability = Ability.new(user)
+    def test_cannot_delete_finalized_indicies
+      user = users(:one)
+      ability = Ability.new(user)
 
-    assert ability.cannot?(:destroy, indices(:two)), 'User can delete a finalized index'
-  end
+      assert ability.cannot?(:destroy, indices(:two)), 'User can delete a finalized index'
+    end
 
-  def test_only_user_can_finalize_index
-    user = users(:one)
-    ability = Ability.new(user)
+    def test_only_user_can_finalize_index
+      user = users(:one)
+      ability = Ability.new(user)
 
-    assert ability.can?(:finalize, indices(:one)), 'User cannot finalize their index'
+      assert ability.can?(:finalize, indices(:one)), 'User cannot finalize their index'
+    end
   end
 end
