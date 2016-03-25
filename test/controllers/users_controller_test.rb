@@ -40,7 +40,7 @@ module ManageUserControllerTests
 
     test "can't view other users" do
       get profile_url(@user)
-      assert_redirected_to user_omniauth_authorize_path(:open_id, openid_url: 'https://id.gina.alaska.edu')
+      assert_redirected_to new_user_session_path
     end
 
     test 'users can view themsleves' do
@@ -51,7 +51,7 @@ module ManageUserControllerTests
 
     test "can't edit other users" do
       get edit_manage_user_url(@user)
-      assert_redirected_to user_omniauth_authorize_path(:open_id, openid_url: 'https://id.gina.alaska.edu')
+      assert_redirected_to new_user_session_path
     end
 
     test 'can edit themselves' do
@@ -62,12 +62,12 @@ module ManageUserControllerTests
 
     test "should not update user" do
       patch manage_user_url(@user), params: { user: { user_admin: true } }
-      assert_redirected_to user_omniauth_authorize_path(:open_id, openid_url: 'https://id.gina.alaska.edu')
+      assert_redirected_to new_user_session_path
     end
 
     test "should not destroy user" do
       delete manage_user_url(@user)
-      assert_redirected_to user_omniauth_authorize_path(:open_id, openid_url: 'https://id.gina.alaska.edu')
+      assert_redirected_to new_user_session_path
     end
   end
 end
