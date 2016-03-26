@@ -31,8 +31,8 @@ class IndicesController < ApplicationController
   # POST /indices
   # POST /indices.json
   def create
-    @index = @community.indices.new(index_params)
-
+    @index = @community.indices.build(index_params)
+    
     respond_to do |format|
       if @index.save
         format.html { redirect_to @index, notice: 'Index was successfully created.' }
