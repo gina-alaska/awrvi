@@ -1,5 +1,3 @@
-%p#notice= notice
-
 %h1= @community
 
 .container-fluid
@@ -32,9 +30,12 @@
             - percentage = @index.vulnerability_index * 100
             .progress-bar{style: "width: #{percentage}%", class: progress_bar_for_percentage(percentage)}
 - content_for :sidebar do
-  - if can? [:edit, :manage], @index
+  - if can?([:update, :destroy], @index)
     %ul.list-group
       %li.list-group-item.active Manage index
-      - if can? :edit, @index
+      - if can? :update, @index
         %li.list-group-item
           = link_to 'Edit', edit_index_path(@index)
+      - if can? :destroy, @index
+        %li.list-group-item
+          = link_to 'Delete', index_path(@index), method: :delete, data: { confirm: 'Are you sure?' }
