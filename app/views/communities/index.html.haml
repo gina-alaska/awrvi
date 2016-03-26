@@ -1,25 +1,19 @@
-%h1 Communities
-
 .panel.panel-default
   .panel-heading
-    = render 'search'
+    %h1.panel-title Communities
 
-  %table.table.table-striped.table-hover
-    %thead
-      %tr
-        %th Name
-        %th Gnis
-        %th Location
-        %th{:colspan => "3"} Actions
-    %tbody
-      - @communities.each do |community|
-        %tr
-          %td= community.name
-          %td= community.gnis_id
-          %td= community.location
-          %td= link_to 'Show', community
-          %td= link_to 'Edit', edit_community_path(community)
-          %td= link_to 'Destroy', community, method: :delete, data: { confirm: 'Are you sure?' }
+  .panel-body
+    = render 'search'
+.community-list.row-fluid.text-center
+  - @communities.each do |community|
+    .community-item.col-xs-12.col-sm-6.col-lg-4
+      .panel.panel-default
+        .panel-body
+          = render community
+          .community-actions
+            = link_to community, class: 'btn btn-default btn-block' do
+              View community
+              %i.fa.fa-arrow-right
 
 - if can? :create, Community
   - content_for :sidebar do
