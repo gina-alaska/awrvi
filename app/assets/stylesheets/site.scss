@@ -1,0 +1,21 @@
+@import 'theme';
+
+.community-row {
+  @extend .row;
+
+  &.with-sidebar {
+    .community-body {
+      @extend .col-xs-9;
+      @extend .col-sm-10;
+    }
+    .community-sidebar {
+      @extend .col-xs-3;
+      @extend .col-sm-2;
+    }
+  }
+  &.without-sidebar {
+    .community-body {
+      @extend .col-xs-12;
+    }
+  }
+}

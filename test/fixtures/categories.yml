@@ -1,12 +1,34 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+root:
   position: 1
   name: RootCategory
   short_name: Root
 
-two:
-  parent: one
+subindex_0:
+  parent: root
+  position: 1
+  name: subindex_0
+  short_name: S0
+
+subindex_1:
+  parent: root
   position: 2
-  name: LeafCategory
-  short_name: Leaf
+  name: subindex_1
+  short_name: S0
+
+<% 0.upto(3).each do |category| %>
+category_<%=category%>:
+  parent: subindex_<%= category % 2 %>
+  position: <%= category %>
+  name: category_<%= category %>
+  short_name: C<%= category %>
+<% end %>
+
+<% 0.upto(7).each do |leaf| %>
+leaf_<%= leaf %>:
+  parent: category_<%= leaf % 4 %>
+  position: <%= leaf %>
+  name: leaf_<%= leaf %>
+  short_name: L<%= leaf %>
+<% end %>

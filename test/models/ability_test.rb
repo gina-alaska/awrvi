@@ -36,10 +36,10 @@ module AbilityTests
       user = users(:category_admin)
       ability = Ability.new(user)
 
-      assert ability.can?(:create, choices(:low)), "Category admin cannot create choices"
-      assert ability.can?(:read, choices(:low)), "Category admin cannot read choices"
-      assert ability.can?(:update, choices(:low)), "Category admin cannot update choices"
-      assert ability.can?(:destroy, choices(:low)), "Category admin cannot destroy choices"
+      assert ability.can?(:create, choices(:low_1)), "Category admin cannot create choices"
+      assert ability.can?(:read, choices(:low_1)), "Category admin cannot read choices"
+      assert ability.can?(:update, choices(:low_1)), "Category admin cannot update choices"
+      assert ability.can?(:destroy, choices(:low_1)), "Category admin cannot destroy choices"
     end
   end
 

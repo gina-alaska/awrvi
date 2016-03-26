@@ -1,16 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-low:
-  category: two
+<% 0.upto(15).each do |category| %>
+low_<%=category%>:
+  category: leaf_<%= category %>
   index: 0.0
   description: low
 
-med:
-  category: two
+med_<%=category%>:
+  category: leaf_<%= category %>
   index: 0.50
   description: med
-  
-high:
-  category: two
+
+high_<%=category%>:
+  category: leaf_<%= category %>
   index: 1.0
   description: high
+<% end %>

@@ -9,9 +9,10 @@
   %body
     = render 'layouts/navbar'
     .container-fluid
-      .row
-        = render 'layouts/flash_messages'
-        .col-xs-9.col-s-10
+      = render 'layouts/flash_messages'
+      
+      .community-row{ class: sidebar_css(content_for?(:sidebar)) }
+        .community-body
           = yield
-        .col-xs-3.col-s-2
+        .community-sidebar
           = yield :sidebar

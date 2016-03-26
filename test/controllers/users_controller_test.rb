@@ -34,10 +34,13 @@ module ManageUserControllerTests
       @user = users(:one)
     end
 
+    teardown do
+      Warden.test_reset!
+    end
+
     test "can't view other users" do
-      assert_raises CanCan::AccessDenied do
-        get profile_url(@user)
-      end
+      get profile_url(@user)
+      assert_redirected_to user_omniauth_authorize_path(:open_id, openid_url: 'https://id.gina.alaska.edu')
     end
 
     test 'users can view themsleves' do
@@ -47,9 +50,8 @@ module ManageUserControllerTests
     end
 
     test "can't edit other users" do
-      assert_raises CanCan::AccessDenied do
-        get edit_manage_user_url(@user)
-      end
+      get edit_manage_user_url(@user)
+      assert_redirected_to user_omniauth_authorize_path(:open_id, openid_url: 'https://id.gina.alaska.edu')
     end
 
     test 'can edit themselves' do
@@ -59,15 +61,13 @@ module ManageUserControllerTests
     end
 
     test "should not update user" do
-      assert_raises CanCan::AccessDenied do
-        patch manage_user_url(@user), params: { user: { user_admin: true } }
-      end
+      patch manage_user_url(@user), params: { user: { user_admin: true } }
+      assert_redirected_to user_omniauth_authorize_path(:open_id, openid_url: 'https://id.gina.alaska.edu')
     end
 
     test "should not destroy user" do
-      assert_raises CanCan::AccessDenied do
-        delete manage_user_url(@user)
-      end
+      delete manage_user_url(@user)
+      assert_redirected_to user_omniauth_authorize_path(:open_id, openid_url: 'https://id.gina.alaska.edu')
     end
   end
 end

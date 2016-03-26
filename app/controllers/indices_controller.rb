@@ -15,6 +15,7 @@ class IndicesController < ApplicationController
   # GET /indices/1
   # GET /indices/1.json
   def show
+    @community = @index.community
   end
 
   # GET /indices/new
