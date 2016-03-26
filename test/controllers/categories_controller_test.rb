@@ -3,7 +3,7 @@ require 'test_helper'
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
     Category.rebuild!
-    @category = categories(:one)
+    @category = categories(:root)
     login_as(users(:category_admin))
   end
 

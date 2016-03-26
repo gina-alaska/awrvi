@@ -2,7 +2,8 @@ require 'test_helper'
 
 class IndicesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @index = indices(:one)
+    Category.rebuild!
+    @index = indices(:complete)
   end
 
   test "should get index" do
@@ -28,8 +29,8 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
           awrvi_version_id: @index.awrvi_version.id,
           index_category_choices_attributes: {
             "0": {
-              category: categories(:one),
-              choice: categories(:one).choices.first
+              category: categories(:leaf_1),
+              choice: categories(:leaf_1).choices.first
             }
           }
         }
@@ -60,8 +61,8 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
         rejected_reason: @index.rejected_reason,
         index_category_choices_attributes: {
           "0": {
-            category: categories(:one),
-            choice: categories(:one).choices.first
+            category: categories(:leaf_1),
+            choice: categories(:leaf_1).choices.first
           }
         }
       }
