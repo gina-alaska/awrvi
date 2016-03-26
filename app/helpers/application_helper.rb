@@ -15,4 +15,21 @@ module ApplicationHelper
 
     icc.first || index.index_category_choices.build(category: category)
   end
+
+  def devise_resource_name
+    :user
+  end
+
+  def devise_resource
+    @resource ||= User.new
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
+
+  # Proxy to devise map class
+  def devise_resource_class
+    devise_mapping.to
+  end
 end

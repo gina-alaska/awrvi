@@ -2,15 +2,16 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   skip_before_action :verify_authenticity_token
   skip_authorization_check
 
-  def open_id
+  def gina_id
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
     if @user.persisted?
       sign_in_and_redirect @user, event: :authentication
-      set_flash_message(:notice, :success, kind: "OpenID")
+      set_flash_message(:notice, :success, kind: "GINA::ID")
     else
-      session['devise.open_id_data'] = request.env['omniauth.auth']
-      redirect_to new_user_registration_url
+      flash[:error] = "Unable to create account, #{@user.errors.full_messages.join(', ')} login using GINA::ID"
+      # session['devise.open_id_data'] = request.env['omniauth.auth']
+      redirect_to new_user_session_url
     end
   end
 

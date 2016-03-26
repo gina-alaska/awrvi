@@ -4,17 +4,20 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   check_authorization unless: :devise_controller?
 
-  rescue_from CanCan::AccessDenied do |_exception|
+  rescue_from CanCan::AccessDenied, with: :handle_permission_denied
+
+  protected
+
+  def handle_permission_denied(_exception)
     if signed_in?
       flash[:error] = 'You do not have permission to view this page'
       redirect_to session[:referred_from_url] || request.referer || root_url
     else
+      flash[:notice] = 'Please login to perform the reqeuested action'
       save_current_location
-      redirect_to user_omniauth_authorize_path(:open_id, openid_url: 'https://id.gina.alaska.edu')
+      redirect_to new_user_session_path
     end
   end
-
-  protected
 
   def save_current_location
     session[:referred_from_url] = request.referer
