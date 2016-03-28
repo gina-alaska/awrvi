@@ -1,0 +1,17 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+.partner-logo {
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  height: 100px;;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  img { max-height: 100%; }
+}
