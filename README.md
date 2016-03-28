@@ -20,6 +20,9 @@ integration tests
 
 * Run `rake dev:setup`  to install phantomjs.
 
+Generate development data
+
+* Run `rake dev:prime`
 
 ## Contributing
 
