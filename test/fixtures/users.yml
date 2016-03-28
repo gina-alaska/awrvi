@@ -46,12 +46,12 @@ category_admin:
   category_admin: true
   user_admin: false
 
-admin:
+user_admin:
   name: "Admin"
   email: 'admin@example.com'
   slug: admin-user
   encrypted_password: 'garbage'
-  reset_password_token: 'admin_token'
+  reset_password_token: 'user_admin_token'
   reset_password_sent_at:
   remember_created_at:
   current_sign_in_at:
