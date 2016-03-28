@@ -18,11 +18,11 @@ Now you are able to run your rake tasks to set up the database for development.
 An additional rake task has been provided for installing phantomjs, which is used in
 integration tests
 
-* Run `rake dev:setup`  to install phantomjs.
+* Run `rails dev:setup`  to install phantomjs.
 
 Generate development data
 
-* Run `rake dev:prime`
+* Run `rails dev:prime`
 
 ## Contributing
 
