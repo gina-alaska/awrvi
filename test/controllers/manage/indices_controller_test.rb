@@ -16,7 +16,7 @@ class Manage::IndicesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should hide index" do
-    patch manage_index_url(@index), params: { index: { hidden: true, hidden_reason: "Test" } }
+    patch manage_index_url(@index), params: { index: { hidden_reason: "Test" } }
     assert_redirected_to index_path(@index)
   end
 end
