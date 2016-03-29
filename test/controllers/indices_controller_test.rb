@@ -3,8 +3,7 @@ require 'test_helper'
 class IndicesControllerTest < ActionDispatch::IntegrationTest
   setup do
     Category.rebuild!
-    @index = indices(:complete)
-    @unfinalized = indices(:unfinalized)
+    @index = indices(:incomplete)
   end
 
   test "should get index" do
@@ -24,9 +23,6 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
       post community_indices_url(communities(:one)), params: {
         index: {
           awrvi_index: @index.awrvi_index,
-          finalized_at: @index.finalized_at,
-          rejected_at: @index.rejected_at,
-          rejected_reason: @index.rejected_reason,
           awrvi_version_id: @index.awrvi_version.id,
           index_category_choices_attributes: {
             "0": {
@@ -47,16 +43,16 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit" do
-    login_as(users(:one))
-    get edit_index_url(@unfinalized)
+    login_as(users(:two))
+    get edit_index_url(@index)
     assert_response :success
   end
 
   test "should update index" do
-    login_as(users(:one))
-    patch index_url(@unfinalized), params: {
+    login_as(users(:two))
+    patch index_url(@index), params: {
       index: {
-        awrvi_index: @unfinalized.awrvi_index,
+        awrvi_index: @index.awrvi_index,
         index_category_choices_attributes: {
           "0": {
             category: categories(:leaf_1),
@@ -65,21 +61,21 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
         }
       }
     }
-    assert_redirected_to index_path(@unfinalized)
+    assert_redirected_to index_path(@index)
   end
 
   test "should destroy index" do
-    login_as(users(:one))
+    login_as(users(:two))
     assert_difference('Index.count', -1) do
-      delete index_url(@unfinalized)
+      delete index_url(@index)
     end
 
-    assert_redirected_to community_path(@unfinalized.community)
+    assert_redirected_to community_path(@index.community)
   end
 
   test "should get finalize" do
-    login_as(users(:one))
-    patch finalize_index_url(@unfinalized)
-    assert_redirected_to index_path(@unfinalized)
+    login_as(users(:two))
+    patch finalize_index_url(@index)
+    assert_redirected_to index_path(@index)
   end
 end

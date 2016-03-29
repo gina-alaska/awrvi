@@ -59,16 +59,16 @@ module AbilityTests
       ability = Ability.new(user)
 
       assert ability.can?(:create, Index.new(user: user)), "Logged in user cannot create index"
-      assert ability.can?(:read, indices(:one)), "Logged in user cannot read index"
+      assert ability.can?(:read, indices(:complete)), "Logged in user cannot read index"
       assert ability.cannot?(:create, Index.new(user: users(:two))), "Logged in user could create index as another user"
     end
 
     def test_user_owned_indices_permission
-      user = users(:one)
+      user = users(:two)
       ability = Ability.new(user)
 
-      assert ability.can?(:update, indices(:one)), "Owner cannot update Index"
-      assert ability.can?(:destroy, indices(:one)), "Owner cannot destroy Index"
+      assert ability.can?(:update, indices(:incomplete)), "Owner cannot update Index"
+      assert ability.can?(:destroy, indices(:incomplete)), "Owner cannot destroy Index"
     end
 
     def test_user_not_owned_indices_permission
@@ -82,10 +82,10 @@ module AbilityTests
 
   class IndiciesFinalizeTest < ActiveSupport::TestCase
     def test_only_update_unfinalized_indicies
-      user = users(:one)
+      user = users(:two)
       ability = Ability.new(user)
 
-      assert ability.can?(:update, indices(:unfinalized)), 'User cannot update an unfinalized index'
+      assert ability.can?(:update, indices(:incomplete)), 'User cannot update an unfinalized index'
     end
 
     def test_cannot_update_finalized_indicies
@@ -96,10 +96,10 @@ module AbilityTests
     end
 
     def test_only_delete_unfinalized_indicies
-      user = users(:one)
+      user = users(:two)
       ability = Ability.new(user)
 
-      assert ability.can?(:destroy, indices(:unfinalized)), 'User cannot delete an unfinalized index'
+      assert ability.can?(:destroy, indices(:incomplete)), 'User cannot delete an unfinalized index'
     end
 
     def test_cannot_delete_finalized_indicies
@@ -110,10 +110,10 @@ module AbilityTests
     end
 
     def test_only_user_can_finalize_index
-      user = users(:one)
+      user = users(:two)
       ability = Ability.new(user)
 
-      assert ability.can?(:finalize, indices(:unfinalized)), 'User cannot finalize their index'
+      assert ability.can?(:finalize, indices(:incomplete)), 'User cannot finalize their index'
     end
   end
 end
