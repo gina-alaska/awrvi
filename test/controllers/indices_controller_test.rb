@@ -77,5 +77,9 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
     login_as(users(:two))
     patch finalize_index_url(@index)
     assert_redirected_to index_path(@index)
+
+    assert_difference('Index.count', 0) do
+      delete index_url(@index)
+    end
   end
 end
