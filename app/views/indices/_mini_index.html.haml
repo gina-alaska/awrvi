@@ -1,0 +1,14 @@
+.text-center
+  %h1
+    AWRVI:
+    = index.awrvi_index.to_f
+
+  - index.awrvi_version.children.each do |subindex|
+    %p
+      %strong #{subindex}:
+      - subindex_value = indicator_value(index, subindex)
+      = number_with_precision(subindex_value, precision: 2)
+
+
+  %p.text-center
+    Updated #{time_ago_in_words index.updated_at} ago
