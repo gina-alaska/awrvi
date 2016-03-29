@@ -2,4 +2,6 @@
 
 %h1= @user.name
 %h2= @user.email
-  
+
+- Index.user_indices(current_user).each do |index|
+  = index.community.name
