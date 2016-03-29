@@ -48,7 +48,7 @@ module AbilityTests
       user = User.new
       ability = Ability.new(user)
 
-      assert ability.cannot?(:create, Index.new), "Guest can create index"
+      assert ability.cannot?(:create, Index.new(user: user)), "Guest can create index"
       assert ability.can?(:read, indices(:one)), "Guest cannot read index"
       assert ability.cannot?(:update, indices(:one)), "Guest can update Index"
       assert ability.cannot?(:destroy, indices(:one)), "Guest can destroy Index"
@@ -58,8 +58,9 @@ module AbilityTests
       user = users(:one)
       ability = Ability.new(user)
 
-      assert ability.can?(:create, Index.new), "Logged in user cannot create index"
+      assert ability.can?(:create, Index.new(user: user)), "Logged in user cannot create index"
       assert ability.can?(:read, indices(:one)), "Logged in user cannot read index"
+      assert ability.cannot?(:create, Index.new(user: users(:two))), "Logged in user could create index as another user"
     end
 
     def test_user_owned_indices_permission
