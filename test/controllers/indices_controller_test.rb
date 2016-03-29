@@ -24,8 +24,6 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
         index: {
           awrvi_index: @index.awrvi_index,
           finalized_at: @index.finalized_at,
-          rejected_at: @index.rejected_at,
-          rejected_reason: @index.rejected_reason,
           awrvi_version_id: @index.awrvi_version.id,
           index_category_choices_attributes: {
             "0": {
@@ -57,8 +55,6 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
       index: {
         awrvi_index: @index.awrvi_index,
         finalized_at: @index.finalized_at,
-        rejected_at: @index.rejected_at,
-        rejected_reason: @index.rejected_reason,
         index_category_choices_attributes: {
           "0": {
             category: categories(:leaf_1),
