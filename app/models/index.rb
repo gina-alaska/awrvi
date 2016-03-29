@@ -11,7 +11,7 @@ class Index < ApplicationRecord
   validates :community_id, presence: true
 
   scope :recent, -> { order(updated_at: :desc) }
-  scope :available, -> { }
+  scope :available, -> {  }
 
   def completeness
     "#{choices.count} / #{awrvi_version.leaves.count}"
