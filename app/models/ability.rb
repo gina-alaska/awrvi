@@ -17,7 +17,7 @@ class Ability
       can :manage, Index, user_id: user.id
     end
 
-    if user.index_admin? and namespace == 'manage'
+    if user.index_admin? && namespace == 'manage'
       can :update, Index
     end
 
