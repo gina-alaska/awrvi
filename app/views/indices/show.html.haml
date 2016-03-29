@@ -32,9 +32,11 @@
             - percentage = @index.vulnerability_index * 100
             .progress-bar{style: "width: #{percentage}%", class: progress_bar_for_percentage(percentage)}
 - content_for :sidebar do
-  - if can? [:edit, :manage], @index
-    %ul.list-group
-      %li.list-group-item.active Manage index
-      - if can? :edit, @index
-        %li.list-group-item
-          = link_to 'Edit', edit_index_path(@index)
+  %ul.list-group
+    %li.list-group-item.active Manage index
+    - if can? :edit, @index
+      %li.list-group-item
+        = link_to 'Edit', edit_index_path(@index)
+    - if user_signed_in? && current_user.index_admin?
+      %li.list-group-item
+        = link_to "Hide", edit_manage_index_path(@index)
