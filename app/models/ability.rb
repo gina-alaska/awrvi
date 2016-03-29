@@ -14,14 +14,14 @@ class Ability
 
     unless user.new_record?
       can :create, Index
-      can :manage, Index, user_id: user.id
+      can :manage, Index, user_id: user.id, hidden: false
     end
 
     if user.index_admin? && namespace == 'manage'
-      can :update, Index
+      can [:edit, :update], Index
     end
 
     can :read, Community
-    can :read, Index
+    can :read, Index, hidden: false
   end
 end
