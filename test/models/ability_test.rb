@@ -85,35 +85,35 @@ module AbilityTests
       user = users(:one)
       ability = Ability.new(user)
 
-      assert ability.can?(:update, indices(:one)), 'User cannot update an unfinalized index'
+      assert ability.can?(:update, indices(:unfinalized)), 'User cannot update an unfinalized index'
     end
 
     def test_cannot_update_finalized_indicies
       user = users(:one)
       ability = Ability.new(user)
 
-      assert ability.cannot?(:update, indices(:two)), 'User can update a finalized index'
+      assert ability.cannot?(:update, indices(:complete)), 'User can update a finalized index'
     end
 
     def test_only_delete_unfinalized_indicies
       user = users(:one)
       ability = Ability.new(user)
 
-      assert ability.can?(:destroy, indices(:one)), 'User cannot delete an unfinalized index'
+      assert ability.can?(:destroy, indices(:unfinalized)), 'User cannot delete an unfinalized index'
     end
 
     def test_cannot_delete_finalized_indicies
       user = users(:one)
       ability = Ability.new(user)
 
-      assert ability.cannot?(:destroy, indices(:two)), 'User can delete a finalized index'
+      assert ability.cannot?(:destroy, indices(:complete)), 'User can delete a finalized index'
     end
 
     def test_only_user_can_finalize_index
       user = users(:one)
       ability = Ability.new(user)
 
-      assert ability.can?(:finalize, indices(:one)), 'User cannot finalize their index'
+      assert ability.can?(:finalize, indices(:unfinalized)), 'User cannot finalize their index'
     end
   end
 end
