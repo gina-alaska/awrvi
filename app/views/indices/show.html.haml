@@ -1,9 +1,8 @@
 %h1= @community
-
 .container-fluid
   .row
     - @index.awrvi_version.children.each do |subindex|
-      .col-xs-5
+      .col-xs-6
         .panel.panel-default
           .panel-heading
             - subindex_value = indicator_value(@index, subindex)
@@ -17,7 +16,7 @@
               .progress
                 .progress-bar{style: "width: #{percentage}%;", class: progress_bar_for_percentage(percentage)}
   .row
-    .col-xs-10
+    .col-xs-12
       .panel.panel-default
         .panel-heading
           %strong= "AWRVI Index Summary"
@@ -29,13 +28,11 @@
           .progress
             - percentage = @index.vulnerability_index * 100
             .progress-bar{style: "width: #{percentage}%", class: progress_bar_for_percentage(percentage)}
+
 - content_for :sidebar do
-  - if can?([:update, :destroy], @index)
-    %ul.list-group
-      %li.list-group-item.active Manage index
-      - if can? :update, @index
-        %li.list-group-item
-          = link_to 'Edit', edit_index_path(@index)
-      - if can? :destroy, @index
-        %li.list-group-item
-          = link_to 'Delete', index_path(@index), method: :delete, data: { confirm: 'Are you sure?' }
+  - if can? :update, @index
+    = link_to 'Edit', edit_index_path(@index), class: 'btn btn-default btn-block'
+  - if can? :destroy, @index
+    = link_to 'Delete', index_path(@index), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-block'
+  - if can? :finalize, @index
+    = link_to 'Finalize', finalize_index_path(@index), method: :patch, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning btn-block'
