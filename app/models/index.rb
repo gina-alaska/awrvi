@@ -10,6 +10,8 @@ class Index < ApplicationRecord
 
   validates :community_id, presence: true
 
+  scope :user_indices, ->(user) { where(user_id: user) }
+
   def completeness
     "#{choices.count} / #{awrvi_version.leaves.count}"
   end
