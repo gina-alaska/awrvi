@@ -80,40 +80,40 @@ module AbilityTests
     end
   end
 
-  class IndiciesFinalizeTest < ActiveSupport::TestCase
-    def test_only_update_unfinalized_indicies
+  class IndiciesPublishedTest < ActiveSupport::TestCase
+    def test_only_update_unpublished_indicies
       user = users(:two)
       ability = Ability.new(user)
 
-      assert ability.can?(:update, indices(:incomplete)), 'User cannot update an unfinalized index'
+      assert ability.can?(:update, indices(:incomplete)), 'User cannot update an unpublished index'
     end
 
-    def test_cannot_update_finalized_indicies
+    def test_cannot_update_published_indicies
       user = users(:one)
       ability = Ability.new(user)
 
-      assert ability.cannot?(:update, indices(:complete)), 'User can update a finalized index'
+      assert ability.cannot?(:update, indices(:complete)), 'User can update a published index'
     end
 
-    def test_only_delete_unfinalized_indicies
+    def test_only_delete_unpublished_indicies
       user = users(:two)
       ability = Ability.new(user)
 
-      assert ability.can?(:destroy, indices(:incomplete)), 'User cannot delete an unfinalized index'
+      assert ability.can?(:destroy, indices(:incomplete)), 'User cannot delete an unpublished index'
     end
 
-    def test_cannot_delete_finalized_indicies
+    def test_cannot_delete_published_indicies
       user = users(:one)
       ability = Ability.new(user)
 
-      assert ability.cannot?(:destroy, indices(:complete)), 'User can delete a finalized index'
+      assert ability.cannot?(:destroy, indices(:complete)), 'User can delete a published index'
     end
 
-    def test_only_user_can_finalize_index
+    def test_only_user_can_publish_index
       user = users(:two)
       ability = Ability.new(user)
 
-      assert ability.can?(:finalize, indices(:incomplete)), 'User cannot finalize their index'
+      assert ability.can?(:publish, indices(:incomplete)), 'User cannot published their index'
     end
   end
 end

@@ -13,7 +13,7 @@ class Ability
     end
 
     unless user.new_record?
-      can [:create, :update, :destroy, :finalize], Index, finalized_at: nil, user_id: user.id
+      can [:create, :update, :destroy, :publish], Index, published_at: nil, user_id: user.id
     end
 
     can :read, Community

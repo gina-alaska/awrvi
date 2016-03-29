@@ -9,7 +9,7 @@ one:
   community: one
 
 two:
-  finalized_at: 2016-01-13 16:11:26
+  published_at: 2016-01-13 16:11:26
   awrvi_index: 9.99
   rejected_at: 2016-01-13 16:11:26
   rejected_reason: MyText
@@ -28,7 +28,7 @@ partial_complete:
   community: two
 
 complete:
-  finalized_at: 2016-01-13 16:11:26
+  published_at: 2016-01-13 16:11:26
   awrvi_version: root
   user: two
   community: two

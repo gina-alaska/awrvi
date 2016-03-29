@@ -2,7 +2,7 @@ class IndicesController < ApplicationController
   layout 'communities'
 
   before_action :set_community, only: [:index, :create, :new]
-  before_action :set_index, only: [:show, :edit, :update, :destroy, :finalize]
+  before_action :set_index, only: [:show, :edit, :update, :destroy, :publish]
 
   authorize_resource
 
@@ -69,13 +69,13 @@ class IndicesController < ApplicationController
     end
   end
 
-  def finalize
+  def publish
     respond_to do |format|
-      if @index.update(finalized_at: Time.zone.now)
-        format.html { redirect_to @index, notice: 'Index was successfully finalized.' }
+      if @index.update(published_at: Time.zone.now)
+        format.html { redirect_to @index, notice: 'Index was successfully published.' }
         format.json { render :show, status: :ok, location: @index }
       else
-        format.html { redirect_to @index, error: 'Finalize index was not successful.' }
+        format.html { redirect_to @index, error: 'Publishing index was not successful.' }
         format.json { render json: @index.errors, status: :unprocessable_entity }
       end
     end
@@ -95,7 +95,7 @@ class IndicesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def index_params
     params.require(:index).permit(
-      :finalized_at, :awrvi_version_id, :awrvi_index,
+      :published_at, :awrvi_version_id, :awrvi_index,
       :rejected_at, :rejected_reason,
       index_category_choices_attributes: [:category_id, :choice_id, :id])
   end
