@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   namespace :manage do
     resources :users, except: [:new, :create] # These are handled by devise
+    resources :indices, only: [:edit, :update]
   end
 
   resources :profile, only: [:show, :edit, :update], controller: 'manage/users'
