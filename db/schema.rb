@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160314233211) do
+ActiveRecord::Schema.define(version: 20160328222320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,8 @@ ActiveRecord::Schema.define(version: 20160314233211) do
     t.datetime "rejected_at"
     t.text     "rejected_reason"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "indices", ["awrvi_version_id"], name: "index_indices_on_awrvi_version_id", using: :btree
