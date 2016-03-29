@@ -32,7 +32,8 @@ class IndicesController < ApplicationController
   # POST /indices.json
   def create
     @index = @community.indices.build(index_params)
-    
+    @index.user_id = current_user
+
     respond_to do |format|
       if @index.save
         format.html { redirect_to @index, notice: 'Index was successfully created.' }
@@ -69,8 +70,15 @@ class IndicesController < ApplicationController
   end
 
   def finalize
-    @index.finalized_at = DateTime.current
-    @index.save
+    respond_to do |format|
+      if @index.update(finalized_at: Time.zone.now)
+        format.html { redirect_to @index, notice: 'Index was successfully finalized.' }
+        format.json { render :show, status: :ok, location: @index }
+      else
+        format.html { redirect_to @index, error: 'Finalize index was not successful.' }
+        format.json { render json: @index.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
