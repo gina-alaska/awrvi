@@ -32,7 +32,7 @@ class IndicesController < ApplicationController
   # POST /indices.json
   def create
     @index = @community.indices.build(index_params)
-    @index.user_id = current_user
+    @index.user = current_user
 
     respond_to do |format|
       if @index.save
