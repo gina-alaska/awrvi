@@ -7,8 +7,8 @@ class Ability
     can [:read, :update], User, id: user.id
 
     case namespace
-    when 'manage'; manage_abilities(user)
-    else;          default_abilities(user)
+    when 'manage' then manage_abilities(user)
+    else               default_abilities(user)
     end
   end
 
