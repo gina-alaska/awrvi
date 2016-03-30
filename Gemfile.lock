@@ -108,6 +108,7 @@ GEM
       thor (~> 0.19.1)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
+    georuby (2.5.2)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -279,6 +280,7 @@ DEPENDENCIES
   font-awesome-rails
   foreman
   friendly_id
+  georuby
   haml
   high_voltage!
   jbuilder (~> 2.0)
