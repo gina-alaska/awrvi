@@ -6,11 +6,11 @@
   &.with-sidebar {
     .community-body {
       @extend .col-xs-9;
-      @extend .col-sm-10;
+      @extend .col-sm-9;
     }
     .community-sidebar {
       @extend .col-xs-3;
-      @extend .col-sm-2;
+      @extend .col-sm-3;
     }
   }
   &.without-sidebar {
