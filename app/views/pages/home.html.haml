@@ -3,10 +3,12 @@
     .container
       = render 'pages/introduction'
 
-  .container.recent
+  .search.container
     = render 'pages/search', q: @q
 
-    = render 'pages/recent_indicies'
+  .well.recent
+    .container
+      = render 'pages/recent_indicies'
 
   .footer
     .container
