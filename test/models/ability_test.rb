@@ -127,6 +127,7 @@ module AbilityTests
       ability = Ability.new(user)
 
       assert ability.can?(:hide, indicies(:one)), "Admin cannote hide index"
+    end
 
     def test_admin_cannot_update_indices
       user = users(:index_admin)
