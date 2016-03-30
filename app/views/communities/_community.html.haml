@@ -1,10 +1,8 @@
-%h1 Latest published AWRVI Dashboard
+%h1 AWRVI Dashboard
 - if latest_awrvi_dashboard(@community).nil?
   = render 'indices/no_published_available'
 - else
   = render @index || latest_awrvi_dashboard(@community)
-
-
 
 - content_for :sidebar do
   %h1.community-title= community.name

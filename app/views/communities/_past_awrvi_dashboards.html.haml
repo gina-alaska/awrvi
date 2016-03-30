@@ -1,4 +1,4 @@
-%h4 Past AWRVI Dashboards
+%h4 Community AWRVI Dashboards
 .list-group
   - community.indices.accessible_by(current_ability, :read).recent.each do |index|
     = active_link_to index, class: 'list-group-item' do
