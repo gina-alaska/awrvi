@@ -1,0 +1,28 @@
+.row
+  - index.awrvi_version.children.each do |subindex|
+    .col-xs-6
+      .panel.panel-default
+        .panel-heading
+          - subindex_value = indicator_value(index, subindex)
+          %strong= "#{subindex}: #{number_with_precision(subindex_value, precision: 2)}"
+        .panel-body
+          - subindex.children.each do |indicator|
+            - value = indicator_value(index, indicator)
+            - percentage = value * 100
+            %strong
+              = "#{indicator.short_name.upcase}: #{number_with_precision(value, precision: 2)}"
+            .progress
+              .progress-bar{style: "width: #{percentage}%;", class: progress_bar_for_percentage(percentage)}
+.row
+  .col-xs-12
+    .panel.panel-default
+      .panel-heading
+        %strong= "AWRVI Index Summary"
+      .panel-body
+        %strong= "Completeness: #{index.completeness}"
+        .progress
+          .progress-bar{style: "width: #{index.completeness_percentage}%"}
+        %strong= "AWRVI Vulnerability Index: #{number_with_precision(index.vulnerability_index, precision: 2)}"
+        .progress
+          - percentage = index.vulnerability_index * 100
+          .progress-bar{style: "width: #{percentage}%", class: progress_bar_for_percentage(percentage)}
