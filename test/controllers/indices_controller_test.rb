@@ -75,7 +75,7 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
 
   test "should get finalize" do
     login_as(users(:two))
-    patch finalize_index_url(@index)
+    patch publish_index_url(@index)
     assert_redirected_to index_path(@index)
 
     assert_difference('Index.count', 0) do
