@@ -1,1 +1,32 @@
-%h1.community-title= community.name
+%h1 Latest published AWRVI Dashboard
+- if latest_awrvi_dashboard(@community).nil?
+  = render 'indices/no_published_available'
+- else
+  = render @index || latest_awrvi_dashboard(@community)
+
+
+
+- content_for :sidebar do
+  %h1.community-title= community.name
+
+  .community-map
+    %span.thumbnail
+      = image_tag @community.static_map_url
+      .caption
+        = @community.static_map_attribution
+
+  = link_to communities_path, class: 'btn btn-default btn-block' do
+    %i.fa.fa-arrow-left
+    Back to search
+
+  - if can? :edit, @community
+    = link_to edit_community_path(@community), class: 'btn btn-default btn-block' do
+      %i.fa.fa-edit
+      Edit community
+
+  - if can? :create, Index
+    = link_to new_community_index_path(@community), class: 'btn btn-success btn-block' do
+      Start new AWRVI Dashboard
+
+  - if can? :create, Index
+    = render 'communities/past_awrvi_dashboards', community: @community

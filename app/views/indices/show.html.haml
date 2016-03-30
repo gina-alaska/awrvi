@@ -1,7 +1,5 @@
-%h1= @community
-.container-fluid
-  = render @index
-  
+= render @index.community
+
 - content_for :sidebar do
   - if can? :update, @index
     = link_to 'Edit', edit_index_path(@index), class: 'btn btn-default btn-block'
