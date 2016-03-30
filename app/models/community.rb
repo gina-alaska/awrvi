@@ -28,6 +28,8 @@ class Community < ApplicationRecord
   end
 
   def static_map_url(zoom = 11, size = '300x300')
+    return unless location?
+
     File.join(
       'https://api.mapbox.com/v4/mapbox.streets',
       "pin-s-marker+f44(#{lnglat.join(',')})",
@@ -37,6 +39,8 @@ class Community < ApplicationRecord
   end
 
   def static_map_attribution
+    return unless location?
+    
     "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>".html_safe
   end
 end
