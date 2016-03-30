@@ -47,34 +47,72 @@ module AbilityTests
       user = User.new
       ability = Ability.new(user)
 
-      assert ability.cannot?(:create, Index.new), "Guest can create index"
-      assert ability.can?(:read, indices(:one)), "Guest cannot read index"
-      assert ability.cannot?(:update, indices(:one)), "Guest can update Index"
-      assert ability.cannot?(:destroy, indices(:one)), "Guest can destroy Index"
+      assert ability.cannot?(:create, Index.new(user: user)), "Guest can create index"
+      assert ability.can?(:read, indices(:published)), "Guest cannot read index"
+      assert ability.cannot?(:update, indices(:unpublished)), "Guest can update Index"
+      assert ability.cannot?(:destroy, indices(:unpublished)), "Guest can destroy Index"
     end
 
     def test_general_user_indices_permission
       user = users(:one)
       ability = Ability.new(user)
 
-      assert ability.can?(:create, Index.new), "Logged in user cannot create index"
-      assert ability.can?(:read, indices(:one)), "Logged in user cannot read index"
+      assert ability.can?(:create, Index.new(user: user)), "Logged in user cannot create index"
+      assert ability.can?(:read, indices(:published)), "Logged in user cannot read index"
+      assert ability.cannot?(:create, Index.new(user: users(:two))), "Logged in user could create index as another user"
     end
 
     def test_user_owned_indices_permission
       user = users(:one)
       ability = Ability.new(user)
 
-      assert ability.can?(:update, indices(:one)), "Owner cannot update Index"
-      assert ability.can?(:destroy, indices(:one)), "Owner cannot destroy Index"
+      assert ability.can?(:update, indices(:unpublished)), "Owner cannot update Index"
+      assert ability.can?(:destroy, indices(:unpublished)), "Owner cannot destroy Index"
     end
 
     def test_user_not_owned_indices_permission
       user = users(:two)
       ability = Ability.new(user)
 
-      assert ability.cannot?(:update, indices(:one)), "User can update Index"
-      assert ability.cannot?(:destroy, indices(:one)), "User can destroy Index"
+      assert ability.cannot?(:update, indices(:published)), "User can update Index"
+      assert ability.cannot?(:destroy, indices(:published)), "User can destroy Index"
+    end
+  end
+
+  class IndiciesPublishedTest < ActiveSupport::TestCase
+    def test_only_update_unpublished_indicies
+      user = users(:two)
+      ability = Ability.new(user)
+
+      assert ability.can?(:update, indices(:incomplete)), 'User cannot update an unpublished index'
+    end
+
+    def test_cannot_update_published_indicies
+      user = users(:one)
+      ability = Ability.new(user)
+
+      assert ability.cannot?(:update, indices(:complete)), 'User can update a published index'
+    end
+
+    def test_only_delete_unpublished_indicies
+      user = users(:two)
+      ability = Ability.new(user)
+
+      assert ability.can?(:destroy, indices(:incomplete)), 'User cannot delete an unpublished index'
+    end
+
+    def test_cannot_delete_published_indicies
+      user = users(:one)
+      ability = Ability.new(user)
+
+      assert ability.cannot?(:destroy, indices(:complete)), 'User can delete a published index'
+    end
+
+    def test_only_user_can_publish_index
+      user = users(:two)
+      ability = Ability.new(user)
+
+      assert ability.can?(:publish, indices(:incomplete)), 'User cannot published their index'
     end
 
     def test_index_admin_can_update_indices

@@ -24,13 +24,11 @@ class Ability
     end
 
     unless user.new_record?
-      can :create, Index
-      can :manage, Index, user_id: user.id, hidden: false
+      can [:create, :update, :destroy, :publish], Index, user_id: user.id, hidden: false, published_at: nil
     end
 
     can :read, Community
     can :read, Index, hidden: false
     can :hide, Index if user.index_admin?
   end
-
 end

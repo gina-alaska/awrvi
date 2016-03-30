@@ -11,6 +11,7 @@ class Index < ApplicationRecord
   validates :community_id, presence: true
   validates :hidden_reason, presence: { message: "Reason for hiding Index must be specified" },
               if: ->(i) { i.hidden? }
+  validates :user_id, presence: true
 
   def completeness
     "#{choices.count} / #{awrvi_version.leaves.count}"
