@@ -89,6 +89,8 @@ ActiveRecord::Schema.define(version: 20160329204552) do
     t.datetime "hidden_at"
     t.text     "hidden_reason"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "hidden",                                   default: false, null: false
   end
 

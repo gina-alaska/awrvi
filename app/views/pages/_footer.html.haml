@@ -1,0 +1,14 @@
+
+.partners.text-center
+  .partner-logo
+    = link_to 'http://www.alaska.edu/epscor', target: :_blank do
+      = image_tag 'EPSCoR-logo-JPEG.jpg'
+  .partner-logo
+    = link_to 'http://www.gina.alaska.edu', target: :_blank do
+      = image_tag 'GINA_logo.png'
+  .partner-logo
+    = link_to 'http://uaf.edu', target: :_blank do
+      = image_tag 'UAFLogo_A_647.png'
+
+%p.text-center
+  This site was funded by NSF EPSCoR and built by the #{link_to 'Geographic Information Network of Alaska (GINA)', 'http://www.gina.alaska.edu', target: :_blank}
