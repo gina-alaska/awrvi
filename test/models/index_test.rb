@@ -47,6 +47,6 @@ class IndexTest < ActiveSupport::TestCase
 
   def test_published_check
     assert_not indices(:unpublished).published?, 'Unpublished index returned true'
-    assert indices(:published).published?), 'Published index returned false'
+    assert indices(:published).published?, 'Published index returned false'
   end
 end
