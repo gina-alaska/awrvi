@@ -3,7 +3,7 @@ require 'test_helper'
 class Manage::IndicesControllerTest < ActionDispatch::IntegrationTest
   setup do
     login_as(users(:index_admin))
-    @index = indices(:one)
+    @index = indices(:published)
   end
 
   teardown do
