@@ -49,9 +49,9 @@ module AbilityTests
       ability = Ability.new(user)
 
       assert ability.cannot?(:create, Index.new(user: user)), "Guest can create index"
-      assert ability.can?(:read, indices(:one)), "Guest cannot read index"
-      assert ability.cannot?(:update, indices(:one)), "Guest can update Index"
-      assert ability.cannot?(:destroy, indices(:one)), "Guest can destroy Index"
+      assert ability.can?(:read, indices(:published)), "Guest cannot read index"
+      assert ability.cannot?(:update, indices(:unpublished)), "Guest can update Index"
+      assert ability.cannot?(:destroy, indices(:unpublished)), "Guest can destroy Index"
     end
 
     def test_general_user_indices_permission
@@ -59,24 +59,24 @@ module AbilityTests
       ability = Ability.new(user)
 
       assert ability.can?(:create, Index.new(user: user)), "Logged in user cannot create index"
-      assert ability.can?(:read, indices(:complete)), "Logged in user cannot read index"
+      assert ability.can?(:read, indices(:published)), "Logged in user cannot read index"
       assert ability.cannot?(:create, Index.new(user: users(:two))), "Logged in user could create index as another user"
     end
 
     def test_user_owned_indices_permission
-      user = users(:two)
+      user = users(:one)
       ability = Ability.new(user)
 
-      assert ability.can?(:update, indices(:incomplete)), "Owner cannot update Index"
-      assert ability.can?(:destroy, indices(:incomplete)), "Owner cannot destroy Index"
+      assert ability.can?(:update, indices(:unpublished)), "Owner cannot update Index"
+      assert ability.can?(:destroy, indices(:unpublished)), "Owner cannot destroy Index"
     end
 
     def test_user_not_owned_indices_permission
       user = users(:two)
       ability = Ability.new(user)
 
-      assert ability.cannot?(:update, indices(:one)), "User can update Index"
-      assert ability.cannot?(:destroy, indices(:one)), "User can destroy Index"
+      assert ability.cannot?(:update, indices(:published)), "User can update Index"
+      assert ability.cannot?(:destroy, indices(:published)), "User can destroy Index"
     end
   end
 

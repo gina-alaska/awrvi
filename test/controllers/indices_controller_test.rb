@@ -73,7 +73,7 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to community_path(@index.community)
   end
 
-  test "should get published" do
+  test "user should be able to publish their own index" do
     login_as(users(:two))
     patch publish_index_url(@index)
     assert_redirected_to index_path(@index)
@@ -83,7 +83,7 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
     login_as(users(:two))
 
     assert_difference('Index.count', 0) do
-      delete index_url(indices(:complete))
+      delete index_url(indices(:published))
     end
   end
 end
