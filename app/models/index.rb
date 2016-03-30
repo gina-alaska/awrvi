@@ -18,6 +18,10 @@ class Index < ApplicationRecord
     update(published_at: at)
   end
 
+  def published?
+    !self.published_at.nil?
+  end
+
   def completeness
     "#{choices.count} / #{awrvi_version.leaves.count}"
   end
