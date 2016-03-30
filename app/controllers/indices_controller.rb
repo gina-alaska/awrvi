@@ -71,7 +71,7 @@ class IndicesController < ApplicationController
 
   def publish
     respond_to do |format|
-      if @index.update(published_at: Time.zone.now)
+      if @index.publish!
         format.html { redirect_to @index, notice: 'Index was successfully published.' }
         format.json { render :show, status: :ok, location: @index }
       else

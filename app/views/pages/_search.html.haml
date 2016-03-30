@@ -1,7 +1,8 @@
+%h2 Search for Communities
 = form_tag :communities, method: :get do
   .row
     .col-sm-10
-      = text_field_tag :q, "", class: 'form-control', placeholder: 'Search for community'
+      = text_field_tag :q, "", class: 'form-control', placeholder: 'Search communities'
     .col-sm-2
       = button_tag type: 'submit', class: 'btn btn-primary btn-block', id: 'search' do
         %i.fa.fa-search

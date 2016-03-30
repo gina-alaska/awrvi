@@ -89,6 +89,8 @@ ActiveRecord::Schema.define(version: 20160329204552) do
     t.datetime "rejected_at"
     t.text     "rejected_reason"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "indices", ["awrvi_version_id"], name: "index_indices_on_awrvi_version_id", using: :btree

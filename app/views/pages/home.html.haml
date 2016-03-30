@@ -1,0 +1,15 @@
+.home
+  .jumbotron.introduction{ style: 'margin-top: -50px;' }
+    .container
+      = render 'pages/introduction'
+
+  .search.container
+    = render 'pages/search', q: @q
+
+  .well.recent
+    .container
+      = render 'pages/recent_indicies'
+
+  .footer
+    .container
+      = render 'pages/footer'

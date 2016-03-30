@@ -10,6 +10,12 @@ GIT
       warden (~> 1.2.3)
 
 GIT
+  remote: git://github.com/thoughtbot/high_voltage.git
+  revision: 3235c857c986fa5177039e7190e77965989621f7
+  specs:
+    high_voltage (2.4.0)
+
+GIT
   remote: https://github.com/amatsuda/kaminari.git
   revision: 3974ae5f39ce31bfca28d17eccd8daf3ca263aa3
   specs:
@@ -282,6 +288,7 @@ DEPENDENCIES
   foreman
   friendly_id
   haml
+  high_voltage!
   jbuilder (~> 2.0)
   jquery-rails
   kaminari!

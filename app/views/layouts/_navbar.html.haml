@@ -10,9 +10,13 @@
     #navbar.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         %li
-          = link_to welcome_path do
+          = link_to root_url do
             %i.fa.fa-home
             Home
+        %li
+          = link_to page_url('getting-started') do
+            %i.fa.fa-info-circle
+            Getting started
         %li
           = link_to communities_path do
             %i.fa.fa-users
