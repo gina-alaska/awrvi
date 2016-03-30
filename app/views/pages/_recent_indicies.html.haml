@@ -1,0 +1,11 @@
+%h2 Recent AWRVI dashboards
+.community-list.row-fluid.text-center{ style: 'margin-top: 20px;' }
+  - recent_indicies.limit(3).each do |index|
+    .community-item.col-xs-12.col-md-4
+      .panel.panel-default
+        .panel-body
+          = render index.community
+          .community-actions
+            = link_to index.community, class: 'btn btn-default btn-block' do
+              View community
+              %i.fa.fa-arrow-right

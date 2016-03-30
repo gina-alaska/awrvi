@@ -11,6 +11,7 @@ namespace :dev do
       community = Community.offset(rand(count)).first
       index = community.indices.build(awrvi_version: root_category, user_id: user.id)
       make_choices(index, root_category.leaves)
+      index.publish! if rand(10) > 5
       community.save
     end
   end

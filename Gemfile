@@ -25,6 +25,7 @@ gem 'cancancan'
 gem 'rgeo'
 gem 'rgeo-geojson'
 gem 'rails_12factor', group: :production
+gem 'high_voltage', github: 'thoughtbot/high_voltage'
 
 group :development, :test do
   gem 'byebug'
