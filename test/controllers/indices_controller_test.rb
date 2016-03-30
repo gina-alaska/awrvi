@@ -44,13 +44,13 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit" do
-    login_as(users(:one))
+    login_as(users(:two))
     get edit_index_url(@index)
     assert_response :success
   end
 
   test "should update index" do
-    login_as(users(:one))
+    login_as(users(:two))
     patch index_url(@index), params: {
       index: {
         awrvi_index: @index.awrvi_index,
@@ -67,7 +67,7 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy index" do
-    login_as(users(:one))
+    login_as(users(:two))
     assert_difference('Index.count', -1) do
       delete index_url(@index)
     end
