@@ -1,45 +1,29 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  finalized_at: 2016-01-13 16:11:26
+unpublished:
   awrvi_index: 9.99
-  rejected_at: 2016-01-13 16:11:26
-  rejected_reason: MyText
   awrvi_version: root
   user: one
   community: one
 
-two:
-  finalized_at: 2016-01-13 16:11:26
+published:
+  published_at: 2016-01-13 16:11:26
   awrvi_index: 9.99
-  rejected_at: 2016-01-13 16:11:26
-  rejected_reason: MyText
   awrvi_version: root
   user: two
   community: two
 
 incomplete:
-  finalized_at: 2016-01-13 16:11:26
   awrvi_version: root
   user: two
   community: two
 
 partial_complete:
-  finalized_at: 2016-01-13 16:11:26
   awrvi_version: root
   user: two
   community: two
 
 complete:
-  finalized_at: 2016-01-13 16:11:26
   awrvi_version: root
   user: two
   community: two
-
-unfinalized:
-  awrvi_index: 9.99
-  rejected_at: 2016-01-13 16:11:26
-  rejected_reason: MyText
-  awrvi_version: root
-  user: one
-  community: one
