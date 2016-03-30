@@ -13,6 +13,7 @@ class CommunitiesController < ApplicationController
     @communities = Community.where('name ilike ?', "%#{@search_text}%") if search_params.present?
 
     redirect_to community_path(@communities.first) if @communities.count == 1
+    @communities = @communities.order(:name).page(params[:page]).per(24)
   end
 
   # GET /communities/1

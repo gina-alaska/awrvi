@@ -4,6 +4,7 @@
 
   .panel-body
     = render 'search'
+= paginate @communities
 .community-list.row-fluid.text-center
   - @communities.each do |community|
     .community-item.col-xs-12.col-sm-6.col-lg-4
