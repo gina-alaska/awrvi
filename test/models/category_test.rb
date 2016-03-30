@@ -1,7 +1,7 @@
 require 'test_helper'
 class CategoryTest < ActiveSupport::TestCase
   setup do
-    @category = categories(:one)
+    @category = categories(:root)
   end
 
   test "no_destroy should return false" do

@@ -1,0 +1,38 @@
+@import 'bootstrap';
+@import 'theme';
+
+.community-row {
+  @extend .row;
+
+  &.with-sidebar {
+    .community-body {
+      @extend .col-xs-9;
+      @extend .col-sm-10;
+    }
+    .community-sidebar {
+      @extend .col-xs-3;
+      @extend .col-sm-2;
+    }
+  }
+  &.without-sidebar {
+    .community-body {
+      @extend .col-xs-12;
+    }
+  }
+}
+
+.vulnerability-index-form {
+  .panel-body { background-color: #f5f5f5; }
+  .form-sidebar {
+    @extend .col-xs-3;
+  }
+  .form-inputs {
+    @extend .col-xs-9;
+    min-height: 450px;
+    background-color: #fff; height: 100%;
+    border-left: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    border-top: 1px solid #dfdfdf;
+
+  }
+}

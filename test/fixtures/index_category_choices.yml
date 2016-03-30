@@ -1,11 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+<% 0.upto(7).each do |leaf| %>
+complete_leaf_<%= leaf %>:
+  index: complete
+  choice: med_<%=leaf%>
+  category: leaf_<%=leaf%>
 
-one:
-  index: one
-  choice: one
-  category: one
-
-two:
-  index: two
-  choice: two
-  category: two
+<% if leaf.even? %>
+partial_complete_leaf_<%= leaf %>:
+  index: partial_complete
+  choice: med_<%=leaf%>
+  category: leaf_<%=leaf%>
+<% end %>
+<% end %>

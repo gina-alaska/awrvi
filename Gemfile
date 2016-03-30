@@ -26,6 +26,8 @@ gem 'rgeo'
 gem 'rgeo-geojson'
 gem 'kaminari'
 
+gem 'rails_12factor', group: :production
+
 group :development, :test do
   gem 'byebug'
   gem 'rubocop'

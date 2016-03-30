@@ -2,7 +2,7 @@
 name: AWRVI 2015
 short_name: AWRVI 2015
 categories:
-- name: PHYSICAL SUBINDEX
+- name: PHYSICAL SUB-INDEX
   short_name: Physical
   categories:
   - name: Physical - natural supply
@@ -224,7 +224,7 @@ categories:
         description: "60-79%"
       - index: 1.0
         description: "80-100%"
-- name: SOCIAL SUBINDEX
+- name: SOCIAL SUB-INDEX
   short_name: Social
   categories:
   - name: Social - knowledge capacity

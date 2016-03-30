@@ -1,0 +1,7 @@
+%h1= community.name
+
+.community-index
+  - if community.indices.count > 0
+    = community.indices.first.awrvi_index.to_f
+  - else
+    No index available

@@ -22,10 +22,11 @@
             = link_to categories_path do
               %i.fa.fa-sitemap
               Categories
-        %li
-          = link_to choices_path do
-            %i.fa.fa-sliders
-            Choices
+        -if can?(:manage, Choice)
+          %li
+            = link_to choices_path do
+              %i.fa.fa-sliders
+              Choices
         - if user_signed_in?
           - if current_user.user_admin?
             %li.dropdown
@@ -42,5 +43,8 @@
             = link_to '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } do
               Sign In
               %span.caret
-            %ul.dropdown-menu
-              %li= link_to 'GINA::ID', user_omniauth_authorize_path(:open_id, openid_url: 'https://id.gina.alaska.edu')
+            %ul.dropdown-menu{ data: { turbolinks:"false" } }
+              - devise_resource_class.omniauth_providers.each do |provider|
+                %li
+                  = link_to omniauth_authorize_path(devise_resource_name, provider) do
+                    = OmniAuth::Utils.camelize(provider)

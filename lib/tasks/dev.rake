@@ -25,7 +25,7 @@ namespace :dev do
   end
 
   desc 'Additional setup tasks that dont fit with otto yet'
-  task setup: :environment do
+  task setup: [:environment, 'db:setup'] do
     install_phantomjs
   end
 
