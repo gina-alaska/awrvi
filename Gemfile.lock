@@ -9,6 +9,14 @@ GIT
       responders
       warden (~> 1.2.3)
 
+GIT
+  remote: https://github.com/amatsuda/kaminari.git
+  revision: 3974ae5f39ce31bfca28d17eccd8daf3ca263aa3
+  specs:
+    kaminari (1.0.0.alpha)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -117,9 +125,6 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
-    kaminari (0.16.3)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -279,7 +284,7 @@ DEPENDENCIES
   haml
   jbuilder (~> 2.0)
   jquery-rails
-  kaminari
+  kaminari!
   omniauth
   omniauth-openid
   pg
