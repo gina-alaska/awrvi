@@ -19,7 +19,7 @@ class Index < ApplicationRecord
   end
 
   def published?
-    !self.published_at.nil?
+    !published_at.nil?
   end
 
   def completeness

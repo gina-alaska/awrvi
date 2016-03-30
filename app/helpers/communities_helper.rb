@@ -9,9 +9,7 @@ module CommunitiesHelper
 
   def published_dashboards(community, opts = {})
     indices = community.indices.published
-    if opts.include?(:exclude)
-      indices = indices.where.not(id: opts[:exclude])
-    end
+    indices = indices.where.not(id: opts[:exclude]) if opts.include?(:exclude)
 
     indices
   end

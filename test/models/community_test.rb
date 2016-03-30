@@ -24,6 +24,6 @@ class CommunityTest < ActiveSupport::TestCase
   end
 
   test 'should get lnglat array' do
-    assert_equal [-147.7163889,64.8377778], @community.lnglat
+    assert_equal [-147.7163889, 64.8377778], @community.lnglat
   end
 end
