@@ -11,9 +11,8 @@ module AbilityTests
     end
 
     def test_admins_can_manage_all_users
-      user = users(:one)
-      user.user_admin = true
-      ability = Ability.new(user)
+      user = users(:user_admin)
+      ability = Ability.new(user, 'manage')
 
       assert ability.can?(:manage, User.new), 'User Admin cannot manage users'
     end
@@ -78,12 +77,18 @@ module AbilityTests
       assert ability.cannot?(:destroy, indices(:one)), "User can destroy Index"
     end
 
-    def test_admin_can_hide_indices
+    def test_index_admin_can_update_indices
       user = users(:index_admin)
       ability = Ability.new(user, 'manage')
 
-      assert ability.can?(:update, indices(:one)), "Admin cannot hide index"
+      assert ability.can?(:update, indices(:one)), "Admin cannot update index"
     end
+
+    def test_index_admin_can_hide_indices
+      user = users(:index_admin)
+      ability = Ability.new(user)
+
+      assert ability.can?(:hide, indicies(:one)), "Admin cannote hide index"
 
     def test_admin_cannot_update_indices
       user = users(:index_admin)

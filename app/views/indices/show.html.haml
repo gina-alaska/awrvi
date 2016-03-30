@@ -37,6 +37,6 @@
     - if can? :edit, @index
       %li.list-group-item
         = link_to 'Edit', edit_index_path(@index)
-    - if user_signed_in? && current_user.index_admin?
+    - if can? :hide, @index
       %li.list-group-item
         = link_to "Hide", edit_manage_index_path(@index)

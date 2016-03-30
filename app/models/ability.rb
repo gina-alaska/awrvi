@@ -5,8 +5,19 @@ class Ability
     user ||= User.new
 
     can [:read, :update], User, id: user.id
-    can :manage, User if user.user_admin?
 
+    case namespace
+    when 'manage'; manage_abilities(user)
+    else;          default_abilities(user)
+    end
+  end
+
+  def manage_abilities(user)
+    can :update, Index if user.index_admin?
+    can :manage, User if user.user_admin?
+  end
+
+  def default_abilities(user)
     if user.category_admin?
       can :manage, Category
       can :manage, Choice
@@ -17,11 +28,9 @@ class Ability
       can :manage, Index, user_id: user.id, hidden: false
     end
 
-    if user.index_admin? && namespace == 'manage'
-      can [:edit, :update], Index
-    end
-
     can :read, Community
     can :read, Index, hidden: false
+    can :hide, Index if user.index_admin?
   end
+
 end
