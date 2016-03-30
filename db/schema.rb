@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328222320) do
+ActiveRecord::Schema.define(version: 20160329204552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20160328222320) do
   add_index "index_category_choices", ["index_id"], name: "index_index_category_choices_on_index_id", using: :btree
 
   create_table "indices", force: :cascade do |t|
-    t.datetime "finalized_at"
+    t.datetime "published_at"
     t.integer  "awrvi_version_id",                         null: false
     t.integer  "community_id",                             null: false
     t.decimal  "awrvi_index",      precision: 6, scale: 5
