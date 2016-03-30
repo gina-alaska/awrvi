@@ -12,7 +12,11 @@ class Index < ApplicationRecord
   validates :user_id, presence: true
 
   scope :recent, -> { order(updated_at: :desc) }
-  scope :available, -> {  }
+  scope :published, -> { where.not(published_at: nil) }
+
+  def publish!(at = Time.zone.now)
+    update(published_at: at)
+  end
 
   def completeness
     "#{choices.count} / #{awrvi_version.leaves.count}"

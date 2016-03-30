@@ -37,4 +37,11 @@ class IndexTest < ActiveSupport::TestCase
       assert_in_delta expected, index.vulnerability_index, 0.005, "#{name} should have vulnerablity #{expected}"
     end
   end
+
+  def test_publish
+    @index = indices(:unpublished)
+
+    assert @index.publish!
+    assert_not_nil @index.published_at
+  end
 end

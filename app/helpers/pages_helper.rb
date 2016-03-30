@@ -1,5 +1,5 @@
 module PagesHelper
   def recent_indicies
-    Index.available.recent
+    Index.published.recent
   end
 end
