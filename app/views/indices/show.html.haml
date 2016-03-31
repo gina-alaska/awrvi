@@ -37,4 +37,4 @@
   - if can? :publish, @index
     = link_to 'Publish', publish_index_path(@index), method: :patch, data: { confirm: 'Are you sure? The index can no longer be edited or deleted once it has been published!' }, class: 'btn btn-warning btn-block'
   - if can? :hide, @index
-    = link_to "Hide", edit_manage_index_path(@index)
+    = link_to "Hide", edit_manage_index_path(@index),  class: 'btn btn-default btn-block'
