@@ -13,7 +13,7 @@ class Ability
   end
 
   def manage_abilities(user)
-    can :update, Index if user.index_admin?
+    can :update, Index, published?: true if user.index_admin?
     can :manage, User if user.user_admin?
   end
 
@@ -29,6 +29,6 @@ class Ability
 
     can :read, Community
     can :read, Index, hidden: false
-    can :hide, Index if user.index_admin?
+    can :hide, Index, published?: true if user.index_admin?
   end
 end

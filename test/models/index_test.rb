@@ -44,4 +44,9 @@ class IndexTest < ActiveSupport::TestCase
     assert @index.publish!
     assert_not_nil @index.published_at
   end
+
+  def test_published?
+    refute indices(:unpublished).published?
+    assert indices(:published).published?
+  end
 end
