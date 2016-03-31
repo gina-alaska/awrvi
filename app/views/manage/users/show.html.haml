@@ -8,7 +8,7 @@
   %thead
     %tr
       %th Community
-      %th Actions
+      %th Show Index
   %tbody
     - Index.user_indices(current_user).each do |index|
       %tr
@@ -16,7 +16,6 @@
           %b= index.community.name
         %td
           - if can? :update, index
-            = link_to 'Edit', edit_index_path(index), class: 'btn btn-default btn-sm'
-            = link_to 'Delete', index_path(index), method: :delete, data: { confirm: 'Are you sure? The index can not be restored if it is deleted!' }, class: 'btn btn-danger btn-sm'
+            = link_to 'Show', index_path(index), class: 'btn btn-default btn-sm'
           - else 
             %b Published
