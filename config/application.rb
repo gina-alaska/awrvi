@@ -13,5 +13,8 @@ module Awrvi
     # -- all .rb files in that directory are automatically loaded.
     config.generators.stylesheets = false
     config.generators.javascripts = false
+    
+    config.time_zone = 'Alaska'
+    config.active_record.default_timezone = :local
   end
 end
