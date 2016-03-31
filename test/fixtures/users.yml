@@ -19,7 +19,7 @@ one:
   provider: 'openid'
   category_admin: false
   user_admin: false
-  
+
 two:
   name: "User Two"
   email: 'user_two@email.com'
@@ -46,12 +46,12 @@ category_admin:
   category_admin: true
   user_admin: false
 
-admin:
+user_admin:
   name: "Admin"
   email: 'admin@example.com'
   slug: admin-user
   encrypted_password: 'garbage'
-  reset_password_token: 'admin_token'
+  reset_password_token: 'user_admin_token'
   reset_password_sent_at:
   remember_created_at:
   current_sign_in_at:
@@ -61,3 +61,20 @@ admin:
   provider: 'developer'
   category_admin: false
   user_admin: true
+
+index_admin:
+  name: "Admin"
+  email: 'index_admin@example.com'
+  slug: admin-index
+  encrypted_password: 'garbage'
+  reset_password_token: 'index_admin_token'
+  reset_password_sent_at:
+  remember_created_at:
+  current_sign_in_at:
+  last_sign_in_at:
+  last_sign_in_ip: 127.0.0.1
+  uid: 'admin@example.com'
+  provider: 'developer'
+  index_admin: true
+
+
