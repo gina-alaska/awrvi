@@ -3,5 +3,18 @@
 %h1= @user.name
 %h2= @user.email
 
-- Index.user_indices(current_user).each do |index|
-  = index.community.name
+%table.table.table-condensed
+  %thead
+    %tr
+      %th Community
+      %th Actions
+  %tbody
+    - Index.user_indices(current_user).each do |index|
+      %tr
+        %td
+          %b= index.community.name
+        %td
+          - if can? :edit, index
+            = link_to "Edit", edit_index_path(index)
+          - else 
+            %bPublished
