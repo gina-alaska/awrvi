@@ -1,4 +1,7 @@
 namespace :dev do
+  desc 'Reset the database after changing branches'
+  task reset: ['db:migrate:reset', 'dev:prime']
+
   desc 'Create index test data.'
   task prime: :environment do
     next if Index.any?
