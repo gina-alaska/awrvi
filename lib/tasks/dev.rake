@@ -2,6 +2,7 @@ namespace :dev do
   desc 'Create index test data.'
   task prime: :environment do
     next if Index.any?
+    Rake::Task["db:seed"].invoke
     awrvi_version = Category.roots.first
     user = User.first_or_create(name: 'system', email: 'system@system.com',
                                 encrypted_password: 'system', password: 'system88',
