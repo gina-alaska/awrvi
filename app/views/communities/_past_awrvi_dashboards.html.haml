@@ -1,4 +1,4 @@
-%h4 Community AWRVI Dashboards
+%h4.text-center{style: 'margin-top: 20px;' } Community AWRVI Dashboards
 .list-group
   - community.indices.accessible_by(current_ability, :read).recent.each do |index|
     = active_link_to index, class: 'list-group-item' do
@@ -9,8 +9,12 @@
         %strong AWRVI Index:
         = index.vulnerability_index
       %p
-        %strong Updated:
-        = index.updated_at
+        - if index.published?
+          %strong Published:
+          = index.published_at
+        - else
+          %strong Last Updated:
+          = index.updated_at
         - if index.user == current_user
           %br
           %strong Owner:

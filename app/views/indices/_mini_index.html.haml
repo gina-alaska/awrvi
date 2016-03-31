@@ -1,14 +1,22 @@
-.text-center
-  %h1
-    AWRVI:
-    = index.vulnerability_index
+.text-center.index-section
+  %strong= "AWRVI: #{number_with_precision(index.vulnerability_index, precision: 2)}"
+  .progress
+    - percentage = index.vulnerability_index * 100
+    .progress-bar{style: "width: #{percentage}%", class: progress_bar_for_percentage(percentage)}
 
-  - index.awrvi_version.children.each do |subindex|
-    %p
-      %strong #{subindex}:
+  .row
+    - index.awrvi_version.children.each do |subindex|
       - subindex_value = indicator_value(index, subindex)
-      = number_with_precision(subindex_value, precision: 2)
+      - percentage = subindex_value * 100
+      .col-sm-6
+        %strong #{subindex}:
+        .progress
+          .progress-bar{style: "width: #{percentage}%", class: progress_bar_for_percentage(percentage)}
 
 
-  %p.text-center
-    Updated #{time_ago_in_words index.updated_at} ago
+  %p.text-center{ style: 'margin-top: 10px;' }
+    %strong Completeness:
+    = index.completeness
+    %br
+    %strong Updated:
+    #{time_ago_in_words index.updated_at} ago
