@@ -1,28 +1,28 @@
 namespace :dev do
   desc 'Create index test data.'
   task prime: :environment do
-    count = Community.count
-    abort 'There are no communities to process, exiting.' if count == 0
+    next if Index.any?
+    awrvi_version = Category.roots.first
+    user = User.first_or_create(name: 'system', email: 'system@system.com', encrypted_password: 'system', password: 'system88', sign_in_count: 1, user_admin: false, category_admin: false)
 
-    root_category = Category.roots.first
-    user = User.create!(name: 'system', email: 'system@system.com', encrypted_password: 'system', password: 'system88', sign_in_count: 1, user_admin: false, category_admin: false)
+    puts "Generating index data for communities"
+    Community.find_each do |community|
+      next if rand(10) >= 4
 
-    10.times do
-      community = Community.offset(rand(count)).first
-      index = community.indices.build(awrvi_version: root_category, user_id: user.id)
-      make_choices(index, root_category.leaves)
-      index.publish! if rand(10) > 5
-      community.save
+      (rand(3) + 1).times do
+        generate_index(community, user, awrvi_version)
+      end
     end
   end
 
-  def make_choices(index, categories)
-    num_categories = rand(categories.count)
+  namespace :prime do
+    desc 'Reset index test data'
+    task reset: ['prime:clean', :prime]
 
-    num_categories.times do |cnt|
-      leaf = categories.offset(cnt).first
-      choice = leaf.choices.offset(rand(leaf.choices.count)).first
-      index.index_category_choices.build(category: leaf, choice: choice)
+    desc 'Clear index test data'
+    task clean: :environment do
+      puts "Destroying all indices"
+      Index.destroy_all
     end
   end
 
@@ -60,6 +60,23 @@ namespace :dev do
   end
 
   private
+  def generate_index(community, user, awrvi_version)
+    index = community.indices.build(awrvi_version: awrvi_version, user: user)
+    make_choices(index, awrvi_version.leaves)
+    index.save
+    index.publish! if rand(10) > 5
+  end
+
+  def make_choices(index, categories)
+    num_categories = rand(categories.count)
+
+    num_categories.times do |cnt|
+      leaf = categories.offset(cnt).first
+      choice = leaf.choices.offset(rand(leaf.choices.count)).first
+      index.index_category_choices.build(category: leaf, choice: choice)
+    end
+  end
+
 
   def install_phantomjs
     version = 'phantomjs-2.1.1-linux-x86_64'
