@@ -16,6 +16,6 @@
           %b= index.community.name
         %td
           - if can? :update, index
-            = link_to 'Show', index_path(index), class: 'btn btn-default btn-sm'
+            = link_to 'View AWRVI Dashboard', index_path(index), class: 'btn btn-default btn-sm'
           - else 
             %b Published
