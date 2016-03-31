@@ -9,6 +9,14 @@ class Index < ApplicationRecord
   accepts_nested_attributes_for :index_category_choices
 
   validates :community_id, presence: true
+  validates :user_id, presence: true
+
+  scope :recent, -> { order(updated_at: :desc) }
+  scope :published, -> { where.not(published_at: nil) }
+
+  def publish!(at = Time.zone.now)
+    update(published_at: at)
+  end
 
   scope :user_indices, ->(user) { where(user_id: user) }
 

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :choices, except: :destroy
   resources :categories, except: :destroy
   resources :communities, shallow: true do
-    resources :indices
+    resources :indices do
+      patch :publish, on: :member
+    end
   end
 
   namespace :manage do
@@ -16,7 +18,11 @@ Rails.application.routes.draw do
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
 
-  root 'welcome#index'
+  # root 'welcome#index'
 
-  get '/welcome' => 'welcome#index'
+  # get '/welcome' => 'welcome#index'
+  get "*id" => 'pages#show', as: :page, format: false
+
+  # if routing the root path, update for your controller
+  root to: 'pages#show', id: 'home'
 end

@@ -5,11 +5,13 @@ namespace :dev do
     abort 'There are no communities to process, exiting.' if count == 0
 
     root_category = Category.roots.first
+    user = User.create!(name: 'system', email: 'system@system.com', encrypted_password: 'system', password: 'system88', sign_in_count: 1, user_admin: false, category_admin: false)
 
     10.times do
       community = Community.offset(rand(count)).first
-      index = community.indices.build(awrvi_version: root_category)
+      index = community.indices.build(awrvi_version: root_category, user_id: user.id)
       make_choices(index, root_category.leaves)
+      index.publish! if rand(10) > 5
       community.save
     end
   end

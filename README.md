@@ -24,6 +24,16 @@ Generate development data
 
 * Run `rails dev:prime`
 
+## Customizing site theme
+
+The current theme is built using: http://bootstrap-live-customizer.com/
+
+You will need to load the `theme.less` and `variables.less` file from `themes/test` into the web application to load the current custom theme.
+
+After making changes you'll need to click the `Get bootstrap.css` link and save that over the `app/assets/theme.scss` file.
+
+If any changes were made to the `variables` or the `theme.less` in the theme website then those will need to be exported and saved the the `themes/tests` directory.
+
 ## Contributing
 
 You fixed a bug, or added a new feature? Yippie!

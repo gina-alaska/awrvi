@@ -1,7 +1,8 @@
-%h1= community.name
+%h1.community-title= community.name
 
 .community-index
   - if community.indices.count > 0
-    = community.indices.first.awrvi_index.to_f
+    = render 'indices/mini_index', index: community.indices.recent.first
   - else
-    No index available
+    .not-available
+      No finialized AWRVI dashboards available.
