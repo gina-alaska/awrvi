@@ -26,4 +26,8 @@ class CommunityTest < ActiveSupport::TestCase
   test 'should get lnglat array' do
     assert_equal [-147.7163889, 64.8377778], @community.lnglat
   end
+
+  test 'should return correct location format for url' do
+    assert_match '-147.7163889,64.8377778,11/100x100', @community.static_map_url(11, '100x100')
+  end
 end
