@@ -3,7 +3,9 @@ namespace :dev do
   task prime: :environment do
     next if Index.any?
     awrvi_version = Category.roots.first
-    user = User.first_or_create(name: 'system', email: 'system@system.com', encrypted_password: 'system', password: 'system88', sign_in_count: 1, user_admin: false, category_admin: false)
+    user = User.first_or_create(name: 'system', email: 'system@system.com',
+                                encrypted_password: 'system', password: 'system88',
+                                sign_in_count: 1)
 
     puts "Generating index data for communities"
     Community.find_each do |community|
@@ -55,11 +57,12 @@ namespace :dev do
 
       user = User.where(email: ENV['AWRVI_USER']).first || User.last
       user.update_attribute(attribute, !user.send(attribute))
-      puts "User #{user.name} #{attribute.to_s} is now set to #{user.send(attribute)}"
+      puts "User #{user.name} #{attribute} is now set to #{user.send(attribute)}"
     end
   end
 
   private
+
   def generate_index(community, user, awrvi_version)
     index = community.indices.build(awrvi_version: awrvi_version, user: user)
     make_choices(index, awrvi_version.leaves)
@@ -76,7 +79,6 @@ namespace :dev do
       index.index_category_choices.build(category: leaf, choice: choice)
     end
   end
-
 
   def install_phantomjs
     version = 'phantomjs-2.1.1-linux-x86_64'
