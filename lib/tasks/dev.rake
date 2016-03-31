@@ -31,31 +31,32 @@ namespace :dev do
     install_phantomjs
   end
 
-  desc 'Toggle user permission for category admin'
-  task category_admin: :environment do
-    return unless Rails.env.development?
+  desc 'Toggle all admin flags for user'
+  task admin: ['admin:category', 'admin:index', 'admin:user']
 
-    user = User.where(email: ENV['AWRVI_USER']).first || User.last
-    user.update_attribute(:category_admin, !user.category_admin)
-    puts "User #{user.name} category_admin is now set to #{user.category_admin}"
-  end
+  namespace :admin do
+    desc 'Toggle users category_admin flag'
+    task category: :environment do
+      toggle_flag(:category_admin)
+    end
 
-  desc 'Toggle users user_admin flag'
-  task user_admin: :environment do
-    return unless Rails.env.development?
+    desc 'Toggle users user_admin flag'
+    task user: :environment do
+      toggle_flag(:user_admin)
+    end
 
-    user = User.where(email: ENV['AWRVI_USER']).first || User.last
-    user.update_attribute(:user_admin, !user.user_admin)
-    puts "Set #{user.email} user_admin to #{user.user_admin}."
-  end
+    desc 'Toggle users user_admin flag'
+    task index: :environment do
+      toggle_flag(:index_admin)
+    end
 
-  desc 'Toggle users user_admin flag'
-  task index_admin: :environment do
-    return unless Rails.env.development?
+    def toggle_flag(attribute)
+      return unless Rails.env.development?
 
-    user = User.where(email: ENV['AWRVI_USER']).first || User.last
-    user.update_attribute(:index_admin, !user.index_admin)
-    puts "Set #{user.email} index_admin to #{user.index_admin}."
+      user = User.where(email: ENV['AWRVI_USER']).first || User.last
+      user.update_attribute(attribute, !user.send(attribute))
+      puts "User #{user.name} #{attribute.to_s} is now set to #{user.send(attribute)}"
+    end
   end
 
   private
