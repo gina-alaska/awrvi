@@ -4,19 +4,28 @@ one:
   name: Onecommunity
   gnis_id: MyString
   census_id: MyString
-  location: MyText
+  location: POINT (-147.7163889 64.8377778)
   slug: MyString
 
 two:
   name: Test
   gnis_id: MyString
   census_id: MyString
-  location: MyText
+  location: POINT (-147.7163889 64.8377778)
   slug: MyString2
 
 three:
   name: Testing
   gnis_id: MyString
   census_id: MyString
-  location: MyText
+  location: POINT (-147.7163889 64.8377778)
   slug: MyString3
+
+with_location:
+  name: Timbucktoo
+  location: POINT (-147.7163889 64.8377778)
+  slug: timbucktoo
+
+without_location:
+  name: Timbuckthree
+  slug: timbuckthree
