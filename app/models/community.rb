@@ -2,6 +2,7 @@ class Community < ApplicationRecord
   include CommunityConcerns
   include FriendlyId
   friendly_id :name, use: :slugged
+  paginates_per 12
 
   has_many :indices
 
