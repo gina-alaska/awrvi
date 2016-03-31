@@ -28,6 +28,6 @@ class CommunityTest < ActiveSupport::TestCase
   end
 
   test 'should return correct location format for url' do
-    assert_match '-147.7163889,64.8377778,11/100x100', @community.static_map_url(11, '100x100')
+    assert_match '-147.7163889,64.8377778,13/100x100', @community.static_map_url(13, '100x100')
   end
 end
