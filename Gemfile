@@ -24,6 +24,8 @@ gem 'omniauth-openid'
 gem 'cancancan'
 gem 'rgeo'
 gem 'rgeo-geojson'
+gem 'kaminari', git: 'https://github.com/amatsuda/kaminari.git' # Master has the fixes needed for rails 5
+
 gem 'rails_12factor', group: :production
 gem 'high_voltage', github: 'thoughtbot/high_voltage'
 gem 'georuby', require: ['georuby', 'geo_ruby/ewk']

@@ -3,7 +3,7 @@ require 'test_helper'
 module ManageUserControllerTests
   class UserAdminTest < ActionDispatch::IntegrationTest
     setup do
-      login_as(users(:admin))
+      login_as(users(:user_admin))
       @user = users(:one)
     end
 
@@ -17,13 +17,13 @@ module ManageUserControllerTests
     end
 
     test 'manage interface sets the right variant' do
-      login_as(users(:admin), scope: :user)
+      login_as(users(:user_admin), scope: :user)
       get manage_user_url(@user)
       assert_includes controller.request.variant, :'user-admin'
     end
 
     test 'admins can update user abilities' do
-      login_as(users(:admin), scope: :user)
+      login_as(users(:user_admin), scope: :user)
       patch manage_user_url(@user), params: { user: { user_admin: true } }
       assert_redirected_to manage_user_path(@user)
     end

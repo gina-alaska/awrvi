@@ -4,7 +4,9 @@
 
   .panel-body
     = render 'search'
-.community-list.row-fluid.text-center
+.text-center
+  = paginate @communities
+.community-list.row-fluid.text-center.clearfix
   - @communities.each do |community|
     .community-item.col-xs-12.col-sm-6.col-lg-4
       .panel.panel-default
@@ -14,6 +16,8 @@
             = link_to community, class: 'btn btn-default btn-block' do
               View community
               %i.fa.fa-arrow-right
+.text-center
+  = paginate @communities
 
 - if can? :create, Community
   - content_for :sidebar do

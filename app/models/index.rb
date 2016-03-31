@@ -9,6 +9,8 @@ class Index < ApplicationRecord
   accepts_nested_attributes_for :index_category_choices
 
   validates :community_id, presence: true
+  validates :hidden_reason, presence: { message: "Reason for hiding Index must be specified" },
+              if: ->(i) { i.hidden? }
   validates :user_id, presence: true
 
   scope :recent, -> { order(updated_at: :desc) }

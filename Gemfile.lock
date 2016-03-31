@@ -15,6 +15,14 @@ GIT
   specs:
     high_voltage (2.4.0)
 
+GIT
+  remote: https://github.com/amatsuda/kaminari.git
+  revision: 3974ae5f39ce31bfca28d17eccd8daf3ca263aa3
+  specs:
+    kaminari (1.0.0.alpha)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -288,6 +296,7 @@ DEPENDENCIES
   high_voltage!
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari!
   omniauth
   omniauth-openid
   pg
