@@ -15,6 +15,5 @@ module Awrvi
     config.generators.javascripts = false
 
     config.time_zone = 'Alaska'
-    config.active_record.default_timezone = :local
   end
 end
