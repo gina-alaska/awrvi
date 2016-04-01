@@ -10,7 +10,7 @@
       %th Community
       %th Show Index
   %tbody
-    - Index.user_indices(current_user).each do |index|
+    - @indices.each do |index|
       %tr
         %td
           %b= index.community.name
