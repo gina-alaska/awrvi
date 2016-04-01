@@ -20,8 +20,6 @@ class Index < ApplicationRecord
     update(published_at: at)
   end
 
-  scope :user_indices, ->(user) { where(user_id: user) }
-
   def published?
     !published_at.nil?
   end
