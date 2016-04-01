@@ -1,0 +1,21 @@
+%h4.text-center{style: 'margin-top: 20px;' } Community AWRVI Dashboards
+.list-group
+  - community.indices.accessible_by(current_ability, :read).recent.each do |index|
+    = active_link_to index, class: 'list-group-item' do
+      - if index.published?
+        .pull-right.badge
+          Published
+      %h4.list-group-item-heading
+        %strong AWRVI Index:
+        = index.vulnerability_index
+      %p
+        - if index.published?
+          %strong Published:
+          = index.published_at
+        - else
+          %strong Last Updated:
+          = index.updated_at
+        - if index.user == current_user
+          %br
+          %strong Owner:
+          = index.user.name

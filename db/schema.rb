@@ -83,14 +83,15 @@ ActiveRecord::Schema.define(version: 20160329204552) do
 
   create_table "indices", force: :cascade do |t|
     t.datetime "published_at"
-    t.integer  "awrvi_version_id",                         null: false
-    t.integer  "community_id",                             null: false
+    t.integer  "awrvi_version_id",                                         null: false
+    t.integer  "community_id",                                             null: false
     t.decimal  "awrvi_index",      precision: 6, scale: 5
-    t.datetime "rejected_at"
-    t.text     "rejected_reason"
+    t.datetime "hidden_at"
+    t.text     "hidden_reason"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "hidden",                                   default: false, null: false
   end
 
   add_index "indices", ["awrvi_version_id"], name: "index_indices_on_awrvi_version_id", using: :btree
@@ -116,6 +117,7 @@ ActiveRecord::Schema.define(version: 20160329204552) do
     t.boolean  "user_admin",             default: false, null: false
     t.string   "slug"
     t.boolean  "category_admin",         default: false, null: false
+    t.boolean  "index_admin",            default: false, null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

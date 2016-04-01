@@ -1,0 +1,6 @@
+= simple_form_for([:manage, @index]) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :hidden_reason, required: true, label: "Reason for hiding this Index"
+  .form-actions
+    = f.submit 'Hide Index', class: 'btn btn-primary'

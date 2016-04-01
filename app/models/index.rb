@@ -9,6 +9,8 @@ class Index < ApplicationRecord
   accepts_nested_attributes_for :index_category_choices
 
   validates :community_id, presence: true
+  validates :hidden_reason, presence: { message: "Reason for hiding Index must be specified" },
+              if: ->(i) { i.hidden? }
   validates :user_id, presence: true
 
   scope :recent, -> { order(updated_at: :desc) }
@@ -19,6 +21,10 @@ class Index < ApplicationRecord
   end
 
   scope :user_indices, ->(user) { where(user_id: user) }
+  
+  def published?
+    !published_at.nil?
+  end
 
   def completeness
     "#{choices.count} / #{awrvi_version.leaves.count}"

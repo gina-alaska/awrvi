@@ -1,8 +1,42 @@
-%h1.community-title= community.name
+.pull-right{ style: 'margin-top: 25px;' }
+  .btn-toolbar
+    .btn-group
+      - if can? :update, @index
+        = link_to 'Edit', edit_index_path(@index), class: 'btn btn-default'
+      - if can? :destroy, @index
+        = link_to 'Delete', index_path(@index), method: :delete, data: { confirm: 'Are you sure? The index can not be restored if it is deleted!' }, class: 'btn btn-danger'
+      - if can? :publish, @index
+        = link_to 'Publish', publish_index_path(@index), method: :patch, data: { confirm: 'Are you sure? The index can no longer be edited or deleted once it has been published!' }, class: 'btn btn-warning'
+      - if can? :hide, @index
+        = link_to "Hide", edit_manage_index_path(@index),  class: 'btn btn-default'
 
-.community-index
-  - if community.indices.count > 0
-    = render 'indices/mini_index', index: community.indices.recent.first
-  - else
-    .not-available
-      No finialized AWRVI dashboards available.
+%h1 AWRVI Dashboard
+- if latest_awrvi_dashboard(@community).nil?
+  = render 'indices/no_published_available'
+- else
+  = render @index || latest_awrvi_dashboard(@community)
+
+- content_for :sidebar do
+  %h1.community-title= community.name
+
+  .community-map
+    %span.thumbnail
+      = image_tag @community.static_map_url
+      .caption
+        = @community.static_map_attribution
+
+  = link_to communities_path, class: 'btn btn-default btn-block' do
+    %i.fa.fa-arrow-left
+    Back to search
+
+  - if can? :edit, @community
+    = link_to edit_community_path(@community), class: 'btn btn-default btn-block' do
+      %i.fa.fa-edit
+      Edit community
+
+  - if can? :create, Index
+    = link_to new_community_index_path(@community), class: 'btn btn-success btn-block' do
+      Start new AWRVI Dashboard
+
+  - if can? :create, Index
+    = render 'communities/past_awrvi_dashboards', community: @community
