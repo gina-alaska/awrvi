@@ -4,12 +4,14 @@ module CommunityConcerns
   module ClassMethods
     def create_from_geojson(filename)
       parse_geojson(filename).each do |feature|
-        Community.where(name: feature['name'], gnis_id: feature['gnis_feature_id'], location: feature.geometry.as_text).first_or_create
+        Community.where(name: feature.properties['name'],
+                        gnis_id: feature.properties['gnis_feature_id'],
+                        location: feature.geometry.as_ewkt).first_or_create
       end
     end
 
     def parse_geojson(filename)
-      RGeo::GeoJSON.decode(File.open(filename, 'r'), json_parser: :json)
+      GeoRuby::SimpleFeatures::Geometry.from_geojson(File.read(filename)).features
     end
   end
 end
