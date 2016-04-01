@@ -7,15 +7,25 @@
 %table.table.table-condensed.table-striped
   %thead
     %tr
-      %th Community
-      %th Show Index
+      %th.col-sm-3 Community
+      %th.col-sm-2 AWRVI Index
+      %th.col-sm-2 Last Updated
+      %th.col-sm-3 Progress
+      %th.col-sm-2 View AWRVI Dashboard
   %tbody
     - @indices.each do |index|
       %tr
         %td
           %b= index.community.name
         %td
-          - if can? :update, index
-            = link_to 'View AWRVI Dashboard', index_path(index), class: 'btn btn-default btn-sm'
-          - else 
-            %b Published
+          #{number_with_precision(index.vulnerability_index, precision: 2)}
+          - unless index.published_at.nil?
+            .label.label-warning Published
+        %td
+          #{time_ago_in_words index.updated_at} ago
+        %td
+          .progress
+            - percentage = index.vulnerability_index * 100
+            .progress-bar{style: "width: #{percentage}%", class: progress_bar_for_percentage(percentage)}
+        %td
+          = link_to 'View', index_path(index), class: 'btn btn-primary btn-sm'
