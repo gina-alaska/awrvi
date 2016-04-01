@@ -4,13 +4,11 @@
   %thead
     %tr
       %th Published date
-      %th Awrvi index
       %th{:colspan => "3"}
   %tbody
     - @indices.each do |index|
       %tr
         %td= index.published_at
-        %td= index.awrvi_index
         %td= link_to 'Show', index
         %td= link_to 'Edit', edit_index_path(index)
         %td= link_to 'Destroy', index, method: :delete, data: { confirm: 'Are you sure?' }

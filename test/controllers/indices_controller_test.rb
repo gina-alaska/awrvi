@@ -22,7 +22,6 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Index.count') do
       post community_indices_url(communities(:one)), params: {
         index: {
-          awrvi_index: @index.awrvi_index,
           awrvi_version_id: @index.awrvi_version.id,
           index_category_choices_attributes: {
             "0": {
@@ -52,7 +51,6 @@ class IndicesControllerTest < ActionDispatch::IntegrationTest
     login_as(users(:two))
     patch index_url(@index), params: {
       index: {
-        awrvi_index: @index.awrvi_index,
         index_category_choices_attributes: {
           "0": {
             category: categories(:leaf_1),
