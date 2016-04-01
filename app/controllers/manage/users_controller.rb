@@ -12,6 +12,7 @@ class Manage::UsersController < ManageController
   # GET /users/1
   # GET /users/1.json
   def show
+    @indices = current_user.indices
   end
 
   # GET /users/1/edit
