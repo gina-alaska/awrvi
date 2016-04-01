@@ -126,7 +126,21 @@ module AbilityTests
       user = users(:index_admin)
       ability = Ability.new(user)
 
-      assert ability.can?(:hide, indices(:published)), "Admin cannote hide index"
+      assert ability.can?(:hide, indices(:published)), "Admin cannot hide index"
+    end
+
+    def test_cannot_hide_unpublished_indices
+      user = users(:index_admin)
+      ability = Ability.new(user)
+
+      assert ability.cannot?(:hide, indices(:unpublished)), "Admin can hide unpublished Index"
+    end
+
+    def test_manager_cannot_update_unpublished_indices
+      user = users(:index_admin)
+      ability = Ability.new(user, 'manager')
+
+      assert ability.cannot?(:update, indices(:unpublished)), "Admin can update unpublished Index"
     end
 
     def test_admin_cannot_update_indices
