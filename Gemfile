@@ -22,13 +22,11 @@ gem 'devise', github: 'plataformatec/devise'
 gem 'omniauth'
 gem 'omniauth-openid'
 gem 'cancancan'
-gem 'rgeo'
-gem 'rgeo-geojson'
 gem 'kaminari', git: 'https://github.com/amatsuda/kaminari.git' # Master has the fixes needed for rails 5
 
 gem 'rails_12factor', group: :production
 gem 'high_voltage', github: 'thoughtbot/high_voltage'
-gem 'georuby', require: ['georuby', 'geo_ruby/ewk']
+gem 'georuby', require: ['georuby', 'geo_ruby/ewk', 'geo_ruby/geojson']
 gem 'active_link_to'
 
 group :development, :test do
