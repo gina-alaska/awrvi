@@ -6,11 +6,11 @@
   &.with-sidebar {
     .community-body {
       @extend .col-xs-9;
-      @extend .col-sm-10;
+      @extend .col-sm-9;
     }
     .community-sidebar {
       @extend .col-xs-3;
-      @extend .col-sm-2;
+      @extend .col-sm-3;
     }
   }
   &.without-sidebar {
@@ -74,6 +74,7 @@
   position: absolute;
   top: 60px;
   right: 8px;
+  z-index: 1000;
 }
 .flash {
   padding-right: 50px;
@@ -82,5 +83,14 @@
   .close {
     position: absolute;
     right: 5px;
+  }
+}
+
+.index-section {
+  .progress {
+    margin-bottom: 15px;
+  }
+  .progress:last-child {
+    margin-bottom: 0px;
   }
 }

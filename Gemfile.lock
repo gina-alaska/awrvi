@@ -50,6 +50,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_link_to (1.0.3)
+      actionpack
     activejob (5.0.0.beta3)
       activesupport (= 5.0.0.beta3)
       globalid (>= 0.3.6)
@@ -116,6 +118,7 @@ GEM
       thor (~> 0.19.1)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
+    georuby (2.5.2)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -276,6 +279,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_link_to
   brakeman
   byebug
   cancancan
@@ -287,6 +291,7 @@ DEPENDENCIES
   font-awesome-rails
   foreman
   friendly_id
+  georuby
   haml
   high_voltage!
   jbuilder (~> 2.0)

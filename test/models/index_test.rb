@@ -49,4 +49,12 @@ class IndexTest < ActiveSupport::TestCase
     refute indices(:unpublished).published?
     assert indices(:published).published?
   end
+
+  def test_publish_with_custom_time
+    @index = indices(:unpublished)
+
+    time = 1.month.ago
+    assert @index.publish!(time)
+    assert_equal time, @index.published_at
+  end
 end

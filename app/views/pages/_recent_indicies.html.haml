@@ -4,7 +4,7 @@
     .community-item.col-xs-12.col-md-4
       .panel.panel-default
         .panel-body
-          = render index.community
+          = render 'communities/mini_community', community: index.community
           .community-actions
             = link_to index.community, class: 'btn btn-default btn-block' do
               View community

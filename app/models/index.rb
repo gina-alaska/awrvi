@@ -21,7 +21,7 @@ class Index < ApplicationRecord
   end
 
   def published?
-    published_at.present?
+    !published_at.nil?
   end
 
   def completeness
