@@ -20,12 +20,12 @@
         %td
           #{number_with_precision(index.vulnerability_index, precision: 2)}
           - unless index.published_at.nil?
-            .label.label-warning Published
+            .label.label-primary Published
         %td
           #{time_ago_in_words index.updated_at} ago
         %td
           .progress
-            - percentage = index.vulnerability_index * 100
+            - percentage = index.completeness_percentage
             .progress-bar{style: "width: #{percentage}%", class: progress_bar_for_percentage(percentage)}
         %td
           = link_to 'View', index_path(index), class: 'btn btn-primary btn-sm'
