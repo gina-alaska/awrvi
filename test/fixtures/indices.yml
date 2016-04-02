@@ -1,14 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 unpublished:
-  awrvi_index: 9.99
   awrvi_version: root
   user: one
   community: one
 
 published:
   published_at: 2016-01-13 16:11:26
-  awrvi_index: 9.99
   awrvi_version: root
   user: two
   community: two
