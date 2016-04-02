@@ -2,4 +2,29 @@
 
 %h1= @user.name
 %h2= @user.email
-  
+
+%h3 Your Indices:
+%table.table.table-condensed.table-striped
+  %thead
+    %tr
+      %th.col-sm-3 Community
+      %th.col-sm-2 AWRVI Index
+      %th.col-sm-2 Last Updated
+      %th.col-sm-3 Progress
+      %th.col-sm-2 View AWRVI Dashboard
+  %tbody
+    - @indices.each do |index|
+      %tr
+        %td
+          %b= index.community.name
+        %td
+          #{number_with_precision(index.vulnerability_index, precision: 2)}
+          - unless index.published_at.nil?
+            .label.label-primary Published
+        %td
+          #{time_ago_in_words index.updated_at} ago
+        %td
+          .progress
+            .progress-bar{style: "width: #{index.completeness_percentage}%"}
+        %td
+          = link_to 'View', index_path(index), class: 'btn btn-primary btn-sm'
