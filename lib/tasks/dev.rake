@@ -75,12 +75,12 @@ namespace :dev do
   end
 
   def make_choices(index, categories)
-    num_categories = rand(categories.count)
-
-    num_categories.times do |cnt|
-      leaf = categories.offset(cnt).first
-      choice = leaf.choices.offset(rand(leaf.choices.count)).first
-      index.index_category_choices.build(category: leaf, choice: choice)
+    categories.each do |category|
+      # Most categories have 5 choices.
+      # Aim for ~45% chance of not choosing anything
+      choices = category.choices.pluck(:id) + [nil, nil, nil, nil]
+      choice = choices.sample
+      index.index_category_choices.build(category: category, choice_id: choice)
     end
   end
 
