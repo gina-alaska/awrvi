@@ -25,7 +25,6 @@
           #{time_ago_in_words index.updated_at} ago
         %td
           .progress
-            - percentage = index.completeness_percentage
-            .progress-bar{style: "width: #{percentage}%", class: progress_bar_for_percentage(percentage)}
+            .progress-bar{style: "width: #{index.completeness_percentage}%"}
         %td
           = link_to 'View', index_path(index), class: 'btn btn-primary btn-sm'
