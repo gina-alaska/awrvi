@@ -23,6 +23,7 @@ gem 'omniauth'
 gem 'omniauth-openid'
 gem 'cancancan'
 gem 'kaminari', git: 'https://github.com/amatsuda/kaminari.git' # Master has the fixes needed for rails 5
+gem 'kramdown'
 
 gem 'rails_12factor', group: :production
 gem 'high_voltage', github: 'thoughtbot/high_voltage'
