@@ -1,4 +1,14 @@
 @import 'theme';
+@import url(https://fonts.googleapis.com/css?family=Carter+One);
+
+.theme-font {
+  font-family: 'Carter One', cursive;
+}
+
+.navbar-brand {
+  @extend .theme-font;
+  font-size: 3em;
+}
 
 .community-row {
   @extend .row;
@@ -38,11 +48,17 @@
 
 .home {
   .introduction {
+    margin-top: -20px;
     margin-bottom: 0px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    h1,h2,h3,h4,h5 { color: #fff; }
+    background-color: darken(rgba(52, 166, 204, 0.88), 15%);
+    color: #fff;
   }
 
-
-  .jumbotron {
+  .description {
     li {
       font-size: 21px;
       font-weight: 200;
