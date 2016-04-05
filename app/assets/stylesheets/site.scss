@@ -52,17 +52,60 @@
 }
 
 .home {
+  &.cover-image1 {
+    background: asset-url('river1.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  &.cover-image2 {
+    background: asset-url('river2.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .darkbg {
+    h1,h2,h3,h4,h5 { color: #fff; }
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    input { color: #fff; box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.9); }
+    ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        color:    #dfdfdf;
+    }
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+       color:    #dfdfdf;
+       opacity:  1;
+    }
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+       color:    #dfdfdf;
+       opacity:  1;
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+       color:    #dfdfdf;
+    }
+  }
+
+  .lightbg {
+    h1,h2,h3,h4,h5 { color: #000; }
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+  }
+
   .introduction {
     margin-bottom: 0px;
     padding-top: 100px;
     padding-bottom: 100px;
-
-    h1,h2,h3,h4,h5 { color: #fff; }
-    background-color: darken(rgba(52, 166, 204, 0.88), 15%);
-    color: #fff;
+    @extend .darkbg;
   }
 
   .description {
+    @extend .lightbg;
+    @extend .jumbotron;
+    margin-bottom: 0px;
     li {
       font-size: 21px;
       font-weight: 200;
@@ -77,11 +120,13 @@
   .recent {
     padding-top: 60px;
     padding-bottom: 40px;
+    @extend .lightbg;
   }
 
   .search {
     padding-top: 30px;
-    padding-bottom: 80px;
+    padding-bottom: 40px;
+    @extend .darkbg;
   }
 
   .footer {
