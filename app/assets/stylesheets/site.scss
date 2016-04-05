@@ -1,6 +1,10 @@
 @import 'theme';
 @import url(https://fonts.googleapis.com/css?family=Carter+One);
 
+.navbar-default {
+  margin-bottom: 0px;
+}
+
 .theme-font {
   font-family: 'Carter One', cursive;
 }
@@ -21,6 +25,7 @@
     .community-sidebar {
       @extend .col-xs-3;
       @extend .col-sm-3;
+      border-right: 1px solid #efefef;
     }
   }
   &.without-sidebar {
@@ -48,7 +53,6 @@
 
 .home {
   .introduction {
-    margin-top: -20px;
     margin-bottom: 0px;
     padding-top: 100px;
     padding-bottom: 100px;
@@ -122,5 +126,16 @@
   }
   .progress:last-child {
     margin-bottom: 0px;
+  }
+}
+
+.community-map {
+  position: relative;
+
+  .caption {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    background-color: rgba(255,255,255,0.5);
   }
 }
