@@ -20,4 +20,4 @@
             .tab-pane{id: dom_id(category), class: category == first_category ? 'active' : '' }
               = render partial: 'category', collection: category.children, locals: {f: f}
     .panel-footer.text-right
-      = f.submit 'Create Index', class: 'btn btn-primary'
+      = f.submit class: 'btn btn-primary'
