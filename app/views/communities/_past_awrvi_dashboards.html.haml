@@ -15,6 +15,9 @@
         - else
           %strong Last Updated:
           = index.updated_at
+        %br
+        %strong Completion:
+        #{index.completeness} (#{number_to_percentage index.completeness_percentage, precision: 0})
         - if index.user == current_user
           %br
           %strong Owner:
