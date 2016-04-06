@@ -1,4 +1,4 @@
-%h4.text-center{style: 'margin-top: 20px;' } Community AWRVI Dashboards
+%h4.text-center{style: 'margin-top: 20px;' } Additional AWRVI dashboards
 .list-group
   - community.indices.accessible_by(current_ability, :read).recent.each do |index|
     = active_link_to index, class: 'list-group-item' do
@@ -15,6 +15,9 @@
         - else
           %strong Last Updated:
           = index.updated_at
+        %br
+        %strong Completion:
+        #{index.completeness} (#{number_to_percentage index.completeness_percentage, precision: 0})
         - if index.user == current_user
           %br
           %strong Owner:

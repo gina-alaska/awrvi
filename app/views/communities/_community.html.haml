@@ -1,42 +1,56 @@
+- current_index = @index || latest_awrvi_dashboard(@community)
 .pull-right{ style: 'margin-top: 25px;' }
   .btn-toolbar
     .btn-group
-      - if can? :update, @index
-        = link_to 'Edit', edit_index_path(@index), class: 'btn btn-default'
-      - if can? :destroy, @index
-        = link_to 'Delete', index_path(@index), method: :delete, data: { confirm: 'Are you sure? The index can not be restored if it is deleted!' }, class: 'btn btn-danger'
-      - if can? :publish, @index
-        = link_to 'Publish', publish_index_path(@index), method: :patch, data: { confirm: 'Are you sure? The index can no longer be edited or deleted once it has been published!' }, class: 'btn btn-warning'
-      - if can? :hide, @index
-        = link_to "Hide", edit_manage_index_path(@index),  class: 'btn btn-default'
+      - if can? :update, current_index
+        = link_to 'Edit', edit_index_path(current_index), class: 'btn btn-default'
+      - if can? :destroy, current_index
+        = link_to 'Delete', index_path(current_index), method: :delete, data: { confirm: 'Are you sure? The index can not be restored if it is deleted!' }, class: 'btn btn-danger'
+      - if can? :publish, current_index
+        = link_to 'Publish', publish_index_path(current_index), method: :patch, data: { confirm: 'Are you sure? The index can no longer be edited or deleted once it has been published!' }, class: 'btn btn-warning'
+      - if can? :hide, current_index
+        = link_to "Hide", edit_manage_index_path(current_index),  class: 'btn btn-default'
 
 %h1 AWRVI Dashboard
-- if latest_awrvi_dashboard(@community).nil?
-  = render 'indices/no_published_available'
+- if !current_index
+  = render 'communities/no_published_available', community: @community
 - else
-  = render @index || latest_awrvi_dashboard(@community)
+  = render current_index
 
 - content_for :sidebar do
-  %h1.community-title= community.name
+  %h1.community-title
+    = community.name
 
-  .community-map
-    %span.thumbnail
-      = image_tag @community.static_map_url
-      .caption
-        = @community.static_map_attribution
+  %p
+    = link_to community do
+      %i.fa.fa-link
+      Community Permalink
+
+  - if current_index
+    %p
+      %strong Last updated:
+      = current_index.updated_at
+
+  %p
+    %strong Location:
+    = community.lnglat.join(', ')
+
+  .community-map.thumbnail
+    = image_tag @community.static_map_url
+    .caption.text-right
+      = @community.static_map_attribution
 
   = link_to communities_path, class: 'btn btn-default btn-block' do
     %i.fa.fa-arrow-left
     Back to search
 
+  = link_to new_community_index_path(@community), class: 'btn btn-success btn-block' do
+    Start new AWRVI Dashboard
+
   - if can? :edit, @community
     = link_to edit_community_path(@community), class: 'btn btn-default btn-block' do
       %i.fa.fa-edit
       Edit community
-
-  - if can? :create, Index
-    = link_to new_community_index_path(@community), class: 'btn btn-success btn-block' do
-      Start new AWRVI Dashboard
 
   - if can? :create, Index
     = render 'communities/past_awrvi_dashboards', community: @community

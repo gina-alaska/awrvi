@@ -5,6 +5,7 @@ gem 'rails', '>= 5.0.0.beta1', '< 5.1'
 gem 'pg'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
+gem 'sass-rails', '~> 5.0.4'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -23,6 +24,7 @@ gem 'omniauth'
 gem 'omniauth-openid'
 gem 'cancancan'
 gem 'kaminari', git: 'https://github.com/amatsuda/kaminari.git' # Master has the fixes needed for rails 5
+gem 'kramdown', require: 'tilt/kramdown'
 
 gem 'rails_12factor', group: :production
 gem 'high_voltage', github: 'thoughtbot/high_voltage'
@@ -39,7 +41,6 @@ end
 group :development do
   gem 'web-console', '~> 3.0'
   gem 'spring'
-  gem 'brakeman', require: false
   gem 'pry-rails'
 end
 

@@ -1,12 +1,32 @@
-.home
-  .jumbotron.introduction{ style: 'margin-top: -50px;' }
+.home.cover-image1
+  .text-center.introduction
+    .theme-font.container
+      %h1 AWRVI
+      %p{ style: 'font-size: 2em;' } Arctic Water Resources Vulnerability Index
+
+    .row.intro-buttons
+      .col-sm-3.col-sm-offset-1
+        = link_to '#search', class: 'btn btn-default btn-lg btn-block', data: { behavior: 'scroll', turbolinks: false } do
+          %i.fa.fa-search
+          Search for Communities
+      .col-sm-4
+        = link_to '#description', class: 'btn btn-default btn-lg btn-block', data: { behavior: 'scroll', turbolinks: false } do
+          %i.fa.fa-info-circle
+          Learn about AWRVI
+      .col-sm-3
+        = link_to '#recent', class: 'btn btn-default btn-lg btn-block', data: { behavior: 'scroll', turbolinks: false } do
+          %i.fa.fa-clock-o
+          Recent AWRVI Dashboards
+  #description.description
     .container
+      %h2 About AWRVI
       = render 'pages/introduction'
 
-  .search.container
-    = render 'pages/search', q: @q
+  #search.search
+    .container
+      = render 'pages/search', q: @q
 
-  .well.recent
+  #recent.recent
     .container
       = render 'pages/recent_indicies'
 
