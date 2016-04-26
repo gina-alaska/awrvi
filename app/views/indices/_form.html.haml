@@ -3,7 +3,7 @@
   .panel.panel-default{ style: 'margin-top: 20px;' }
     .panel-heading
       %h2{ style: 'margin: 0px;' }
-        AWRVI Form for #{link_to @index.community.name, @index.community}
+        Vulnerability Assessment for #{link_to @index.community.name, @index.community}
     .panel-body{ style: 'padding: 0px;' }
       = f.error_notification
       .form-sidebar
@@ -23,4 +23,4 @@
     .panel-footer.text-right
       .pull-left
         Version: #{@index.awrvi_version.name}
-      = f.submit 'Save AWRVI Dashboard', class: 'btn btn-primary'
+      = f.submit 'Save Vulnerability Assessment', class: 'btn btn-primary'
