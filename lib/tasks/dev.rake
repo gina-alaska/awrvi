@@ -56,6 +56,11 @@ namespace :dev do
       toggle_flag(:index_admin)
     end
 
+    desc 'Toggle users expert_reviewer flag'
+    task index: :environment do
+      toggle_flag(:expert_reviewer)
+    end
+
     def toggle_flag(attribute)
       return unless Rails.env.development?
 
