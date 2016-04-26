@@ -132,7 +132,7 @@ categories:
       - index: 1.0
         description: "4 of 4"
     - name: Waste Water Treatment Technology
-      - choices:
+      choices:
       - index: 0
         description: "Honeybucket Lagoon"
       - index: 0.25
