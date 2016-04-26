@@ -6,7 +6,7 @@ namespace :dev do
   task prime: :environment do
     next if Index.any?
     Rake::Task["db:seed"].invoke
-    awrvi_version = Category.roots.first
+    awrvi_version = Category.active_root.first
     user = User.first_or_create(name: 'system', email: 'system@system.com',
                                 encrypted_password: 'system', password: 'system88',
                                 sign_in_count: 1)
