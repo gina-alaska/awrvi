@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
-  resources :choices, except: :destroy
-  resources :categories, except: :destroy
   resources :communities, shallow: true do
     resources :indices do
       patch :publish, on: :member
