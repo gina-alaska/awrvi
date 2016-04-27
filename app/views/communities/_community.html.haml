@@ -47,6 +47,12 @@
   = link_to new_community_index_path(@community), class: 'btn btn-success btn-block' do
     Start new AWRVI Dashboard
 
+  - if can? :review, Index
+    - if current_index.review.new_record?
+      render "review/form"
+    - else
+      render "review/delete_button"
+
   - if can? :edit, @community
     = link_to edit_community_path(@community), class: 'btn btn-default btn-block' do
       %i.fa.fa-edit
