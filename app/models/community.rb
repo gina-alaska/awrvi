@@ -47,6 +47,6 @@ class Community < ApplicationRecord
   end
 
   def google_maps_url
-    "https://www.google.com/maps/@#{latlng.join(",")},13z"
+    "https://www.google.com/maps/@#{latlng.join(',')},13z"
   end
 end
