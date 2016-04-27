@@ -77,4 +77,19 @@ index_admin:
   provider: 'developer'
   index_admin: true
 
-
+expert_reviewer:
+  name: "Expert Reviewer"
+  email: 'reviewer@email.com'
+  slug: expert-reviewer
+  encrypted_password: "garbage"
+  reset_password_token: 'expert_reviewer_token'
+  reset_password_sent_at:
+  remember_created_at:
+  current_sign_in_at:
+  last_sign_in_at:
+  last_sign_in_ip: 127.0.0.1
+  uid: 'reviewer@email.com'
+  provider: 'openid'
+  category_admin: false
+  user_admin: false
+  expert_reviewer: true
