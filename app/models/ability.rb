@@ -32,5 +32,6 @@ class Ability
     can :read, Index, hidden: false
     can :hide, Index if user.index_admin?
     cannot :hide, Index, published_at: nil
+    can :manage, Review, user_id: user.id if user.expert_reviewer?
   end
 end
