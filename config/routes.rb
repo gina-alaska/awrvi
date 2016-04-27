@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :categories, except: :destroy
   resources :communities, shallow: true do
     resources :indices do
+      resources :reviews
+
       patch :publish, on: :member
     end
   end
