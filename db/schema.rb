@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425214332) do
+ActiveRecord::Schema.define(version: 20160426001906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,16 @@ ActiveRecord::Schema.define(version: 20160425214332) do
   add_index "indices", ["community_id"], name: "index_indices_on_community_id", using: :btree
   add_index "indices", ["user_id"], name: "index_indices_on_user_id", using: :btree
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "index_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reviews", ["index_id"], name: "index_reviews_on_index_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name",                   default: "",    null: false
     t.string   "email",                  default: "",    null: false
@@ -131,4 +141,6 @@ ActiveRecord::Schema.define(version: 20160425214332) do
   add_foreign_key "indices", "categories", column: "awrvi_version_id"
   add_foreign_key "indices", "communities"
   add_foreign_key "indices", "users"
+  add_foreign_key "reviews", "indices"
+  add_foreign_key "reviews", "users"
 end

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: expert_reviewer
+  index: published
+
+two:
+  user: expert_reviewer
+  index: published
