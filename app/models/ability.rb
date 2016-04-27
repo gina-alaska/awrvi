@@ -35,6 +35,6 @@ class Ability
 
     can :manage, Review, user_id: user.id if user.expert_reviewer?
     can :review, Index if user.expert_reviewer?
-    cannot :review, Index, published_at.nil?
+    cannot :review, Index, published_at: nil
   end
 end
