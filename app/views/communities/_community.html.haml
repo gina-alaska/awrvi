@@ -36,7 +36,7 @@
     = community.lnglat.join(', ')
 
   %p
-    = link_to @community.google_maps_url do
+    = link_to @community.google_maps_url, target: '_blank' do
       %i.fa.fa-external-link
       View on Google Maps
   .community-map.thumbnail
