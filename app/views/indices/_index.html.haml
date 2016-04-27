@@ -7,14 +7,14 @@
       .progress-bar{style: "width: #{index.completeness_percentage}%"}
     %strong= "AWRVI Vulnerability Index: #{number_with_precision(index.vulnerability_index, precision: 2)}"
     .row
-      .col-xs-1
-        .text-right.progress-bar-text 0.0
-      .col-xs-10
+      .col-xs-2
+        .text-right.progress-bar-text More vulnerable
+      .col-xs-8
         .progress
           - percentage = index.vulnerability_index * 100
           .progress-bar{style: "width: #{percentage}%", class: progress_bar_for_percentage(percentage)}
-      .col-xs-1
-        .text-left.progress-bar-text 1.0
+      .col-xs-2
+        .text-left.progress-bar-text Less vulnerable
 .row
   - index.awrvi_version.children.each do |subindex|
     .col-xs-6
@@ -29,10 +29,10 @@
             %strong
               = "#{indicator.short_name.upcase}: #{number_with_precision(value, precision: 2)}"
             .row
-              .col-xs-1
-                .text-right.progress-bar-text 0.0
-              .col-xs-10
+              .col-xs-3
+                .text-right.progress-bar-text More vulnerable
+              .col-xs-6
                 .progress
                   .progress-bar{style: "width: #{percentage}%;", class: progress_bar_for_percentage(percentage)}
-              .col-xs-1
-                .text-left.progress-bar-text 1.0
+              .col-xs-3
+                .text-left.progress-bar-text Less vulnerable
