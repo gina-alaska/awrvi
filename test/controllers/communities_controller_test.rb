@@ -2,7 +2,7 @@ require 'test_helper'
 
 class CommunitiesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @community = communities(:one)
+    @community = communities(:with_index)
   end
 
   test 'should get index' do
@@ -22,6 +22,11 @@ class CommunitiesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should show community' do
     get community_url(@community)
+    assert_response :success
+  end
+
+  test 'should show community without any indexes' do
+    get community_url(communities(:without_index))
     assert_response :success
   end
 
