@@ -7,3 +7,7 @@ one:
 two:
   user: expert_reviewer
   index: published
+
+index_review:
+  user: expert_reviewer
+  index: reviewed
