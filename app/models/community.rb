@@ -45,4 +45,8 @@ class Community < ApplicationRecord
 
     "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>".html_safe
   end
+
+  def google_maps_url
+    "https://www.google.com/maps/@#{latlng.join(',')},13z"
+  end
 end
