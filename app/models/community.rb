@@ -45,4 +45,8 @@ class Community < ApplicationRecord
 
     "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>".html_safe
   end
+
+  def current_index
+    indices.published.recent.first
+  end
 end

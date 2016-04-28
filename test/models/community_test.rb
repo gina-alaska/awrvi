@@ -30,4 +30,8 @@ class CommunityTest < ActiveSupport::TestCase
   test 'should return correct location format for url' do
     assert_match '-147.7163889,64.8377778,13/100x100', @community.static_map_url(13, '100x100')
   end
+
+  test 'should return latest published index' do
+    assert_equal indices(:multi_published_b), @community.current_index
+  end
 end
