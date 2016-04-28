@@ -39,6 +39,7 @@
   .panel-body { background-color: #f5f5f5; }
   .form-sidebar {
     @extend .col-xs-3;
+    padding-top: 8px;
   }
   .form-inputs {
     @extend .col-xs-9;
@@ -151,7 +152,7 @@
 
 .flash-container {
   position: absolute;
-  top: 60px;
+  top: 8px;
   right: 8px;
   z-index: 1000;
 }
