@@ -1,9 +1,9 @@
 - first_category = nil
 = simple_form_for([@community,@index], html: { class: 'vulnerability-index-form'}) do |f|
-  .panel.panel-default
+  .panel.panel-default{ style: 'margin-top: 20px;' }
     .panel-heading
-      %h1.panel-title
-        = "#{@index.community.name} - #{@index.awrvi_version.name}"
+      %h2{ style: 'margin: 0px;' }
+        Vulnerability Assessment for #{link_to @index.community.name, @index.community}
     .panel-body{ style: 'padding: 0px;' }
       = f.error_notification
       .form-sidebar
@@ -23,6 +23,8 @@
             .tab-pane{id: dom_id(category), class: category == first_category ? 'active' : '', data: {behavior: 'progress', target: dom_id(category, '#progress')} }
               = render partial: 'category', collection: category.children, locals: {f: f}
     .panel-footer.text-right
+      .pull-left
+        Version: #{@index.awrvi_version.name}
       #total-progress.btn.btn-disabled
         #{completed_count(index, index.awrvi_version.leaves)} Complete
-      = f.submit class: 'btn btn-primary'
+      = f.submit 'Save Vulnerability Assessment', class: 'btn btn-primary'
