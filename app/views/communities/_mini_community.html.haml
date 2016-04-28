@@ -1,8 +1,8 @@
 %h1.community-title= community.name
 
 .community-index
-  - if @index || latest_awrvi_dashboard(community)
-    = render 'indices/mini_index', index: @index || latest_awrvi_dashboard(community)
+  - if community.current_index
+    = render 'indices/mini_index', index: community.current_index
   - else
     .not-available
       No published AWRVI dashboards available.
