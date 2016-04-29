@@ -2,7 +2,7 @@
   .panel-heading
     %strong= "AWRVI Index Summary"
   .panel-body
-    %span.score-text
+    %span.index-text
       %strong= "AWRVI Vulnerability Index: #{number_with_precision(index.vulnerability_index, precision: 2)}"
       .progress
         - percentage = index.vulnerability_index * 100
