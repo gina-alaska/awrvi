@@ -10,8 +10,8 @@
       - percentage = index.vulnerability_index * 100
       .progress-bar{style: "width: #{percentage}%", class: progress_bar_for_percentage(percentage)}
     .row.progress-label
-      .col-xs-6.text-left.progress-bar-text More vulnerable
-      .col-xs-6.text-right.progress-bar-text Less vulnerable
+      .col-xs-6.text-left.progress-bar-text Highly vulnerable
+      .col-xs-6.text-right.progress-bar-text Highly resilient
 .row
   - index.awrvi_version.children.each do |subindex|
     .col-xs-6
@@ -28,5 +28,5 @@
             .progress
               .progress-bar{style: "width: #{percentage}%;", class: progress_bar_for_percentage(percentage)}
             .row.progress-label
-              .col-xs-6.text-left.progress-bar-text More vulnerable
-              .col-xs-6.text-right.progress-bar-text Less vulnerable
+              .col-xs-6.text-left.progress-bar-text Highly vulnerable
+              .col-xs-6.text-right.progress-bar-text Highly resilient
