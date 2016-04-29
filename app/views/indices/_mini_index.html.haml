@@ -1,7 +1,7 @@
 .text-center.index-section
-  %strong AWRVI Vulnerability Score:
-  %span.score-text
-    = "#{number_with_precision(index.vulnerability_index, precision: 2)}"
+  .score-text
+    AWRVI Vulnerability Score:
+    %strong= "#{number_with_precision(index.vulnerability_index, precision: 2)}"
   .progress
     - percentage = index.vulnerability_index * 100
     .progress-bar{style: "width: #{percentage}%", class: progress_bar_for_percentage(percentage)}
