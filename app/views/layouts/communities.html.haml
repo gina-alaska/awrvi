@@ -8,9 +8,8 @@
     = csrf_meta_tags
   %body
     = render 'layouts/navbar'
+    = render 'layouts/flash_messages'
     .container-fluid
-      = render 'layouts/flash_messages'
-
       .community-row{ class: sidebar_css(content_for?(:sidebar)) }
         .community-sidebar
           = yield :sidebar
