@@ -1,0 +1,354 @@
+---
+name: AWRVI 2.0
+short_name: AWRVI 2.0
+categories:
+- name: PHYSICAL SUB-INDEX
+  short_name: Physical
+  categories:
+  - name: Physical - natural supply
+    short_name: Natural supply
+    categories:
+    - name: Average annual precip. (mm)
+      choices:
+      - index: 0
+        description: "< 100"
+      - index: 0.25
+        description: "100-249"
+      - index: 0.5
+        description: "250-499"
+      - index: 0.75
+        description: "500-750"
+      - index: 1.0
+        description: "≥ 750"
+    - name: Variance in average annual precip.
+      choices:
+      - index: 0
+        description: "> 0.5"
+      - index: 0.25
+        description: "0.3-0.49"
+      - index: 0.5
+        description: "0.2-0.29"
+      - index: 0.75
+        description: "0.1-0.19"
+      - index: 1.0
+        description: "0-0.09"
+    - name: Surface water storage (%)
+      choices:
+      - index: 0
+        description: "≤ 0.1"
+      - index: 0.25
+        description: "0.2-1"
+      - index: 0.5
+        description: "2-10"
+      - index: 0.75
+        description: "11-20"
+      - index: 1.0
+        description: "> 20"
+    - name: Change in surface water
+      choices:
+      - index: 0
+        description: "> ± 10"
+      - index: 0.25
+        description: "± 1"
+      - index: 0.5
+        description: "± 0.1-1"
+      - index: 0.75
+        description: "< ±0.1"
+      - index: 1.0
+        description: "No change"
+    - name: Average annual river runoff (cumecs/km^2)
+      choices:
+      - index: 0
+        description: "< 0.01"
+      - index: 0.25
+        description: "< 0.1"
+      - index: 0.5
+        description: "< 1"
+      - index: 0.75
+        description: "< 10"
+      - index: 1.0
+        description: "≥ 10"
+    - name: Variance in average annual river runoff
+      choices:
+      - index: 0
+        description: "> 5"
+      - index: 0.25
+        description: "0.3-0.49"
+      - index: 0.5
+        description: "0.2-0.29"
+      - index: 0.75
+        description: "0.1-0.19"
+      - index: 1.0
+        description: "0-0.09"
+    - name: Seasonal variation in discharge
+      choices:
+      - index: 0
+        description: "> 8"
+      - index: 0.25
+        description: "4-8"
+      - index: 0.5
+        description: "2-3.9"
+      - index: 0.75
+        description: "1-1.9"
+      - index: 1.0
+        description: "< 1"
+  - name: Physical - municipal supply
+    short_name: Municipal supply
+    categories:
+    - name: Yield (L)
+      choices:
+      - index: 0
+        description: "< 10"
+      - index: 0.25
+        description: "10-49"
+      - index: 0.5
+        description: "50-99"
+      - index: 0.75
+        description: "100-499"
+      - index: 1.0
+        description: "> 500"
+    - name: Water source diversity
+      choices:
+      - index: 0
+        description: "1 surface or 1 ground"
+      - index: 0.25
+        description: "2 surface or 2 ground"
+      - index: 0.5
+        description: "1 surface and 1 ground"
+      - index: 0.75
+        description: "2 surface and 2 ground"
+      - index: 1.0
+        description: "> 2 of each"
+    - name: Drinking Water Treatment Technology (Boil, filter, chlorine, UV)
+      choices:
+      - index: 0
+        description: "None"
+      - index: 0.25
+        description: "1 of 4"
+      - index: 0.5
+        description: "2 of 4"
+      - index: 0.75
+        description: "3 of 4"
+      - index: 1.0
+        description: "4 of 4"
+    - name: Waste Water Treatment Technology
+      choices:
+      - index: 0
+        description: "Honeybucket Lagoon"
+      - index: 0.25
+        description: "Outhouse"
+      - index: 0.5
+        description: "1˚ waste"
+      - index: 0.75
+        description: "2˚ waste"
+      - index: 1.0
+        description: "3˚ waste"
+    - name: Hydraulic gradient
+      choices:
+      - index: 0
+        description: "< -100"
+      - index: 0.25
+        description: "< -10"
+      - index: 0.5
+        description: "-10 to +0.9"
+      - index: 0.75
+        description: "+1.0 to +9.9"
+      - index: 1.0
+        description: "> +10"
+  - name: Physical - water quality
+    short_name: Water quality
+    categories:
+    - name: "Density of upstream development sites"
+      choices:
+      - index: 0
+        description: "> 0.1"
+      - index: 0.25
+        description: "0.08 - 0.009"
+      - index: 0.5
+        description: "0.05 - 0.079"
+      - index: 0.75
+        description: "0.02 - 0.049"
+      - index: 1.0
+        description: "0 - 0.019"
+    - name: "Streams with water quality data"
+      choices:
+      - index: 0
+        description: "None ever"
+      - index: 0.25
+        description: "Some WQ data > 10 years"
+      - index: 0.5
+        description: "Some WQ data < 10 years"
+      - index: 1.0
+        description: "Annual Monitoring"
+  - name: Physical - Permafrost Status
+    short_name: Permafrost Status
+    categories:
+    - name: PF distribution
+      choices:
+      - index: 0
+        description: "> 25% discontinous permafrost"
+      - index: 0.25
+        description: "1-25% discontinous permafrost"
+      - index: 0.5
+        description: "> 75% continous permafrost"
+      - index: 0.75
+        description: "1-75% continous permafrost and 1-75% no permafrost and 0% discontinous permafrost"
+      - index: 1.0
+        description: ">75% no permafrost"
+  - name: Physical - subsistence habitat
+    short_name: Subsistence habitat
+    categories:
+    - name: Anadromous Stream kilometers (%)
+      choices:
+      - index: 0
+        description: "< 0.05"
+      - index: 0.25
+        description: "0.05-0.19"
+      - index: 0.5
+        description: "0.2-0.29"
+      - index: 0.75
+        description: "0.3-0.5"
+      - index: 1.0
+        description: "> 0.5"
+    - name: Tundra + Boreal Forest (%)
+      choices:
+      - index: 0
+        description: "0-19%"
+      - index: 0.25
+        description: "20-29%"
+      - index: 0.5
+        description: "40-59%"
+      - index: 0.75
+        description: "60-79%"
+      - index: 1.0
+        description: "80-100%"
+- name: SOCIAL SUB-INDEX
+  short_name: Social
+  categories:
+  - name: Social - knowledge capacity
+    short_name: Knowledge capacity
+    categories:
+    - name: Traditional (per 1000)
+      choices:
+      - index: 0
+        description: "< 10"
+      - index: 0.25
+        description: "10-49"
+      - index: 0.5
+        description: "50-99"
+      - index: 0.75
+        description: "100-199"
+      - index: 1.0
+        description: "≥ 200"
+    - name: Western (per 1000)
+      choices:
+      - index: 0
+        description: "< 20"
+      - index: 0.25
+        description: "20-49"
+      - index: 0.5
+        description: "50-99"
+      - index: 0.75
+        description: "100-249"
+      - index: 1.0
+        description: "≥ 250"
+    - name: Residency (per 1000)
+      choices:
+      - index: 0
+        description: "< 50"
+      - index: 0.25
+        description: "50-99"
+      - index: 0.5
+        description: "100-249"
+      - index: 0.75
+        description: "250-499"
+      - index: 1.0
+        description: "≥ 500"
+  - name: Social - Collective Community Capacity
+    short_name: Collective Community Capacity
+    categories:
+    - name: Per capita income ($)
+      choices:
+      - index: 0
+        description: "< $5,000"
+      - index: 0.25
+        description: "$5,000-14,999"
+      - index: 0.5
+        description: "$15,000-24,999"
+      - index: 0.75
+        description: "$25,000-49,999"
+      - index: 1.0
+        description: "≥ $50,000"
+    - name: Community Network Strength
+      choices:
+      - index: 0
+        description: "none"
+      - index: 1.0
+        description: "community based leadership"
+    - name: Perception
+      choices:
+      - index: 0
+        description: "No plan exists"
+      - index: 0.5
+        description: "Draft plan"
+      - index: 0.75
+        description: "Approved Plan"
+      - index: 1.0
+        description: "Plan Implemented"
+  - name: Social - institutional capacity
+    short_name: Institutional capacity
+    categories:
+    - name: "% area in protected status"
+      choices:
+      - index: 0
+        description: "< 5%"
+      - index: 0.25
+        description: "5-15%"
+      - index: 0.5
+        description: "15-25%"
+      - index: 0.75
+        description: "25-50%"
+      - index: 1.0
+        description: "> 50%"
+  - name: Social - cultural capacity
+    short_name: Cultural capacity
+    categories:
+    - name: Subsistence
+      choices:
+      - index: 0
+        description: "< 20"
+      - index: 0.25
+        description: "20-49"
+      - index: 0.5
+        description: "50-99"
+      - index: 0.75
+        description: "100-249"
+      - index: 1.0
+        description: "≥ 250"
+  - name: Social - Mobility
+    short_name: Mobility
+    categories:
+    - name: Mode Diversity (fixed-wing air, road, boat, ATV/trail)
+      choices:
+      - index: 0
+        description: "< 1 transport option"
+      - index: 0.25
+        description: "1 of 4"
+      - index: 0.5
+        description: "2 of 4"
+      - index: 0.75
+        description: "3 of 4"
+      - index: 1.0
+        description: "4 of 4"
+    - name: Fequency
+      choices:
+      - index: 0
+        description: "occasionally"
+      - index: 0.25
+        description: "monthly"
+      - index: 0.5
+        description: "weekly"
+      - index: 0.75
+        description: "daily"
+      - index: 1.0
+        description: "> daily"

@@ -1,8 +1,8 @@
 %h1.community-title= community.name
 
 .community-index
-  - if @index || latest_awrvi_dashboard(community)
-    = render 'indices/mini_index', index: @index || latest_awrvi_dashboard(community)
+  - if @index || latest_vulnerability_assesment(community)
+    = render 'indices/mini_index', index: @index || latest_vulnerability_assesment(community)
   - else
     .not-available
-      No published AWRVI dashboards available.
+      No published Vulnerability Assesments available.
