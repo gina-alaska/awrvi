@@ -1,4 +1,4 @@
-- current_index = @index || latest_awrvi_dashboard(@community)
+- current_index = @index || latest_vulnerability_assesment(@community)
 .pull-right{ style: 'margin-top: 25px;' }
   .btn-toolbar
     .btn-group
@@ -11,7 +11,7 @@
       - if can? :hide, current_index
         = link_to "Hide", edit_manage_index_path(current_index),  class: 'btn btn-default'
 
-%h1 AWRVI Dashboard
+%h1 Vulnerability Assessment
 - if !current_index
   = render 'communities/no_published_available', community: @community
 - else
@@ -35,8 +35,12 @@
     %strong Location:
     = community.lnglat.join(', ')
 
+  %p
+    = link_to @community.google_maps_url, target: '_blank' do
+      %i.fa.fa-external-link
+      View on Google Maps
   .community-map.thumbnail
-    = image_tag @community.static_map_url
+    = link_to image_tag(@community.static_map_url), @community.google_maps_url, target: '_blank'
     .caption.text-right
       = @community.static_map_attribution
 
@@ -45,7 +49,7 @@
     Back to search
 
   = link_to new_community_index_path(@community), class: 'btn btn-success btn-block' do
-    Start new AWRVI Dashboard
+    Start new Vulnerabilty Assesment
 
   - if can? :edit, @community
     = link_to edit_community_path(@community), class: 'btn btn-default btn-block' do
@@ -53,4 +57,4 @@
       Edit community
 
   - if can? :create, Index
-    = render 'communities/past_awrvi_dashboards', community: @community
+    = render 'communities/past_vulnerability_assessments', community: @community
