@@ -2,20 +2,22 @@
 .pull-right{ style: 'margin-top: 25px;' }
   .btn-toolbar
     .btn-group
-      - if can? :update, current_index
-        = link_to 'Edit', edit_index_path(current_index), class: 'btn btn-default'
-      - if can? :destroy, current_index
-        = link_to 'Delete', index_path(current_index), method: :delete, data: { confirm: 'Are you sure? The index can not be restored if it is deleted!' }, class: 'btn btn-danger'
-      - if can? :publish, current_index
-        = link_to 'Publish', publish_index_path(current_index), method: :patch, data: { confirm: 'Are you sure? The index can no longer be edited or deleted once it has been published!' }, class: 'btn btn-warning'
-      - if can? :hide, current_index
-        = link_to "Hide", edit_manage_index_path(current_index),  class: 'btn btn-default'
+      - if can? :update, @index
+        = link_to 'Edit', edit_index_path(@index), class: 'btn btn-default'
+      - if can? :destroy, @index
+        = link_to 'Delete', index_path(@index), method: :delete, data: { confirm: 'Are you sure? The index can not be restored if it is deleted!' }, class: 'btn btn-danger'
+      - if can? :publish, @index
+        = link_to 'Publish', publish_index_path(@index), method: :patch, data: { confirm: 'Are you sure? The index can no longer be edited or deleted once it has been published!' }, class: 'btn btn-warning'
+      - if can? :hide, @index
+        = link_to "Hide", edit_manage_index_path(@index),  class: 'btn btn-default'
+      - if can? :review, @index
+        = render @review
 
 %h1 Vulnerability Assessment
 - if !current_index
   = render 'communities/no_published_available', community: @community
 - else
-  = render current_index
+  = render @index
 
 - content_for :sidebar do
   %h1.community-title
@@ -26,10 +28,10 @@
       %i.fa.fa-link
       Community Permalink
 
-  - if current_index
+  - if @index
     %p
       %strong Last updated:
-      = current_index.updated_at
+      = @index.updated_at
 
   %p
     %strong Location:
@@ -50,12 +52,6 @@
 
   = link_to new_community_index_path(@community), class: 'btn btn-success btn-block' do
     Start new Vulnerabilty Assesment
-
-  - if can? :review, Index
-    - if current_index.review.new_record?
-      render "review/form"
-    - else
-      render "review/delete_button"
 
   - if can? :edit, @community
     = link_to edit_community_path(@community), class: 'btn btn-default btn-block' do

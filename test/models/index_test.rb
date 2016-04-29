@@ -57,4 +57,16 @@ class IndexTest < ActiveSupport::TestCase
     assert @index.publish!(time)
     assert_equal time, @index.published_at
   end
+
+  def test_should_return_true_if_reviewed
+    @index = indices(:reviewed)
+
+    assert @index.reviewed?, '@index.reviewed? returned false'
+  end
+
+  def test_should_return_false_if_reviewed
+    @index = indices(:not_reviewed)
+
+    assert_not @index.reviewed?, '@index.reviewed? returned true'
+  end
 end

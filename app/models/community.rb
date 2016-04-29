@@ -49,4 +49,8 @@ class Community < ApplicationRecord
   def google_maps_url
     "https://www.google.com/maps/@#{latlng.join(',')},13z"
   end
+
+  def current_index
+    indices.published.recent.first
+  end
 end

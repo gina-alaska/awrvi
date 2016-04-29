@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        format.html { redirect_to @review.index, notice: 'Index was marked as reviewed' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
@@ -29,24 +29,24 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to @review.index, notice: 'Review was successfully destroyed.' }
+      format.html { redirect_to @review.index, notice: 'Index is no longer marked as reviewed' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_review
-      @review = Review.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def review_params
-      #params.require(:review).permit(:user_id, :index_id)
-      { user: current_user }
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_review
+    @review = Review.find(params[:id])
+  end
 
-    def set_index
-      @index = Index.find(params[:index_id]) if params[:index_id].present?
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def review_params
+    { user: current_user }
+  end
+
+  def set_index
+    @index = Index.find(params[:index_id]) if params[:index_id].present?
+  end
 end

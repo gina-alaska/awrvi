@@ -1,6 +1,8 @@
 .panel.panel-default.index-section
   .panel-heading
     %strong= "AWRVI Index Summary"
+    - if index.reviewed?
+      %span.label.label-success.pull-right Reviewed
   .panel-body
     %strong= "Completeness: #{index.completeness}"
     .progress

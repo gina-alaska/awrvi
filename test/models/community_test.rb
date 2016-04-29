@@ -34,4 +34,8 @@ class CommunityTest < ActiveSupport::TestCase
   test 'should return google maps url' do
     assert_equal 'https://www.google.com/maps/@64.8377778,-147.7163889,13z', @community.google_maps_url
   end
+
+  test 'should return latest published index' do
+    assert_equal indices(:multi_published_b), @community.current_index
+  end
 end

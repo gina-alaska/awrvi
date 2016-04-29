@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :communities, shallow: true do
     resources :indices do
-      resources :reviews
+      resources :reviews, only: [:create, :destroy]
 
       patch :publish, on: :member
     end

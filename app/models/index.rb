@@ -40,4 +40,8 @@ class Index < ApplicationRecord
     return 0.0 if choices.count == 0
     choices.sum(:index) / awrvi_version.leaves.count
   end
+
+  def reviewed?
+    reviews.count > 0
+  end
 end
