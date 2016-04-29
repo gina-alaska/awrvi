@@ -7,7 +7,8 @@
           Published
       %h4.list-group-item-heading
         %strong AWRVI Index:
-        = index.vulnerability_index
+        %span.score-text
+          = index.vulnerability_index
       %p
         - if index.published?
           %strong Published:
