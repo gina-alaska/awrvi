@@ -77,6 +77,13 @@ module AbilityTests
       assert ability.cannot?(:update, indices(:published)), "User can update Index"
       assert ability.cannot?(:destroy, indices(:published)), "User can destroy Index"
     end
+
+    def test_expert_reviewer_can_not_review_unpublished_index
+      user = users(:expert_reviewer)
+      ability = Ability.new(user)
+
+      assert ability.cannot?(:review, indices(:unpublished)), "User can review unpublished Index"
+    end
   end
 
   class IndiciesPublishedTest < ActiveSupport::TestCase
@@ -147,6 +154,12 @@ module AbilityTests
       user = users(:index_admin)
       ability = Ability.new(user)
       assert ability.cannot?(:update, indices(:unpublished)), "Admin can update index"
+    end
+
+    def test_expert_reviewer_can_review_published_index
+      user = users(:expert_reviewer)
+      ability = Ability.new(user)
+      assert ability.can?(:review, indices(:published)), "Expert reviewer can not review published index"
     end
   end
 end
