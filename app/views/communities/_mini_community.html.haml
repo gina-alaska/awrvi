@@ -1,4 +1,6 @@
 %h1.community-title= community.name
+- if community.current_index.reviewed?
+  .label.label-success Reviewed
 
 .community-index
   - if community.current_index
