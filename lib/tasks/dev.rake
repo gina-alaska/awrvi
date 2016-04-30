@@ -38,7 +38,7 @@ namespace :dev do
   end
 
   desc 'Toggle all admin flags for user'
-  task admin: ['admin:category', 'admin:index', 'admin:user']
+  task admin: ['admin:category', 'admin:index', 'admin:user', 'admin:expert_reviewer']
 
   namespace :admin do
     desc 'Toggle users category_admin flag'
@@ -51,9 +51,14 @@ namespace :dev do
       toggle_flag(:user_admin)
     end
 
-    desc 'Toggle users user_admin flag'
+    desc 'Toggle users index_admin flag'
     task index: :environment do
       toggle_flag(:index_admin)
+    end
+
+    desc 'Toggle users expert_reviewer flag'
+    task expert_reviewer: :environment do
+      toggle_flag(:expert_reviewer)
     end
 
     def toggle_flag(attribute)

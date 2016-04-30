@@ -3,8 +3,11 @@ class Index < ApplicationRecord
   belongs_to :category
   belongs_to :user
   belongs_to :awrvi_version, class_name: Category
+
   has_many :index_category_choices, dependent: :destroy
   has_many :choices, through: :index_category_choices
+  has_many :reviews
+  has_many :reviewers, through: :reviews, source: :user
 
   accepts_nested_attributes_for :index_category_choices
 
@@ -36,5 +39,9 @@ class Index < ApplicationRecord
     return 0.0 if awrvi_version.leaves.count == 0
     return 0.0 if choices.count == 0
     choices.sum(:index) / awrvi_version.leaves.count
+  end
+
+  def reviewed?
+    reviews.count > 0
   end
 end

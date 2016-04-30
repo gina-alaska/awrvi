@@ -12,15 +12,19 @@
             %li.heading= subindex.short_name
             - subindex.children.each do |category|
               - first_category ||= category
-              %li{ class: first_category == category ? 'active' : '' }= link_to category.short_name, "##{dom_id(category)}", data: {toggle: 'pill'}
-
+              %li{ class: first_category == category ? 'active' : '' }
+                = link_to "##{dom_id(category)}", data: {toggle: 'pill'} do
+                  = category.short_name
+                  .badge.badge-default.pull-right{id: dom_id(category, 'progress')}= completed_count(@index, category.children)
       .form-inputs
         = f.input :awrvi_version_id, as: :hidden
         .tab-content
           - @index.awrvi_version.find_all_by_generation(2).each do |category|
-            .tab-pane{id: dom_id(category), class: category == first_category ? 'active' : '' }
+            .tab-pane{id: dom_id(category), class: category == first_category ? 'active' : '', data: {behavior: 'progress', target: dom_id(category, '#progress')} }
               = render partial: 'category', collection: category.children, locals: {f: f}
     .panel-footer.text-right
       .pull-left
         Version: #{@index.awrvi_version.name}
+      #total-progress.btn.btn-disabled
+        #{completed_count(index, index.awrvi_version.leaves)} Complete
       = f.submit 'Save Vulnerability Assessment', class: 'btn btn-primary'

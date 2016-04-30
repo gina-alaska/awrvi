@@ -1,4 +1,3 @@
-%h2= category.short_name
 - if category.choices.any?
   = f.simple_fields_for :index_category_choices, category_choices(@index, category) do |choice|
     = choice.input :id, as: :hidden

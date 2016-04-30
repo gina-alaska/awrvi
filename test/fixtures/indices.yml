@@ -25,3 +25,27 @@ complete:
   awrvi_version: root
   user: two
   community: two
+
+multi_published_a:
+  published_at: 2016-01-10 16:11:26
+  awrvi_version: root
+  user: two
+  community: two
+
+multi_published_b:
+  published_at: 2016-01-13 16:11:26
+  awrvi_version: root
+  user: two
+  community: with_location
+
+reviewed:
+  published_at: 2016-01-13 16:11:26
+  awrvi_version: root
+  user: two
+  community: two
+
+not_reviewed:
+  published_at: 2016-01-13 16:11:26
+  awrvi_version: root
+  user: two
+  community: two

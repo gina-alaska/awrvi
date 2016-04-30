@@ -29,3 +29,17 @@ with_location:
 without_location:
   name: Timbuckthree
   slug: timbuckthree
+
+with_index:
+  name: A community
+  gnis_id: MyString
+  census_id: MyString
+  location: POINT (-147.7163889 64.8377778)
+  slug: a_community
+
+without_index:
+  name: Another Community
+  gnis_id: MyString
+  census_id: MyString
+  location: POINT (-147.7163889 64.8377778)
+  slug: another_community

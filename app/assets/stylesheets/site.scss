@@ -168,9 +168,12 @@
 
 .index-section {
   .progress {
-    margin-bottom: 15px;
+    margin-bottom: 0px;
   }
-  .progress:last-child {
+  .progress-label{
+    margin-bottom: 10px;
+  }
+  .progress-label:last-child {
     margin-bottom: 0px;
   }
 }
