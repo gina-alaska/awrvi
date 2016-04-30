@@ -1,7 +1,12 @@
 class CommunitiesController < ApplicationController
+  include IndexReviewConcerns
+
   helper_method :search_params
 
   before_action :set_community, only: [:show, :edit, :update, :destroy]
+  before_action :fetch_latest_community_index, only: [:show]
+  before_action :fetch_users_review_for_index, only: [:show]
+
   authorize_resource
 
   # GET /communities
@@ -71,6 +76,10 @@ class CommunitiesController < ApplicationController
   end
 
   private
+
+  def fetch_latest_community_index
+    @index ||= @community.current_index
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_community

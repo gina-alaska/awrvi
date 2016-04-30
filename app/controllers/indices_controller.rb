@@ -1,8 +1,11 @@
 class IndicesController < ApplicationController
+  include IndexReviewConcerns
+
   layout 'communities'
 
   before_action :set_community, only: [:index, :create, :new]
   before_action :set_index, only: [:show, :edit, :update, :destroy, :publish]
+  before_action :fetch_users_review_for_index, only: [:show]
 
   authorize_resource
 
