@@ -23,7 +23,7 @@ class IndicesController < ApplicationController
 
   # GET /indices/new
   def new
-    category = Category.root
+    category = Category.active_root.first
     @index = @community.indices.build awrvi_version: category
   end
 

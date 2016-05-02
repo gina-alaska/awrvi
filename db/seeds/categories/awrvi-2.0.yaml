@@ -4,9 +4,11 @@ short_name: AWRVI 2.0
 categories:
 - name: PHYSICAL SUB-INDEX
   short_name: Physical
+  position: 0
   categories:
   - name: Physical - natural supply
     short_name: Natural supply
+    position: 0
     categories:
     - name: Average annual precip. (mm)
       choices:
@@ -94,6 +96,7 @@ categories:
         description: "< 1"
   - name: Physical - municipal supply
     short_name: Municipal supply
+    position: 1
     categories:
     - name: Yield (L)
       choices:
@@ -157,6 +160,7 @@ categories:
         description: "> +10"
   - name: Physical - water quality
     short_name: Water quality
+    position: 2
     categories:
     - name: "Density of upstream development sites"
       choices:
@@ -182,6 +186,7 @@ categories:
         description: "Annual Monitoring"
   - name: Physical - Permafrost Status
     short_name: Permafrost Status
+    position: 3
     categories:
     - name: PF distribution
       choices:
@@ -197,6 +202,7 @@ categories:
         description: ">75% no permafrost"
   - name: Physical - subsistence habitat
     short_name: Subsistence habitat
+    position: 4
     categories:
     - name: Anadromous Stream kilometers (%)
       choices:
@@ -224,9 +230,11 @@ categories:
         description: "80-100%"
 - name: SOCIAL SUB-INDEX
   short_name: Social
+  position: 1
   categories:
   - name: Social - knowledge capacity
     short_name: Knowledge capacity
+    position: 0
     categories:
     - name: Traditional (per 1000)
       choices:
@@ -266,6 +274,7 @@ categories:
         description: "≥ 500"
   - name: Social - Collective Community Capacity
     short_name: Collective Community Capacity
+    position: 1
     categories:
     - name: Per capita income ($)
       choices:
@@ -297,6 +306,7 @@ categories:
         description: "Plan Implemented"
   - name: Social - institutional capacity
     short_name: Institutional capacity
+    position: 2
     categories:
     - name: "% area in protected status"
       choices:
@@ -312,6 +322,7 @@ categories:
         description: "> 50%"
   - name: Social - cultural capacity
     short_name: Cultural capacity
+    position: 3
     categories:
     - name: Subsistence
       choices:
@@ -327,6 +338,7 @@ categories:
         description: "≥ 250"
   - name: Social - Mobility
     short_name: Mobility
+    position: 4
     categories:
     - name: Mode Diversity (fixed-wing air, road, boat, ATV/trail)
       choices:

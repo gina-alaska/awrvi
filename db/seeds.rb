@@ -5,17 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-def create_category(seed_data)
-  c = Category.where(name: seed_data['name']).first_or_create(category_params(seed_data))
-  c.children << create_sub_categories(seed_data) if seed_data.has_key?('categories')
+def create_category(seed_data, parent = nil)
+  c = Category.where(name: seed_data['name'], parent_id: parent.try(:id)).first_or_create(category_params(seed_data))
+  c.children << create_sub_categories(seed_data, c) if seed_data.has_key?('categories')
   c.choices = create_choices(seed_data, c) if seed_data.has_key?('choices')
   c
 end
 
-def create_sub_categories(seed_data)
+def create_sub_categories(seed_data, parent)
   results = seed_data['categories'].each_with_index.map do |sub_c, position|
     sub_c['position'] ||= position
-    create_category(sub_c)
+    create_category(sub_c, parent)
   end
   results
 end

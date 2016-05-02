@@ -5,6 +5,8 @@ class Category < ApplicationRecord
   has_many :choices, -> { order(index: :asc) }, dependent: :destroy
   has_many :indices
 
+  scope :active_root, -> { where(name: "AWRVI 2.0") }
+
   def no_destroy
     false
   end
