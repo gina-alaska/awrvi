@@ -1,6 +1,6 @@
 ---
-name: AWRVI 2.0
-short_name: AWRVI 2.0
+name: AWRVI 2.1
+short_name: AWRVI 2.1
 categories:
 - name: PHYSICAL SUB-INDEX
   short_name: Physical
@@ -22,42 +22,18 @@ categories:
         description: "500-750"
       - index: 1.0
         description: "≥ 750"
-    - name: Variance in average annual precip.
+    - name: Variance in average annual precip. (inches)
       choices:
       - index: 0
-        description: "> 0.5"
+        description: "< 3.94 in."
       - index: 0.25
-        description: "0.3-0.49"
+        description: "3.94 - 9.8 in."
       - index: 0.5
-        description: "0.2-0.29"
+        description: "9.85 - 19.7 in."
       - index: 0.75
-        description: "0.1-0.19"
+        description: "19.8 - 29.5 in."
       - index: 1.0
-        description: "0-0.09"
-    - name: Surface water storage (%)
-      choices:
-      - index: 0
-        description: "≤ 0.1"
-      - index: 0.25
-        description: "0.2-1"
-      - index: 0.5
-        description: "2-10"
-      - index: 0.75
-        description: "11-20"
-      - index: 1.0
-        description: "> 20"
-    - name: Change in surface water
-      choices:
-      - index: 0
-        description: "> ± 10"
-      - index: 0.25
-        description: "± 1"
-      - index: 0.5
-        description: "± 0.1-1"
-      - index: 0.75
-        description: "< ±0.1"
-      - index: 1.0
-        description: "No change"
+        description: "> 29.6 in."
     - name: Average annual river runoff (cumecs/km^2)
       choices:
       - index: 0
@@ -70,50 +46,50 @@ categories:
         description: "< 10"
       - index: 1.0
         description: "≥ 10"
-    - name: Variance in average annual river runoff
+    - name: Variance in average annual river runoff (ft3/sec/mile)
       choices:
       - index: 0
-        description: "> 5"
+        description: "< 0.915"
       - index: 0.25
-        description: "0.3-0.49"
+        description: "< 9.15"
       - index: 0.5
-        description: "0.2-0.29"
+        description: "< 91.46"
       - index: 0.75
-        description: "0.1-0.19"
+        description: "< 914.6"
       - index: 1.0
-        description: "0-0.09"
-    - name: Seasonal variation in discharge
+        description: "914.6"
+    - name: Seasonal variation in discharge (ft3/sec/mile)
       choices:
       - index: 0
-        description: "> 8"
+        description: "> 282"
       - index: 0.25
-        description: "4-8"
+        description: "141-282"
       - index: 0.5
-        description: "2-3.9"
+        description: "140-71"
       - index: 0.75
-        description: "1-1.9"
+        description: "35-70"
       - index: 1.0
-        description: "< 1"
+        description: "< 35"
   - name: Physical - municipal supply
     short_name: Municipal supply
     position: 1
     categories:
-    - name: Yield (L)
+    - name: Yield (Gal.)
       choices:
       - index: 0
-        description: "< 10"
+        description: "< 2.64"
       - index: 0.25
-        description: "10-49"
+        description: "2.65-12.94"
       - index: 0.5
-        description: "50-99"
+        description: "12.95-26.1"
       - index: 0.75
-        description: "100-499"
+        description: "26.2-131.7"
       - index: 1.0
-        description: "> 500"
+        description: "> 132"
     - name: Water source diversity
       choices:
       - index: 0
-        description: "1 surface or 1 ground"
+        description: "1 surface or 1 ground or water is hauled"
       - index: 0.25
         description: "2 surface or 2 ground"
       - index: 0.5
@@ -122,7 +98,7 @@ categories:
         description: "2 surface and 2 ground"
       - index: 1.0
         description: "> 2 of each"
-    - name: Drinking Water Treatment Technology (Boil, filter, chlorine, UV)
+    - name: Drinking Water Treatment Technology (filter, chlorine, UV, membrane filtration, oxidation, biological filtration)
       choices:
       - index: 0
         description: "None"
@@ -216,12 +192,12 @@ categories:
         description: "0.3-0.5"
       - index: 1.0
         description: "> 0.5"
-    - name: Tundra + Boreal Forest (%)
+    - name: Percent range of moose and caribou (%)
       choices:
       - index: 0
         description: "0-19%"
       - index: 0.25
-        description: "20-29%"
+        description: "20-39%"
       - index: 0.5
         description: "40-59%"
       - index: 0.75
@@ -260,7 +236,7 @@ categories:
         description: "100-249"
       - index: 1.0
         description: "≥ 250"
-    - name: Residency (per 1000)
+    - name: Residency of 30 years or longer
       choices:
       - index: 0
         description: "< 50"
@@ -288,13 +264,7 @@ categories:
         description: "$25,000-49,999"
       - index: 1.0
         description: "≥ $50,000"
-    - name: Community Network Strength
-      choices:
-      - index: 0
-        description: "none"
-      - index: 1.0
-        description: "community based leadership"
-    - name: Perception
+    - name: Existence of Water Action Plan
       choices:
       - index: 0
         description: "No plan exists"
@@ -308,7 +278,7 @@ categories:
     short_name: Institutional capacity
     position: 2
     categories:
-    - name: "% area in protected status"
+    - name: "Percent of land area in protected status"
       choices:
       - index: 0
         description: "< 5%"
@@ -324,18 +294,18 @@ categories:
     short_name: Cultural capacity
     position: 3
     categories:
-    - name: Subsistence
+    - name: Subsistence (lbs)
       choices:
       - index: 0
-        description: "< 20"
+        description: "< 44"
       - index: 0.25
-        description: "20-49"
+        description: "44-109"
       - index: 0.5
-        description: "50-99"
+        description: "110-218"
       - index: 0.75
-        description: "100-249"
+        description: "219-549"
       - index: 1.0
-        description: "≥ 250"
+        description: "≥ 550"
   - name: Social - Mobility
     short_name: Mobility
     position: 4
@@ -352,7 +322,7 @@ categories:
         description: "3 of 4"
       - index: 1.0
         description: "4 of 4"
-    - name: Fequency
+    - name: Frequency
       choices:
       - index: 0
         description: "occasionally"
