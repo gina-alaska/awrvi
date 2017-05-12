@@ -1,4 +1,4 @@
-AWRVI_VERSION = 'AWRVI 3.0'
+AWRVI_VERSION = 'AWRVI 3.0'.freeze
 
 class IndicesController < ApplicationController
   include IndexReviewConcerns
