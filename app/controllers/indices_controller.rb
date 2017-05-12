@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 AWRVI_VERSION = 'AWRVI 3.0'.freeze
 
 class IndicesController < ApplicationController
