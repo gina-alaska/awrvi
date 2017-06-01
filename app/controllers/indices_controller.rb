@@ -1,6 +1,3 @@
-# frozen_string_literal: true
-AWRVI_VERSION = 'AWRVI 3.0'.freeze
-
 class IndicesController < ApplicationController
   include IndexReviewConcerns
 
@@ -26,7 +23,7 @@ class IndicesController < ApplicationController
 
   # GET /indices/new
   def new
-    category = Category.active_root.where(name: AWRVI_VERSION).first
+    category = Category.active_root.first
     @index = @community.indices.build awrvi_version: category
   end
 
