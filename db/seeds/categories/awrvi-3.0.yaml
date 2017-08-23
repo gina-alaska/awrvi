@@ -34,7 +34,7 @@ categories:
         description: "0.1 - 0.19"
       - index: 1.0
         description: "0 - 0.99"
-    - name: Average annual river runoff (ft3/sec/mile)
+    - name: Average annual river runoff (ft3/sec/mile2)
       choices:
       - index: 0
         description: "< 0.915"
