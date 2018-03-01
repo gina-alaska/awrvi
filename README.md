@@ -24,6 +24,10 @@ After making changes you'll need to click the `Get bootstrap.css` link and save 
 
 If any changes were made to the `variables` or the `theme.less` in the theme website then those will need to be exported and saved the the `themes/tests` directory.
 
+## Deploying app
+
+Production deploy of [awrvi.espcor.alaska.edu](http://awrvi.epscor.alaska.edu] on [heroku](http://heroku.com) and managed by [UAF-GINA](http://gina.alaska.edu).  Private documentation at [GINA Wiki/AWRVI](https://wiki.gina.alaska.edu/wiki/AWRVI).
+
 ## Contributing
 
 You fixed a bug, or added a new feature? Yippie!
