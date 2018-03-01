@@ -16,7 +16,7 @@ class Index < ApplicationRecord
               if: ->(i) { i.hidden? }
   validates :user_id, presence: true
 
-  scope :recent, -> { order(updated_at: :desc) }
+  scope :recent, -> { joins(:community).order('communities.name ASC') }
   scope :published, -> { where.not(published_at: nil) }
 
   def publish!(at = Time.zone.now)
