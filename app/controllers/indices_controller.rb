@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class IndicesController < ApplicationController
   include IndexReviewConcerns
 
   layout 'communities'
 
-  before_action :set_community, only: [:index, :create, :new]
-  before_action :set_index, only: [:show, :edit, :update, :destroy, :publish]
+  before_action :set_community, only: %i[index create new]
+  before_action :set_index, only: %i[show edit update destroy publish]
   before_action :fetch_users_review_for_index, only: [:show]
 
   authorize_resource
@@ -28,8 +30,7 @@ class IndicesController < ApplicationController
   end
 
   # GET /indices/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /indices
   # POST /indices.json
@@ -99,6 +100,7 @@ class IndicesController < ApplicationController
   def index_params
     params.require(:index).permit(
       :published_at, :awrvi_version_id, :awrvi_index,
-      index_category_choices_attributes: [:category_id, :choice_id, :id])
+      index_category_choices_attributes: %i[category_id choice_id id]
+    )
   end
 end

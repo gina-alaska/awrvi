@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Category < ApplicationRecord
   has_closure_tree order: 'position'
   before_destroy :no_destroy
@@ -6,7 +7,7 @@ class Category < ApplicationRecord
   has_many :choices, -> { order(index: :asc) }, dependent: :destroy
   has_many :indices
 
-  scope :active_root, -> { where(name: "AWRVI 3.0".freeze) }
+  scope :active_root, -> { where(name: "AWRVI 3.0") }
 
   def no_destroy
     false

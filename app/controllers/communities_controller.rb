@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class CommunitiesController < ApplicationController
   include IndexReviewConcerns
 
   helper_method :search_params
 
-  before_action :set_community, only: [:show, :edit, :update, :destroy]
+  before_action :set_community, only: %i[show edit update destroy]
   before_action :fetch_latest_community_index, only: [:show]
   before_action :fetch_users_review_for_index, only: [:show]
 
@@ -23,8 +25,7 @@ class CommunitiesController < ApplicationController
 
   # GET /communities/1
   # GET /communities/1.json
-  def show
-  end
+  def show; end
 
   # GET /communities/new
   def new
@@ -32,8 +33,7 @@ class CommunitiesController < ApplicationController
   end
 
   # GET /communities/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /communities
   # POST /communities.json

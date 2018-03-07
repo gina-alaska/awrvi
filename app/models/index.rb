@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Index < ApplicationRecord
   belongs_to :community
   belongs_to :category
@@ -19,8 +21,8 @@ class Index < ApplicationRecord
   scope :recent, -> { joins(:community).order('communities.name ASC') }
   scope :published, -> { where.not(published_at: nil) }
 
-  def publish!(at = Time.zone.now)
-    update(published_at: at)
+  def publish!(at_time = Time.zone.now)
+    update(published_at: at_time)
   end
 
   def published?

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :dev do
   desc 'Reset the database after changing branches'
   task reset: ['db:migrate:reset', 'dev:prime']
@@ -15,7 +17,7 @@ namespace :dev do
     Community.find_each do |community|
       next if rand(10) >= 4
 
-      (rand(3) + 1).times do
+      rand(1..3).times do
         generate_index(community, user, awrvi_version)
       end
     end
@@ -96,9 +98,7 @@ namespace :dev do
 
     unless File.exist?("/usr/local/bin/phantomjs")
       sh 'sudo aptitude install fontconfig'
-      unless File.exist?("/tmp/#{phantomjs}")
-        sh "wget #{download_url} -O /tmp/#{phantomjs}"
-      end
+      sh "wget #{download_url} -O /tmp/#{phantomjs}" unless File.exist?("/tmp/#{phantomjs}")
       sh "sudo tar xvjf /tmp/#{phantomjs} -C /usr/local --strip-components 1 #{version}/bin/phantomjs"
     end
   end

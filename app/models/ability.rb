@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class Ability
   include CanCan::Ability
 
   def initialize(user, namespace = nil)
     user ||= User.new
 
-    can [:read, :update], User, id: user.id
+    can %i[read update], User, id: user.id
 
     case namespace
     when 'manage' then manage_abilities(user)
@@ -24,9 +26,7 @@ class Ability
       can :manage, Choice
     end
 
-    unless user.new_record?
-      can [:create, :update, :destroy, :publish], Index, user_id: user.id, hidden: false, published_at: nil
-    end
+    can %i[create update destroy publish], Index, user_id: user.id, hidden: false, published_at: nil unless user.new_record?
 
     can :read, Community
     can :read, Index, hidden: false

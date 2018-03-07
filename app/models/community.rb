@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Community < ApplicationRecord
   include CommunityConcerns
   include FriendlyId
@@ -26,7 +28,7 @@ class Community < ApplicationRecord
   end
 
   def location?
-    !location.blank? && geometry
+    location.present? && geometry
   end
 
   def static_map_url(zoom = 11, size = '300x300')
@@ -42,8 +44,10 @@ class Community < ApplicationRecord
 
   def static_map_attribution
     return unless location?
-
+    # I think this is fine because it does not do any thing with user input
+    # rubocop:disable Rails/OutputSafety
     "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>".html_safe
+    # rubocop:enable Rails/OutputSafety
   end
 
   def google_maps_url

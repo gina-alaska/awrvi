@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module IndicesHelper
   def indicator_value(index, indicator)
     leaves = indicator.leaves.pluck(:id)
@@ -5,10 +7,9 @@ module IndicesHelper
   end
 
   def progress_bar_for_percentage(percentage)
-    case
-    when percentage >= 60
+    if percentage >= 60
       'progress-bar-success'
-    when percentage >= 30
+    elsif percentage >= 30
       'progress-bar-warning'
     else
       'progress-bar-danger'

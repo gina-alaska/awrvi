@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Manage::UsersController < ManageController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :set_variant, only: [:show, :edit]
+  before_action :set_user, only: %i[show edit update destroy]
+  before_action :set_variant, only: %i[show edit]
   authorize_resource
 
   # GET /users
@@ -16,8 +18,7 @@ class Manage::UsersController < ManageController
   end
 
   # GET /users/1/edit
-  def edit
-  end
+  def edit; end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json

@@ -1,20 +1,22 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   resources :communities, shallow: true do
     resources :indices do
-      resources :reviews, only: [:create, :destroy]
+      resources :reviews, only: %i[create destroy]
 
       patch :publish, on: :member
     end
   end
 
   namespace :manage do
-    resources :users, except: [:new, :create] # These are handled by devise
-    resources :indices, only: [:edit, :update]
+    resources :users, except: %i[new create] # These are handled by devise
+    resources :indices, only: %i[edit update]
   end
 
-  resources :profile, only: [:show, :edit, :update], controller: 'manage/users'
+  resources :profile, only: %i[show edit update], controller: 'manage/users'
 
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'

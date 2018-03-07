@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   include UserDevise
   extend FriendlyId
@@ -9,7 +11,7 @@ class User < ApplicationRecord
 
   def slug_candidates
     [
-      [:id, :name]
+      %i[id name]
     ]
   end
 end

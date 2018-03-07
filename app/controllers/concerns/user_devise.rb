@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module UserDevise
   extend ActiveSupport::Concern
 
@@ -24,6 +26,7 @@ module UserDevise
         if data = session["devise.open_id_data"]
           user.email = data["email"] if user.email.blank?
         end
+        # rubocop:enable Lint/AssignmentInCondition
       end
     end
   end

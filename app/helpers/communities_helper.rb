@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CommunitiesHelper
   def sidebar_css(truthy)
     truthy ? 'with-sidebar' : 'without-sidebar'

@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 class Manage::IndicesController < ManageController
-  before_action :set_index, only: [:edit, :update]
+  before_action :set_index, only: %i[edit update]
   authorize_resource
 
   # GET /manage/indices/1/edit
-  def edit
-  end
+  def edit; end
 
   # PATCH/PUT /manage/indices/1
   # PATCH/PUT /manage/indices/1.json

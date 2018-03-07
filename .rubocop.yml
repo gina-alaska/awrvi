@@ -13,7 +13,10 @@ AllCops:
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes.
 # URISchemes: http, https
 Metrics/LineLength:
-  Max: 180
+  Max: 200
+  
+Metrics/BlockLength:
+  Max: 150
 
 Layout/AlignHash:
   Enabled: false
@@ -48,3 +51,25 @@ Metrics/AbcSize:
 # Method length
 Metrics/MethodLength:
   Max: 25
+
+# I don't know how to quickly fix, or don't see the reason to change 
+# theses next things -rws 2018/03/07
+Style/GuardClause:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+  
+Rails/HasManyOrHasOneDependent:
+  Enabled: false 
+
+Rails/SkipsModelValidations:
+  Enabled: false 
+
+Rails/InverseOf:
+  Enabled: false 
+
+Style/NumericPredicate:
+  Enabled: false
+  
+
