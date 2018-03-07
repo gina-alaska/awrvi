@@ -3,21 +3,14 @@
 [![Stories in Ready](https://badge.waffle.io/gina-alaska/awrvi.svg?label=ready&title=Ready)](http://waffle.io/gina-alaska/awrvi)
 
 
-## Setup
+## Development Setup
 
-### for development:
 Generate development data
 
 * Run `rails dev:prime`
 
 * Run `rails server` to start the app and navigate to `localhost:9292` to see
 running app.
-
-An additional rake task has been provided for installing phantomjs, which is used in
-integration tests
-
-* Run `rails dev:setup`  to install phantomjs.
-
 
 ## Customizing site theme
 
