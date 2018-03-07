@@ -15,7 +15,7 @@ AllCops:
 Metrics/LineLength:
   Max: 180
 
-Style/AlignHash:
+Layout/AlignHash:
   Enabled: false
 
 # Offense count: 2
@@ -37,7 +37,7 @@ Style/StringLiterals:
 
 # Offense count: 2
 # Cop supports --auto-correct.
-Style/TrailingWhitespace:
+Layout/TrailingWhitespace:
   Exclude:
     - 'config/initializers/active_record_belongs_to_required_by_default.rb'
     - 'config/initializers/callback_terminator.rb'
