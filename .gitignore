@@ -22,3 +22,5 @@
 
 # Ignore .otto, unique to system otto is run on
 .otto
+
+.DS_Store
