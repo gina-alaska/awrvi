@@ -5,14 +5,19 @@
 
 ## Setup
 
+### for development:
+Generate development data
+
+* Run `rails dev:prime`
+
+* Run `rails server` to start the app and navigate to `localhost:9292` to see
+running app.
+
 An additional rake task has been provided for installing phantomjs, which is used in
 integration tests
 
 * Run `rails dev:setup`  to install phantomjs.
 
-Generate development data
-
-* Run `rails dev:prime`
 
 ## Customizing site theme
 
