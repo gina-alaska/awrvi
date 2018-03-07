@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -29,10 +28,9 @@ ActiveRecord::Schema.define(version: 20160426001906) do
     t.integer "ancestor_id",   null: false
     t.integer "descendant_id", null: false
     t.integer "generations",   null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "category_anc_desc_idx", unique: true, using: :btree
+    t.index ["descendant_id"], name: "category_desc_idx", using: :btree
   end
-
-  add_index "category_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "category_anc_desc_idx", unique: true, using: :btree
-  add_index "category_hierarchies", ["descendant_id"], name: "category_desc_idx", using: :btree
 
   create_table "choices", force: :cascade do |t|
     t.integer  "category_id"
@@ -40,9 +38,8 @@ ActiveRecord::Schema.define(version: 20160426001906) do
     t.text     "description"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.index ["category_id"], name: "index_choices_on_category_id", using: :btree
   end
-
-  add_index "choices", ["category_id"], name: "index_choices_on_category_id", using: :btree
 
   create_table "communities", force: :cascade do |t|
     t.string   "name"
@@ -52,9 +49,8 @@ ActiveRecord::Schema.define(version: 20160426001906) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
+    t.index ["slug"], name: "index_communities_on_slug", unique: true, using: :btree
   end
-
-  add_index "communities", ["slug"], name: "index_communities_on_slug", unique: true, using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -62,12 +58,11 @@ ActiveRecord::Schema.define(version: 20160426001906) do
     t.string   "sluggable_type", limit: 50
     t.string   "scope"
     t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
   end
-
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "index_category_choices", force: :cascade do |t|
     t.integer  "index_id"
@@ -75,11 +70,10 @@ ActiveRecord::Schema.define(version: 20160426001906) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "category_id"
+    t.index ["category_id"], name: "index_index_category_choices_on_category_id", using: :btree
+    t.index ["choice_id"], name: "index_index_category_choices_on_choice_id", using: :btree
+    t.index ["index_id"], name: "index_index_category_choices_on_index_id", using: :btree
   end
-
-  add_index "index_category_choices", ["category_id"], name: "index_index_category_choices_on_category_id", using: :btree
-  add_index "index_category_choices", ["choice_id"], name: "index_index_category_choices_on_choice_id", using: :btree
-  add_index "index_category_choices", ["index_id"], name: "index_index_category_choices_on_index_id", using: :btree
 
   create_table "indices", force: :cascade do |t|
     t.datetime "published_at"
@@ -91,21 +85,19 @@ ActiveRecord::Schema.define(version: 20160426001906) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "hidden",           default: false, null: false
+    t.index ["awrvi_version_id"], name: "index_indices_on_awrvi_version_id", using: :btree
+    t.index ["community_id"], name: "index_indices_on_community_id", using: :btree
+    t.index ["user_id"], name: "index_indices_on_user_id", using: :btree
   end
-
-  add_index "indices", ["awrvi_version_id"], name: "index_indices_on_awrvi_version_id", using: :btree
-  add_index "indices", ["community_id"], name: "index_indices_on_community_id", using: :btree
-  add_index "indices", ["user_id"], name: "index_indices_on_user_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "index_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["index_id"], name: "index_reviews_on_index_id", using: :btree
+    t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
-
-  add_index "reviews", ["index_id"], name: "index_reviews_on_index_id", using: :btree
-  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   default: "",    null: false
@@ -128,11 +120,10 @@ ActiveRecord::Schema.define(version: 20160426001906) do
     t.boolean  "category_admin",         default: false, null: false
     t.boolean  "index_admin",            default: false, null: false
     t.boolean  "expert_reviewer",        default: false, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["slug"], name: "index_users_on_slug", unique: true, using: :btree
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
 
   add_foreign_key "choices", "categories"
   add_foreign_key "index_category_choices", "categories"
