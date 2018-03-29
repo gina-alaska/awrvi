@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 # Added 
 - Carousel to display 18 most recent completed indices.
 
+# Updated 
+- Gem loofah to 2.2.2
+
 # Changed
 - Default behavior of communities search page is to display nothing.
 - Recent Vulnerability Assessments to Completed Vulnerability Assessments.
