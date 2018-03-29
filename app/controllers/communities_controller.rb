@@ -16,8 +16,16 @@ class CommunitiesController < ApplicationController
   def index
     @search_text = search_params[:q]
 
-    @communities = Community.all
-    @communities = Community.where('name ilike ?', "%#{@search_text}%") if search_params.present?
+    ##    If showing all is the behavior desired uncomment next 2 ruby lines and
+    ## comment out the lines after the next comment section.
+    # @communities = Community.all
+    # @communities = Community.where('name ilike ?', "%#{@search_text}%") if search_params.present?
+
+    ##    This fools the search to find the community "" an empty
+    ## which does not exist, so communites will only show up when searced
+    ## for directly(The second line).
+    @communities = Community.where('name ilike ?', "")
+    @communities = Community.where('name ilike ?', "%#{@search_text}%") if search_params.present? && @search_text != ''
 
     redirect_to community_path(@communities.first) if @communities.count == 1
     @communities = @communities.order(:name).page(params[:page])
