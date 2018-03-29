@@ -1,6 +1,6 @@
 %h2 Completed Vulnerability Assessments
 .community-list.row-fluid.text-center{ style: 'margin-top: 20px;'}
-  .carousel.slide{ :id=>"carousel-inds", :data => {:ride => "carousel"}}
+  .carousel.slide{ :id=>"carousel-inds", :data => {:ride => "carousel", :interval => "false"}}
     .carousel-inner
       - recent_indicies_as_groups.each do |group|
         - if recent_indicies_as_groups.first == group
