@@ -22,10 +22,10 @@ class CommunitiesController < ApplicationController
     # @communities = Community.where('name ilike ?', "%#{@search_text}%") if search_params.present?
 
     ##    This fools the search to find the community "" an empty
-    ## which does not exist, so communites will only show up when searced 
-    ## for directly(The second line). 
+    ## which does not exist, so communites will only show up when searced
+    ## for directly(The second line).
     @communities = Community.where('name ilike ?', "")
-    @communities = Community.where('name ilike ?', "%#{@search_text}%") if (search_params.present? && @search_text != '')
+    @communities = Community.where('name ilike ?', "%#{@search_text}%") if search_params.present? && @search_text != ''
 
     redirect_to community_path(@communities.first) if @communities.count == 1
     @communities = @communities.order(:name).page(params[:page])
